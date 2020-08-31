@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SBNRI-Android</string>
+    <string name="home_navigation">Home</string>
+    <string name="service_navigation">Service</string>
+    <string name="ask_navigation">Ask</string>
+    <string name="news_navigation">News</string>
+    <string name="profile_navigation">Profile</string>
 </resources>

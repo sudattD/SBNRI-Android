@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:filterTouchesWhenObscured="true">
+
+    <FrameLayout
+        android:id="@+id/bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/tbBaseToolbar"
+                layout="@layout/base_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height" />
+
+            <View
+                android:id="@+id/vDivider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_6dp"
+                android:layout_below="@+id/tbBaseToolbar"
+                android:background="@color/offWhite"
+                android:visibility="gone" />
+
+            <ViewStub
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/vDivider"
+                android:orientation="vertical" />
+
+
+            </RelativeLayout>
+
+
+    </FrameLayout>
+</RelativeLayout>

@@ -1,11 +1,64 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/darkBlueGrey</item>
+        <item name="android:statusBarColor" android:targetApi="LOLLIPOP" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+
     </style>
+
+
+
+    <style name="toolbarTheme" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_height</item>
+        <item name="android:background">@color/toolbar</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="PartialToolbarTitle" parent="FontBold">
+        <item name="android:textSize">@dimen/font_18sp</item>
+        <item name="android:textColor">@color/darkBlueGrey</item>
+        <item name="android:lineSpacingMultiplier">0.1</item>
+        <item name="android:gravity">center_vertical</item>
+
+    </style>
+
+    <style name="FontRegular">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="FontLight">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/light</item>
+    </style>
+
+    <style name="FontBold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="SmallBookGeneral" parent="FontLight">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/nav_item_text</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="navFonts" parent="FontBold">
+        <item name="android:textSize">@dimen/text_xnormal_14dp</item>
+        <item name="android:textColor">@color/nav_item_text</item>
+        <item name="android:lineSpacingMultiplier">0.6</item>
+    </style>
+
 
 </resources>
