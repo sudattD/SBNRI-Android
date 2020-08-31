@@ -15,11 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import sbnri.consumer.android.AppState;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.util.ActivityUtils;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
 
     @BindView(R.id.tbBaseToolbar)
@@ -31,6 +32,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private RelativeLayout baseLayout;
 
+    public int previousState = AppState.getAppState();
 
     @ApplicationContext
     @Inject

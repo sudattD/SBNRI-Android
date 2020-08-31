@@ -1,4 +1,4 @@
-package servify.android.consumer.base.schedulers;
+package sbnri.consumer.android.base.schedulers;
 
 import javax.inject.Inject;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import servify.android.consumer.android.scopes.ApplicationScope;
+import sbnri.consumer.android.scopes.ApplicationScope;
 
 /**
  * Created by swapnull on 06/12/16.

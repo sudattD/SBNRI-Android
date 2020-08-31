@@ -1,4 +1,8 @@
 package sbnri.consumer.android.webservice;
 
-public enum ApiCallTags {
+public interface ApiCallTags {
+
+
+    @interface ApiCallIdentifiers {
+    }
 }

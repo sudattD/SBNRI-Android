@@ -1,4 +1,4 @@
-package servify.android.consumer.base.schedulers;
+package sbnri.consumer.android.base.schedulers;
 
 /**
  * Created by swapnull on 06/12/16.

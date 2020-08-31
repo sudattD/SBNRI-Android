@@ -1,4 +1,4 @@
-package servify.android.consumer.android.scopes;
+package sbnri.consumer.android.scopes;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

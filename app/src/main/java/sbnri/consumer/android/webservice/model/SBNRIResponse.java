@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Created by swapnull on 06/12/16.
  */
 
-public class ServifyResponse<T> {
+public class SBNRIResponse<T> {
 
     private boolean success;
     private boolean isOffline = false;
@@ -72,7 +72,7 @@ public class ServifyResponse<T> {
         this.statusCode = statusCode;
     }
 
-    public ServifyResponse<T> createOfflineResponse(T data) {
+    public SBNRIResponse<T> createOfflineResponse(T data) {
         this.data = data;
         this.isOffline = true;
         this.success = true;

@@ -47,5 +47,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:$versions.butterKnife"
     kapt "com.jakewharton:butterknife-compiler:$versions.butterKnife"
     implementation "com.google.android.material:material:$versions.material"
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
 
 }
