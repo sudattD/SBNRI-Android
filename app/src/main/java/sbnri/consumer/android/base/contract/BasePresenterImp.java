@@ -39,13 +39,6 @@ public class BasePresenterImp implements ApiCallbacks {
         this.context = context;
     }
 
-    public BasePresenterImp(@NonNull SBNRIDataSource sbnriDataSource, @NonNull SchedulerProvider schedulerProvider, BaseView baseView, Context context, AnalyticsManager analyticsManager) {
-        mSbnriDataSource = sbnriDataSource;
-        mSchedulerProvider = schedulerProvider;
-        compositeDisposable = new CompositeDisposable();
-        this.baseView = baseView;
-        this.context = context;
-    }
 
     @Override
     public void onSessionExpired() {

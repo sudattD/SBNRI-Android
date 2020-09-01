@@ -1,4 +1,4 @@
-package sbnri.consumer.android.base;
+package sbnri.consumer.android.base.activity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import sbnri.consumer.android.AppState;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.util.ActivityUtils;
 
@@ -38,6 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Inject
     public Context appContext;
 
+    private BasePresenterImp basePresenterImp;
 
     @Override
     public void setContentView(int layoutResID) {
@@ -90,6 +92,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void initToolbar(String title, int titleColor, int toolbarColor, int navigationIcon) {
         ActivityUtils.initToolbar(this, title, titleColor, toolbarColor, navigationIcon);
+    }
+
+    public void setBasePresenterImp(BasePresenterImp basePresenterImp) {
+        this.basePresenterImp = basePresenterImp;
     }
 
 }

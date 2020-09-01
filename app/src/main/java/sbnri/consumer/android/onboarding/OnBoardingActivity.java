@@ -5,14 +5,14 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import sbnri.consumer.android.R;
-import sbnri.consumer.android.base.BaseActivity;
+import sbnri.consumer.android.base.activity.BaseActivity;
 
 public class OnBoardingActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.);
+       // setContentView(R.layout.);
         baseToolbar.setVisibility(View.GONE);
     }
 }

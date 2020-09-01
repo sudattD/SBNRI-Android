@@ -21,6 +21,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -49,5 +55,14 @@ dependencies {
     implementation "com.google.android.material:material:$versions.material"
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    implementation "com.orhanobut:hawk:$versions.hawk"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
+    implementation "com.squareup.picasso:picasso:$versions.picasso"
+    implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:$versions.picassoOkHttpDownloader"
+
+
+
+
 
 }

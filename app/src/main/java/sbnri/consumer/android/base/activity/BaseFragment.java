@@ -1,16 +1,14 @@
-package sbnri.consumer.android.base;
+package sbnri.consumer.android.base.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -18,7 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import butterknife.ButterKnife;
 import sbnri.consumer.android.AppState;
+import sbnri.consumer.android.DaggerDependencyInjectorComponent;
+import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.base.contract.BasePresenterImp;
+import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.qualifiers.BottomSheetDialog;
@@ -49,7 +50,7 @@ public abstract class BaseFragment extends Fragment {
     private FragmentAttachListener fragmentAttachListener;
     private BaseFragmentContract baseFragmentContract;
     protected boolean isOfflineActive = false;
-    StickyBottomSheetDialog stickyBottomSheetDialog;
+    //StickyBottomSheetDialog stickyBottomSheetDialog;
     protected String flow;
 
 
@@ -210,7 +211,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     public interface BaseFragmentContract {
-       // BaseActivityComponent getBaseActivityComponent();
+        BaseActivityComponent getBaseActivityComponent();
     }
 
     public void accessTokenExpired() {
@@ -221,10 +222,8 @@ public abstract class BaseFragment extends Fragment {
 
     protected void setBaseActivityPresenter(BasePresenterImp basePresenterImp) {
         if (getActivity() instanceof BaseActivity) {
-            Logger.i("Setting base presenter");
             ((BaseActivity) getActivity()).setBasePresenterImp(basePresenterImp);
         } else {
-            Logger.d("Please extend base activity for usage");
         }
     }
 

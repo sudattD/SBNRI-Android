@@ -51,10 +51,11 @@ public class AppState {
         }
     }
 
+    //TO-DO
     public static int getStateImage() {
         switch (appState) {
             case STATE_OFFLINE:
-                return R.drawable.warning;
+                return R.drawable.profile; // TO-DO
             case STATE_SYNCING:
                 return 0;
             default:

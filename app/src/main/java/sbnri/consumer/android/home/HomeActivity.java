@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import sbnri.consumer.android.R;
-import sbnri.consumer.android.base.BaseActivity;
+import sbnri.consumer.android.base.activity.BaseActivity;
 
 public class HomeActivity extends BaseActivity {
 

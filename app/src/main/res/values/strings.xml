@@ -1,8 +1,23 @@
 <resources>
-    <string name="app_name">SBNRI-Android</string>
+    <string name="app_name">SBNRI</string>
     <string name="home_navigation">Home</string>
     <string name="service_navigation">Service</string>
     <string name="ask_navigation">Ask</string>
     <string name="news_navigation">News</string>
     <string name="profile_navigation">Profile</string>
+    <string name="secret_key_shared_preference"><![CDATA[<string name=\"secret_keyPBKDF2WithHmacSHA1]]></string>
+
+
+
+
+    <!-- Temp Authorization -->
+    <string name="temp_ac" translatable="false">IHH5MA8O3Z</string> <!--app constant-->
+    <string name="temp_sk" translatable="false">1C1ZBREA3SVL7OCQ</string> <!--secret key-->
+    <string name="temp_s" translatable="false">CEC9E28A02C3824F77A90A6622E0F8D83E1E25E006B2F4A8619B3B704AA82486</string> <!--salt-->
+
+
+    <string name="rest_client_app_name" translatable="false">SBNRI</string>
+    <string name="app_language">en</string>
+    <string name="you_seem_to_be_offline">you seem to be offline</string>
+    <string name="refreshing_data">refreshing your data</string>
 </resources>
