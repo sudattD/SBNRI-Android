@@ -2,7 +2,7 @@
     <string name="app_name">SBNRI</string>
     <string name="home_navigation">Home</string>
     <string name="service_navigation">Service</string>
-    <string name="ask_navigation">Ask</string>
+    <string name="ask_navigation"></string>
     <string name="news_navigation">News</string>
     <string name="profile_navigation">Profile</string>
     <string name="secret_key_shared_preference"><![CDATA[<string name=\"secret_keyPBKDF2WithHmacSHA1]]></string>

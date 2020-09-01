@@ -16,8 +16,12 @@ import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import sbnri.consumer.android.AppState;
+import sbnri.consumer.android.DaggerDependencyInjectorComponent;
+import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.SBNRIApp;
 import sbnri.consumer.android.base.contract.BasePresenterImp;
+import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.util.ActivityUtils;
 
@@ -39,6 +43,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Inject
     public Context appContext;
 
+    protected BaseActivityComponent activityComponent;
     private BasePresenterImp basePresenterImp;
 
     @Override
@@ -62,9 +67,21 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
     private void initialiseDaggerDependencies() {
+        callDependencyInjector(initialiseDaggerInjector());
+    }
+
+    private DependencyInjectorComponent initialiseDaggerInjector() {
+        return DaggerDependencyInjectorComponent.builder().baseActivityComponent(activityComponent).
+                baseViewModule(new BaseViewModule(getBaseView())).build();
     }
 
     private void initialiseBaseActivityComponent() {
+
+        activityComponent = DaggerBaseActivityComponent.builder()
+                .sBNRIAppComponent(((SBNRIApp) getApplicationContext()).getComponent())
+                .baseActivityModule(new BaseActivityModule(this))
+                .build();
+
     }
 
     private void stubLayoutRes(@LayoutRes int layoutResID) {
@@ -97,5 +114,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void setBasePresenterImp(BasePresenterImp basePresenterImp) {
         this.basePresenterImp = basePresenterImp;
     }
+
+
+
+    protected abstract BaseView getBaseView();
+    protected abstract void callDependencyInjector(DependencyInjectorComponent injectorComponent);
 
 }

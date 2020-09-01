@@ -38,6 +38,6 @@ public interface SBNRIAppComponent {
 
     SBNRIPref getSBNRIPref();
 
-    void injectDependencies(SBNRIApp servifyApp);
+    void injectDependencies(SBNRIApp sbnriApp);
 
 }

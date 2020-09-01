@@ -35,13 +35,7 @@ public class HeaderInterceptor implements Interceptor {
     public Response intercept(@NonNull Chain chain) {
         Request request = chain.request();
 
-        Request.Builder builder = request.newBuilder()
-                .addHeader("DeviceType", "Android")
-                .addHeader("Version", "" + BuildConfig.VERSION_CODE)
-                .addHeader("App", context.getString(R.string.rest_client_app_name))
-                .addHeader("Timezone", DateTimeUtils.getOffset(context))
-                .addHeader("LanguageCode", context.getString(R.string.app_language))
-                .addHeader("BuildType", BuildConfig.BUILD_TYPE);
+        Request.Builder builder = request.newBuilder();
 
 
 /*
@@ -56,15 +50,12 @@ public class HeaderInterceptor implements Interceptor {
 
         // put request on s3 fails if two authorization used
         if (!request.method().equalsIgnoreCase("put")) {
-            String accessToken = sbnriPref.getString(Constants.ACCESS_TOKEN);
+            String accessToken = "Bearer fed5551474e76877cde524e06656efb3a23386ca";
             if (!TextUtils.isEmpty(accessToken))
                 builder.addHeader("Authorization", accessToken);
-            String plaintext = AuthorizationUtils.getTempAuthorization(context);
-            String secretKey = context.getString(R.string.temp_sk);
-            String iv = AuthorizationUtils.getRandomHexString(32);
-            String cipherText = AuthorizationUtils.encrypt(context, context.getString(R.string.temp_s), iv, secretKey, plaintext);
-            builder.addHeader("dr9se2q", cipherText);
-            builder.addHeader("co1cx2", iv);
+                builder.addHeader("X-DEVICE","2");
+                builder.addHeader("X-USERNAME","vbagaria");
+
         }
 
         request = builder.build();

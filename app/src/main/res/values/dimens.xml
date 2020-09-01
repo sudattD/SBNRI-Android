@@ -19,16 +19,14 @@
     <dimen name="text_small_10">@dimen/font_10sp</dimen>
     <dimen name="text_small">@dimen/font_12sp</dimen>
     <dimen name="text_normal">@dimen/font_13sp</dimen>
-    <dimen name="text_xnormal_14dp">@dimen/font_14sp</dimen>
-    <dimen name="text_xnormal_15dp">@dimen/font_15sp</dimen>
-    <dimen name="text_large">@dimen/font_16sp</dimen>
-    <dimen name="text_xlarge">@dimen/font_18sp</dimen>
+    <dimen name="text_xnormal_14sp">@dimen/font_14sp</dimen>
+    <dimen name="text_xnormal_15sp">@dimen/font_15sp</dimen>
     <dimen name="text_xxlarge">@dimen/font_24sp</dimen>
     <dimen name="text_xxxlarge">@dimen/font_34sp</dimen>
 
     <!--BottomNav text property-->
-    <dimen name="design_bottom_navigation_text_size" tools:override="true">@dimen/text_xsmall</dimen>
-    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">@dimen/text_xsmall</dimen>
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">@dimen/font_8sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">@dimen/font_8sp</dimen>
 
 
     <dimen name="divider_underline">@dimen/_2dp</dimen>
@@ -108,7 +106,6 @@
     <dimen name="camera_overlay_margin_horizontal">@dimen/_70dp</dimen>
     <dimen name="margin_bottom_let_begin_onboarding">@dimen/_48dp</dimen>
     <dimen name="margin_bottom_splash_logo">@dimen/_120dp</dimen>
-    <dimen name="margin_bottom_powered_by_servify">@dimen/_70dp</dimen>
     <dimen name="margin_left_splash">@dimen/_30dp</dimen>
     <dimen name="divider_height">@dimen/_6dp</dimen>
     <dimen name="multi_touch_circle_width">@dimen/_40dp</dimen>

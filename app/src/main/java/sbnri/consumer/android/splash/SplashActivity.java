@@ -2,13 +2,27 @@ package sbnri.consumer.android.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+
+import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
+import butterknife.BindView;
+import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseActivity;
+import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.home.HomeActivity;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity implements SplashContract.View{
+
+    @Inject
+    protected SplashPresenter mPresenter;
+
+
+    @BindView(R.id.tvResp)
+    TextView tvResp;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -16,13 +30,51 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
 
 
+        mPresenter.getAllNews();
+
+    }
 
 
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        //initToolbar(getString(R.string.app_name), R.color.toolbar_text, R.color.toolbar, R.drawable.arrow_back);
+    @Override
+    protected BaseView getBaseView() {
+        return this;
+    }
 
+    @Override
+    protected void callDependencyInjector(DependencyInjectorComponent injectorComponent) {
+
+        injectorComponent.injectDependencies(this);
+    }
+
+    @Override
+    public void navigateToPlayStore(String response) {
+
+        tvResp.setText(response);
+
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showToastMessage(String toastMessage, boolean isErrortoast) {
+
+    }
+
+    @Override
+    public void accessTokenExpired() {
 
     }
 }

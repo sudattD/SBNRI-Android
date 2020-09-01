@@ -19,7 +19,7 @@ import sbnri.consumer.android.scopes.ApplicationScope;
 @ApplicationScope
 public class RestClient {
 
-    public static final String BASE_URL = Hawk.get(Constants.BASE_URL, RestClientConstants.SBNRI_LOCAL);
+    public static final String BASE_URL = RestClientConstants.SBNRI_LOCAL;
 
 
     private final Retrofit retrofit;

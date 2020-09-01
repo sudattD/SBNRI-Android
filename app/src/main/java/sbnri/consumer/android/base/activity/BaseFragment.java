@@ -234,7 +234,6 @@ public abstract class BaseFragment extends Fragment {
             if (onNetworkUnavailable != null) {
                 onNetworkAvailable.run();
             } else {
-                //servifyToast(getString(R.string.please_connect_to_internet_to_contiue), Toast.LENGTH_SHORT, true);
             }
         }
     }

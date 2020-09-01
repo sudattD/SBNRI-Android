@@ -3,5 +3,7 @@ package sbnri.consumer.android.constants;
 public interface RestClientConstants {
 
 
-    String SBNRI_LOCAL = "https://clientstag.servify.tech/coreapi/api/";
+    String SBNRI_LOCAL = "https://dev.sbnri.com/api/";
+
+    //https://dev.sbnri.com/api
 }
