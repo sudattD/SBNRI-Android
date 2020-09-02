@@ -7,18 +7,15 @@
 
 
 
-    <ImageView
-        android:layout_width="@dimen/_100dp"
-        android:layout_height="@dimen/_100dp"
-        android:background="@drawable/ic_asksvg">
-
-    </ImageView>
 
 
     <TextView
         android:id="@+id/tvResp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        style="@style/TextAppearance.AppCompat"
+        android:gravity="center"
+        android:text="response"
         ></TextView>
 
 </LinearLayout>

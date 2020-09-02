@@ -37,11 +37,16 @@ public class NetworkUtils {
                 .subscribeWith(new DisposableSubscriber<SBNRIResponse>() {
                     @Override
                     public void onNext(SBNRIResponse response) {
-                        if (response.isSuccess()) {
+
+                        if(response.getData() != null)
+                        {
                             apiCallbacks.onSuccess(callTag, response, extras);
-                        } else {
+                        }
+                        else
+                        {
                             apiCallbacks.onFailure(callTag, response, extras);
                         }
+
                     }
 
                     @Override

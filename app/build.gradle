@@ -60,7 +60,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttp"
     implementation "com.squareup.picasso:picasso:$versions.picasso"
     implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:$versions.picassoOkHttpDownloader"
-
+    implementation "androidx.cardview:cardview:$versions.supportLibs"
 
 
 

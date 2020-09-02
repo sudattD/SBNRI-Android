@@ -46,6 +46,7 @@ public class SplashPresenter extends SplashContract.Presenter{
         params.put("page",1);
         params.put("last_hash_id",0);
 
+        mSplashView.navigateToPlayStore("fetching  ...");
 
         NetworkUtils.makeNetworkCall(ApiCallTags.GET_ALL_NEWS, mSbnriDataSource.getAllNews(params), mSchedulerProvider, this);
 
@@ -69,9 +70,13 @@ public class SplashPresenter extends SplashContract.Presenter{
         super.onError(callTag, e, extras);
         switch (callTag)
         {
+
             case ApiCallTags.GET_ALL_NEWS:
+                mSplashView.navigateToPlayStore(callTag +"onError");
 
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + callTag);
         }
     }
 
@@ -81,8 +86,15 @@ public class SplashPresenter extends SplashContract.Presenter{
         switch (callTag)
         {
             case ApiCallTags.GET_ALL_NEWS:
-
+                mSplashView.navigateToPlayStore(callTag +"onFailure");
                 break;
         }
+    }
+
+    @Override
+    public void onSessionExpired() {
+        super.onSessionExpired();
+        mSplashView.navigateToPlayStore( "onSessionExpired");
+
     }
 }

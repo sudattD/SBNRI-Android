@@ -20,4 +20,13 @@
     <string name="app_language">en</string>
     <string name="you_seem_to_be_offline">you seem to be offline</string>
     <string name="refreshing_data">refreshing your data</string>
+    
+    
+    <!-- Home CArd strings -->
+    <!-- to be kept inside firebase realtime db -->
+    <string name="open_account_card">Turn your money\ninto tax free FDs for up\nto 7% interest rate</string>
+    
+    
+    
+    
 </resources>

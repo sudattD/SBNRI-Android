@@ -38,25 +38,17 @@ public class HeaderInterceptor implements Interceptor {
         Request.Builder builder = request.newBuilder();
 
 
-/*
-        int countryID = ConfigUtils.getCurrentCountryID();
-        if (countryID > 0) {
-            builder.addHeader("CountryID", String.valueOf(ConfigUtils.getCurrentCountryID()));
-            builder.addHeader("CountryCode", ConfigUtils.getCurrentCountryRegionWithDefault(false));
-        } else {
-            builder.addHeader("CountryCode", ConfigUtils.getCurrentCountryRegionWithDefault(true));
-        }
-*/
-
         // put request on s3 fails if two authorization used
         if (!request.method().equalsIgnoreCase("put")) {
-            String accessToken = "Bearer fed5551474e76877cde524e06656efb3a23386ca";
+            String accessToken = "Bearer 95ea95098e540370853ccd5bc1b944681ac6ba55";
             if (!TextUtils.isEmpty(accessToken))
                 builder.addHeader("Authorization", accessToken);
-                builder.addHeader("X-DEVICE","2");
+                builder.addHeader("X-DEVICE","1");
                 builder.addHeader("X-USERNAME","vbagaria");
 
         }
+        //Bearer fe9e06313a5d46dcbd32c991123d42d141cc9d5c
+        //Bearer 95ea95098e540370853ccd5bc1b944681ac6ba55
 
         request = builder.build();
 

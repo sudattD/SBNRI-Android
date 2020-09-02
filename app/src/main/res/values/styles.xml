@@ -17,6 +17,39 @@
     </style>
 
 
+    <style name="ToolbarLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_height</item>
+        <item name="android:background">@color/toolbar</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:orientation">horizontal</item>
+
+
+    </style>
+
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="NestedScrollViewScrollBarStyle">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarFadeDuration">0</item>
+        <item name="android:scrollbarThumbVertical">@color/colorPrimary</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarSize">@dimen/_6dp</item>
+    </style>
+
 
     <style name="toolbarTheme" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
