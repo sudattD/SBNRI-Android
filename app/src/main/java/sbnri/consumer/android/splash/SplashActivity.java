@@ -2,6 +2,7 @@ package sbnri.consumer.android.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import javax.inject.Inject;
@@ -20,15 +21,18 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
     protected SplashPresenter mPresenter;
 
 
+/*
     @BindView(R.id.tvResp)
     TextView tvResp;
+*/
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.home_fragment);
 
+        initView();
 
         mPresenter.getAllNews();
 
@@ -49,13 +53,14 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
     @Override
     public void navigateToPlayStore(String response) {
 
-        tvResp.setText(response);
+        //tvResp.setText(response);
 
     }
 
     @Override
     public void initView() {
 
+        baseToolbar.setVisibility(View.GONE);
     }
 
     @Override

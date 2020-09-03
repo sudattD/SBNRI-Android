@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -14,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:overScrollMode="never">
+            android:overScrollMode="never"
+        >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -22,6 +24,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="@dimen/_25dp"
                 android:layout_marginRight="@dimen/_25dp"
+                android:layout_marginTop="@dimen/_45dp"
                >
 
                 <LinearLayout style="@style/ToolbarLinearLayout">
@@ -76,27 +79,35 @@
                 </LinearLayout>
 
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_450dp"
-                    android:layout_marginTop="@dimen/_15dp"
-                    app:cardCornerRadius="@dimen/_20dp">
+               <include
+                   layout="@layout/home_screen_card_one"
+                   />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                <include
 
-                        <TextView
-                            style="@style/PartialToolbarTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="22sp"
-                            android:text=""
+                    layout="@layout/home_screen_coming_soon_card"
+                    />
 
-                            ></TextView>
 
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+
+
+
+                <include
+                    layout="@layout/home_screen_card_one"
+                    />
+
+                <include
+
+                    layout="@layout/home_screen_coming_soon_card"
+                    />
+
+
+
+
+
+
+
+
 <!--                <View
                     android:id="@+id/divider_toolbar"
                     android:layout_width="match_parent"
@@ -207,4 +218,4 @@
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-</FrameLayout>
+</RelativeLayout>

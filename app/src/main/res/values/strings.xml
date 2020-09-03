@@ -25,8 +25,13 @@
     <!-- Home CArd strings -->
     <!-- to be kept inside firebase realtime db -->
     <string name="open_account_card">Turn your money\ninto tax free FDs for up\nto 7% interest rate</string>
-    
-    
-    
+    <string name="open_nri_fd_one">Open NRI FD in india in <b>15 minutes</b></string>
+    <string name="open_nri_fd_two">1000+ NRI accounts open every week</string>
+    <string name="open_nri_fd_three">No OTP verification hassels</string>
+    <string name="open_nri_fd_four">Relax and let us manage your banking</string>
+
+    <string name="coming_soon">coming soon!</string>
+    <string name="more_partners">more partners on the way</string>
+
     
 </resources>
