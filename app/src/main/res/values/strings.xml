@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SBNRI</string>
     <string name="home_navigation">Home</string>
     <string name="service_navigation">Service</string>
@@ -24,14 +24,16 @@
     
     <!-- Home CArd strings -->
     <!-- to be kept inside firebase realtime db -->
-    <string name="open_account_card">Turn your money\ninto tax free FDs for up\nto 7% interest rate</string>
-    <string name="open_nri_fd_one">Open NRI FD in india in <b>15 minutes</b></string>
-    <string name="open_nri_fd_two">1000+ NRI accounts open every week</string>
-    <string name="open_nri_fd_three">No OTP verification hassels</string>
-    <string name="open_nri_fd_four">Relax and let us manage your banking</string>
+    <string name="open_account_card">Book TAX-FREE FDs\nof up to 7.5%\nin Indian Banks</string>
+    <string name="open_nri_fd_one"><b>40,00,000</b> Indians have NRE FDs</string>
+    <string name="open_nri_fd_two">Invest in safe NRE FDs today</string>
+    <string name="open_nri_fd_three"><b>1000+</b> NRI accounds open every week</string>
+    <string name="open_nri_fd_four">Relax and open your account online today</string>
 
     <string name="coming_soon">coming soon!</string>
     <string name="more_partners">more partners on the way</string>
 
-    
+    <string name="transferwise_text">Transfer money to your\n\t\tNRE accounts today</string>
+    <string name="transferwise_money">\u20B974.9</string>
+    <string name="transferwise_detail" tools:ignore="TypographyDashes">The rupee moved in a range of 74.82-74.86 against the dollar after opening mildly stronger at 74.83 compared to its previous close of 74.90</string>
 </resources>

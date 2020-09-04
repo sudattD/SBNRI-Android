@@ -93,13 +93,10 @@
 
 
                 <include
-                    layout="@layout/home_screen_card_one"
+                    layout="@layout/home_screen_transferwise_card"
                     />
 
-                <include
 
-                    layout="@layout/home_screen_coming_soon_card"
-                    />
 
 
 

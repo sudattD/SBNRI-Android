@@ -9,6 +9,8 @@
     <color name="darkBlueGrey">#1f3151</color>
     <color name="darkBlueGreyopacity50">#9097A5</color>
     <color name="peachyPink">#ff8983</color>
+    <color name="iosTransferWiseCardColor">#F6CC8F</color>
+    <color name="peachyPinkLight">#FEF2E3</color>
     <color name="iceBlue">#f1f6ff</color>
     <color name="lightNavy">#132462</color>
     <color name="darkGreyBlue4">#354562</color>
@@ -30,6 +32,9 @@
     <color name="veryLightBlue">#d8e7fe</color>
     <color name="white">#ffffff</color>
     <color name="dodgerBlue">#3e89fa</color>
+    <color name="peach">#ffcb86</color>
+    <color name="greenFundTransfer">#4AA48A</color>
+    <color name="greenFundTransferRipple">#3a816c</color>
 
 
     <color name="toolbar">@color/colorPrimary</color>
