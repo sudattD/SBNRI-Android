@@ -1,4 +1,4 @@
-package servify.android.consumer.android.qualifiers;
+package sbnri.consumer.android.qualifiers;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

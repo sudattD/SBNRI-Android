@@ -39,13 +39,6 @@ public abstract class BaseFragment extends Fragment {
     protected Activity activity;
 
 
-
-
-    @BottomSheetDialog
-    @Inject
-    public Dialog dialog;
-
-
     private FragmentTransacListener fragmentTransacListener;
     private FragmentAttachListener fragmentAttachListener;
     private BaseFragmentContract baseFragmentContract;

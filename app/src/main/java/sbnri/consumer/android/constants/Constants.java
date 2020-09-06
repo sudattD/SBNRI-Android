@@ -8,6 +8,7 @@ public interface Constants {
     String BASE_URL = "BaseURL";
     String ACCESS_TOKEN = "AccessToken";
 
+    String FRAG_ID = "fragId";
 
     // Network Constants
     int TIMEOUT = 90;

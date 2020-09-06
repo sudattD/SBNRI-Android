@@ -1,15 +1,14 @@
-package servify.android.consumer.home;
+package sbnri.consumer.android.home;
 
 import android.content.Context;
 
 import dagger.Component;
-import servify.android.consumer.android.modules.HomeModule;
-import servify.android.consumer.android.qualifiers.ApplicationContext;
-import servify.android.consumer.android.scopes.ActivityScope;
-import servify.android.consumer.base.activity.BaseActivityComponent;
+import sbnri.consumer.android.base.activity.BaseActivityComponent;
+import sbnri.consumer.android.qualifiers.ApplicationContext;
+import sbnri.consumer.android.scopes.ActivityScope;
+
 
 /**
- * Created by Aneesha on 18/10/17.
  */
 @ActivityScope
 @Component(modules = HomeModule.class, dependencies = BaseActivityComponent.class)
@@ -22,5 +21,4 @@ public interface HomeComponent {
 
     void injectDependencies(HomeFragment fragment);
 
-    void injectDependencies(HomeFragmentMedion fragment);
 }
