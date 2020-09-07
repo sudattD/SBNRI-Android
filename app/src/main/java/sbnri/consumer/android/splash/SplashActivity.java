@@ -2,6 +2,7 @@ package sbnri.consumer.android.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -15,9 +16,11 @@ import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.home.HomeActivity;
+import sbnri.consumer.android.onboarding.OnBoardingActivity;
 
 public class SplashActivity extends BaseActivity implements SplashContract.View{
 
+    private static final long SPLASH_DELAY = 1000;
     @Inject
     protected SplashPresenter mPresenter;
 
@@ -56,6 +59,11 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
         //tvResp.setText(response);
 
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this,OnBoardingActivity.class);
+            startActivity(intent);
+            finish();
+        },SPLASH_DELAY);
     }
 
     @Override

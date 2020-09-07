@@ -16,6 +16,7 @@ import sbnri.consumer.android.data.local.SBNRILocalDataSource;
 import sbnri.consumer.android.data.local.SBNRIPref;
 import sbnri.consumer.android.data.local.SBNRIRepository;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
+import sbnri.consumer.android.onboarding.OnBoardingActivity;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.qualifiers.LocalDataSource;
@@ -55,6 +56,7 @@ public interface DependencyInjectorComponent {
 
     //Activities
     void injectDependencies(SplashActivity activity);
+    void injectDependencies(OnBoardingActivity activity);
 
 
 
