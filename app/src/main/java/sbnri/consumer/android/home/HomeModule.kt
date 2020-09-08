@@ -11,7 +11,7 @@ import sbnri.consumer.android.data.source.SBNRIDataSource
 import sbnri.consumer.android.qualifiers.*
 
 @Module
-class HomeModule(private val baseView: BaseView) {
+class HomeModule(val baseView: BaseView) {
 
     @HomeActivityPresenter
     @Provides

@@ -40,7 +40,7 @@ public interface BaseActivityComponent {
 
     SchedulerProvider getSchedulerProvider();
 
-    Picasso getPicasso();
+//    Picasso getPicasso();
 
     SBNRIPref getSBNRIPref();
 

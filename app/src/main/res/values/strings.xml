@@ -8,7 +8,7 @@
     <string name="secret_key_shared_preference"><![CDATA[<string name=\"secret_keyPBKDF2WithHmacSHA1]]></string>
 
 
-
+    <string name="something_went_wrong">Something went wrong!</string>
 
     <!-- Temp Authorization -->
     <string name="temp_ac" translatable="false">IHH5MA8O3Z</string> <!--app constant-->
@@ -36,4 +36,16 @@
     <string name="transferwise_text">Transfer money to your\n\t\tNRE accounts today</string>
     <string name="transferwise_money">\u20B974.9</string>
     <string name="transferwise_detail" tools:ignore="TypographyDashes">The rupee moved in a range of 74.82-74.86 against the dollar after opening mildly stronger at 74.83 compared to its previous close of 74.90</string>
+
+    <!-- Onboarding strings-->
+    <string name="onboarding_title_one">Welcome to SB NRI</string>
+    <string name="onboarding_title_two">Open NRI bank/naccount in 10 minutes</string>
+    <string name="onboarding_title_three">Book tax free FD/nup-to 7% p.a.</string>
+    <string name="onboarding_title_four">Get tax and legal/nadvisory</string>
+    <string name="onboarding_subtitle_one">Redefining/nthe NRI banking/nexperience.</string>
+    <string name="onboarding_subtitle_two"></string>
+    <string name="onboarding_subtitle_three"></string>
+    <string name="onboarding_subtitle_four"></string>
+
+
 </resources>

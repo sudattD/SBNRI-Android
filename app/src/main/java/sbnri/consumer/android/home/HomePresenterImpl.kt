@@ -17,9 +17,15 @@ class HomePresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val sbnriD
                                             ): HomeContract.HomePresenter(sbnriDataSource, schedulerProvider,baseView,context) {
 
 
+
     private val fragmentView: HomeContract.HomeFragmentView? = baseView as HomeContract.HomeFragmentView
     private var activityView: HomeContract.HomeActivityView? = baseView as HomeContract.HomeActivityView
 
 
+
+
+    override fun setHomeActivityInstance(homeActivityView: HomeContract.HomeActivityView?) {
+        this.activityView = homeActivityView
+    }
 
 }

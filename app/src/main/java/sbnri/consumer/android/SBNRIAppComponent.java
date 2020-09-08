@@ -20,7 +20,7 @@ import sbnri.consumer.android.qualifiers.SBNRIRepositoryQualifier;
 import sbnri.consumer.android.scopes.ApplicationScope;
 
 @ApplicationScope
-@Component(modules = {AppModule.class, NetworkModule.class, PicassoModule.class})
+@Component(modules = {AppModule.class, NetworkModule.class})
 public interface SBNRIAppComponent {
 
     @ApplicationContext
@@ -34,7 +34,7 @@ public interface SBNRIAppComponent {
 
     SchedulerProvider getSchedulerProvider();
 
-    Picasso getPicasso();
+   // Picasso getPicasso();
 
     SBNRIPref getSBNRIPref();
 

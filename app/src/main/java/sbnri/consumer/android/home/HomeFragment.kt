@@ -4,32 +4,47 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.orhanobut.hawk.Hawk
+import com.squareup.picasso.Picasso
 import sbnri.consumer.android.DependencyInjectorComponent
 import sbnri.consumer.android.R
+import sbnri.consumer.android.SBNRIApp
 import sbnri.consumer.android.base.activity.BaseActivityComponent
 import sbnri.consumer.android.base.activity.BaseFragment
 import sbnri.consumer.android.base.contract.BaseView
+import sbnri.consumer.android.data.models.UserDetails
+import sbnri.consumer.android.databinding.HomeFragmentBinding
 
 class HomeFragment : BaseFragment() ,HomeContract.HomeFragmentView{
 
 
+   // val picasso : Picasso = (appContext as SBNRIApp).getComponent().getPicasso()
+
+    private var _binding: HomeFragmentBinding? = null
+     lateinit var userDetails: UserDetails
 
     override fun initView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        userDetails = Hawk.get("UserDetails");
+        Picasso.get().load(userDetails.photoURL)
+                .into(_binding?.profileImage)
+        _binding?.userName?.setText(userDetails.firstName +" "+ userDetails.lastname)
+
     }
 
     override fun showProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun hideProgress() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showToastMessage(toastMessage: String?, isErrortoast: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
 
     companion object
     {
@@ -40,14 +55,23 @@ class HomeFragment : BaseFragment() ,HomeContract.HomeFragmentView{
             return fragment
         }
     }
-    init {
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        _binding = HomeFragmentBinding.inflate(inflater,container,false)
+        val view = this._binding!!.root
+
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 
-
     override fun getBaseView(): BaseView {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return this
     }
 
     override fun callDependencyInjector(injectorComponent: DependencyInjectorComponent?) {

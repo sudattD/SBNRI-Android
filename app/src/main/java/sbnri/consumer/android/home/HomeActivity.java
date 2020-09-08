@@ -22,11 +22,12 @@ import butterknife.BindView;
 import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseActivity;
+import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.util.FragmentUtils;
 
-public class HomeActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class HomeActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener,HomeContract.HomeActivityView{
 
 
     @BindView(R.id.bottomNav)
@@ -38,6 +39,35 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
     private final static int NEWS_FRAG = R.id.navNews;
     private final static int PROFILE_FRAG= R.id.navProfile;
 
+    @Override
+    public void showNotificationStatus(int unreadCount) {
+
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showToastMessage(String toastMessage, boolean isErrortoast) {
+
+    }
+
+    @Override
+    public void accessTokenExpired() {
+
+    }
 
 
     @Retention(RetentionPolicy.SOURCE)
@@ -81,9 +111,11 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
     }
 
 
+
+
     @Override
     protected BaseView getBaseView() {
-        return null;
+        return this;
     }
 
     @Override
@@ -91,6 +123,13 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
 
     }
 
+    @Override
+    protected void initialiseDaggerDependencies() {
+        DaggerHomeComponent.builder()
+                .homeModule(new HomeModule(this))
+                .baseActivityComponent(activityComponent)
+                .build().injectDependencies(this);
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -157,5 +196,24 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
 
     private int getContainerId() {
         return R.id.home_container;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = fragmentManager.findFragmentById(R.id.home_container);
+
+        if (fragment instanceof HomeFragment) {
+            super.onBackPressed();
+        } else {
+            FragmentUtils.Companion.replaceFragment(fragmentManager, getContainerId(), HomeFragment.Companion.newInstance(), false);
+            selectNavigationItem(HOME_FRAG, true);
+        }
+    }
+
+    @Override
+    public void setBasePresenterImp(BasePresenterImp basePresenterImp) {
+        super.setBasePresenterImp(basePresenterImp);
+        if (basePresenterImp instanceof HomePresenterImpl)
+            ((HomePresenterImpl) basePresenterImp).setHomeActivityInstance(this);
     }
 }

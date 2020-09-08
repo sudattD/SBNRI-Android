@@ -34,6 +34,7 @@ public interface HomeContract {
             super(sbnriDataSource, schedulerProvider, baseView, context);
         }
 
+        abstract void setHomeActivityInstance(HomeActivityView homeActivityView);
     }
 
 

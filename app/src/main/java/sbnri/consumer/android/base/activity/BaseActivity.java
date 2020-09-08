@@ -22,10 +22,11 @@ import sbnri.consumer.android.R;
 import sbnri.consumer.android.SBNRIApp;
 import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.util.ActivityUtils;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentContract {
 
 
     @BindView(R.id.tbBaseToolbar)
@@ -42,6 +43,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @ApplicationContext
     @Inject
     public Context appContext;
+
+    @ActivityContext
+    @Inject
+    protected Context context;
 
     protected BaseActivityComponent activityComponent;
     private BasePresenterImp basePresenterImp;
@@ -66,7 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
     }
-    private void initialiseDaggerDependencies() {
+    protected void initialiseDaggerDependencies() {
         callDependencyInjector(initialiseDaggerInjector());
     }
 
@@ -116,6 +121,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public BaseActivityComponent getBaseActivityComponent() {
+        return activityComponent;
+    }
 
     protected abstract BaseView getBaseView();
     protected abstract void callDependencyInjector(DependencyInjectorComponent injectorComponent);

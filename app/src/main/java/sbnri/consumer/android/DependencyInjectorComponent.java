@@ -50,7 +50,7 @@ public interface DependencyInjectorComponent {
 
     SchedulerProvider getSchedulerProvider();
 
-    Picasso getPicasso();
+//    Picasso getPicasso();
 
     SBNRIPref getSBNRIPref();
 

@@ -5,11 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".onboarding.OnBoardingActivity"
-
     android:background="@drawable/onboarding_bg"
     >
 
 
+    <TextView
+        android:id="@+id/displayResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/medium"
+        android:text="Google sign in REsult"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
@@ -18,10 +29,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-
-    </androidx.viewpager.widget.ViewPager>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_indicator"
@@ -33,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69"
+        app:layout_constraintVertical_bias="0.7"
         app:tabBackground="@drawable/indicator_selector"
         app:tabIndicatorHeight="@dimen/_0dp"
         >
@@ -43,20 +51,16 @@
 
     <Button
         android:id="@+id/signUpGoogle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/button_dodgerblue_solid"
-        android:drawableLeft="@android:drawable/btn_dialog"
+        style="@style/signupButtonTheme"
         android:drawablePadding="15dp"
         android:text="Sign-Up with google"
-        android:textAllCaps="false"
-        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_indicator"
-        app:layout_constraintVertical_bias="0.24000001" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
