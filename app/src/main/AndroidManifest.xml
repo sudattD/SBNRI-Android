@@ -56,6 +56,15 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
            />
+        <receiver
+            android:name=".receivers.NetworkChangeReceiver"
+            android:enabled="@bool/configuration_for_receiver_service"
+            android:exported="@bool/configuration_for_receiver_service">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

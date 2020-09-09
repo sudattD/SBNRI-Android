@@ -1,6 +1,7 @@
 package sbnri.consumer.android.base.activity;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,9 +25,11 @@ import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
+import sbnri.consumer.android.receivers.NetworkChangeReceiver;
+import sbnri.consumer.android.receivers.SharedListeners;
 import sbnri.consumer.android.util.ActivityUtils;
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentContract {
+public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentContract, SharedListeners.NetworkChangeListener {
 
 
     @BindView(R.id.tbBaseToolbar)
@@ -35,6 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     @BindView(R.id.tvToolbarTitle)
     public TextView tvToolbarTitle;
 
+    private NetworkChangeReceiver networkChangeReceiver;
 
     private RelativeLayout baseLayout;
 
@@ -120,6 +124,26 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         this.basePresenterImp = basePresenterImp;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        registerReceiver();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(networkChangeReceiver);
+    }
+
+    private void registerReceiver() {
+        networkChangeReceiver = new NetworkChangeReceiver();
+        networkChangeReceiver.setSharedListener(this);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(android.net.ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver, intentFilter);
+    }
 
     @Override
     public BaseActivityComponent getBaseActivityComponent() {
@@ -129,4 +153,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     protected abstract BaseView getBaseView();
     protected abstract void callDependencyInjector(DependencyInjectorComponent injectorComponent);
 
+
+    @Override
+    public void onNetworkChanged() {
+
+    }
 }
