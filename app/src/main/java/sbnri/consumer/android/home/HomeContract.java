@@ -14,7 +14,6 @@ import sbnri.consumer.android.data.source.SBNRIDataSource;
 
 
 /**
- * Created by yashThakur on 23/12/16.
  */
 
 public interface HomeContract {

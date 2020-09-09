@@ -1,7 +1,6 @@
 package sbnri.consumer.android.base.schedulers;
 
 /**
- * Created by swapnull on 06/12/16.
  */
 
 import androidx.annotation.NonNull;

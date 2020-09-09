@@ -3,7 +3,6 @@ package sbnri.consumer.android.webservice.model;
 import java.util.HashMap;
 
 /**
- * Created by swapnull on 06/12/16.
  */
 
 public class SBNRIResponse<T> {

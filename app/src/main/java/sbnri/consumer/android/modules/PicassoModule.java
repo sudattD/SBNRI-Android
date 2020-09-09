@@ -14,7 +14,6 @@ import sbnri.consumer.android.webservice.consumer.PicassoHttpClient;
 
 
 /**
- * Created by Aneesha on 12/10/17.
  */
 
 @Module

@@ -2,6 +2,9 @@ package sbnri.consumer.android.webservice.consumer;
 
         import android.content.Context;
         import android.text.TextUtils;
+        import android.util.Log;
+
+        import com.google.gson.Gson;
 
         import java.io.IOException;
 
@@ -15,6 +18,7 @@ package sbnri.consumer.android.webservice.consumer;
         import sbnri.consumer.android.R;
         import sbnri.consumer.android.constants.Constants;
         import sbnri.consumer.android.data.local.SBNRIPref;
+        import sbnri.consumer.android.onboarding.OnBoardingPresenterImpl;
         import sbnri.consumer.android.qualifiers.ApplicationContext;
         import sbnri.consumer.android.util.AuthorizationUtils;
         import sbnri.consumer.android.util.DateTimeUtils;
@@ -40,11 +44,15 @@ public class HeaderInterceptor implements Interceptor {
 
         // put request on s3 fails if two authorization used
         if (!request.method().equalsIgnoreCase("put")) {
-            String accessToken = "Bearer 95ea95098e540370853ccd5bc1b944681ac6ba55";
-            if (!TextUtils.isEmpty(accessToken))
+            String accessToken = "Bearer "+ sbnriPref.getString(OnBoardingPresenterImpl.Companion.getTOKEN());
+            if (!TextUtils.isEmpty(sbnriPref.getString(OnBoardingPresenterImpl.Companion.getTOKEN())))
+            {
                 builder.addHeader("Authorization", accessToken);
-                builder.addHeader("X-DEVICE","1");
-                builder.addHeader("X-USERNAME","vbagaria");
+            }
+            if (!TextUtils.isEmpty(accessToken))
+
+                builder.addHeader("X-DEVICE","2"); //2 for android //1 for ios
+                builder.addHeader("X-USERNAME",sbnriPref.getString(OnBoardingPresenterImpl.Companion.getUSERNAME()));
 
         }
         //Bearer fe9e06313a5d46dcbd32c991123d42d141cc9d5c
@@ -52,7 +60,7 @@ public class HeaderInterceptor implements Interceptor {
 
         request = builder.build();
 
-      //  Logger.d(new Gson().toJson(request.headers()));
+        Log.d(new Gson().toJson(request.headers()),"HEADERS");
         Response response = null;
         try {
             response = chain.proceed(request);

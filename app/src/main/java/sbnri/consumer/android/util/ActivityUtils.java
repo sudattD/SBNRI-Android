@@ -6,10 +6,14 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.util.TypedValue;
 import android.view.View;
+
+import java.math.BigInteger;
 
 import androidx.core.content.ContextCompat;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.adapters.ItemEncapsulator;
 import sbnri.consumer.android.base.activity.BaseActivity;
 
 public class ActivityUtils {
@@ -32,7 +36,14 @@ public class ActivityUtils {
 
             activity.getSupportActionBar().setHomeAsUpIndicator(homeUpButton);
         }
+    public static int dpToPx(float dp, Context context) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());
+    }
 
+
+    public static <T> ItemEncapsulator getItemEncapsulatorFromObject(T obj) {
+        return new ItemEncapsulator(new BigInteger(obj.getClass().getSimpleName().getBytes()).intValue(), obj);
+    }
 
 
     public static boolean isNetworkOnline(Context context) {

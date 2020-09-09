@@ -43,9 +43,9 @@
     <string name="onboarding_title_three">Book tax free FD/nup-to 7% p.a.</string>
     <string name="onboarding_title_four">Get tax and legal/nadvisory</string>
     <string name="onboarding_subtitle_one">Redefining/nthe NRI banking/nexperience.</string>
-    <string name="onboarding_subtitle_two"></string>
-    <string name="onboarding_subtitle_three"></string>
-    <string name="onboarding_subtitle_four"></string>
+    <string name="onboarding_subtitle_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
+    <string name="onboarding_subtitle_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
+    <string name="onboarding_subtitle_four">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
 
 
 </resources>

@@ -6,7 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import javax.inject.Qualifier;
 
 /**
- * Created by Aneesha on 12/10/17.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier

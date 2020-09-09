@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction
 import sbnri.consumer.android.R
 
 /**
- * Created by yashThakur on 09/02/17.
  */
 
 class FragmentUtils private constructor() {

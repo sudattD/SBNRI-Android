@@ -7,18 +7,14 @@ import sbnri.consumer.android.base.schedulers.SchedulerProvider
 import sbnri.consumer.android.data.models.UserDetails
 import sbnri.consumer.android.data.source.SBNRIDataSource
 
-interface OnBoardingContract
-
-{
-    interface OnBoardingView : BaseView
-    {
+interface OnBoardingContract {
+    interface OnBoardingView : BaseView {
         fun userCreated(userDetails: UserDetails)
     }
 
-    abstract class OnBoardingPresenter(sbnriDataSource: SBNRIDataSource,schedulerProvider: SchedulerProvider
-                                       ,baseView: BaseView,context: Context) :
-            BasePresenterImp(sbnriDataSource, schedulerProvider, baseView, context)
-    {
-        abstract fun getFireBasetokenVerified(token : String)
+    abstract class OnBoardingPresenter(sbnriDataSource: SBNRIDataSource, schedulerProvider: SchedulerProvider
+                                       , baseView: BaseView, context: Context) :
+            BasePresenterImp(sbnriDataSource, schedulerProvider, baseView, context) {
+        abstract fun getFireBasetokenVerified(token: String)
     }
 }

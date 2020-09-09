@@ -47,30 +47,22 @@ import sbnri.consumer.android.home.HomeActivity;
 
 public class OnBoardingActivity extends BaseActivity implements OnBoardingContract.OnBoardingView {
 
+    public static int RC_SIGN_IN = 1000;
+    public static String TAG = OnBoardingActivity.class.getSimpleName();
     @BindView(R.id.tab_indicator)
     TabLayout tabIndicator;
-
     @BindView(R.id.signUpGoogle)
     Button btnSignUpGoogle;
-
     @BindView(R.id.screen_viewpager)
     ViewPager screenViewPager;
-
     @BindView(R.id.displayResult)
     TextView displayResult;
-
-    private GoogleSignInClient mGoogleSignInClient;
-
-    public static int RC_SIGN_IN = 1000;
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
-    // [END declare_auth]
-
-
     @Inject
     OnBoardingPresenterImpl onBoardingPresenter;
-
-    public static String TAG = OnBoardingActivity.class.getSimpleName();
+    // [END declare_auth]
+    private GoogleSignInClient mGoogleSignInClient;
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -98,13 +90,14 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
 
         final List<OnBoardingItem> mList = new ArrayList<>();
-        mList.add(new OnBoardingItem("Fresh Food","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit"));
-        mList.add(new OnBoardingItem("Fast Delivery","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit"));
-        mList.add(new OnBoardingItem("Easy Payment","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur  consectetur adipiscing elit"));
+        mList.add(new OnBoardingItem(context.getString(R.string.onboarding_title_one), context.getString(R.string.onboarding_subtitle_one)));
+        mList.add(new OnBoardingItem(context.getString(R.string.onboarding_title_two), context.getString(R.string.onboarding_subtitle_two)));
+        mList.add(new OnBoardingItem(context.getString(R.string.onboarding_title_three), context.getString(R.string.onboarding_subtitle_three)));
+        mList.add(new OnBoardingItem(context.getString(R.string.onboarding_title_four), context.getString(R.string.onboarding_subtitle_four)));
 
 
         OnBoardingViewPagerAdapter onBoardingViewPagerAdapter =
-        new OnBoardingViewPagerAdapter(this,mList);
+                new OnBoardingViewPagerAdapter(this, mList);
 
 
         screenViewPager.setAdapter(onBoardingViewPagerAdapter);
@@ -118,8 +111,6 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
     }
 
     @Override
@@ -135,8 +126,7 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
 
     @OnClick(R.id.signUpGoogle)
-    public void googleSignUp()
-    {
+    public void googleSignUp() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -177,7 +167,7 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
-                       // Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                        // Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                         updateUI(null);
                     }
 
@@ -187,13 +177,9 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
     }
 
 
-
-
-
     private void updateUI(FirebaseUser mUser) {
 
-        if(mUser!=null)
-        {
+        if (mUser != null) {
             mUser.getIdToken(true)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -211,12 +197,11 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
     }
 
 
-
     @Override
     public void userCreated(UserDetails userDetails) {
 
 
-        Hawk.put("UserDetails",userDetails);
+        Hawk.put("UserDetails", userDetails);
         startActivity(HomeActivity.createInstance(context));
     }
 

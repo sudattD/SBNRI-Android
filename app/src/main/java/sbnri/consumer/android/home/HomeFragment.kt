@@ -8,27 +8,23 @@ import com.orhanobut.hawk.Hawk
 import com.squareup.picasso.Picasso
 import sbnri.consumer.android.DependencyInjectorComponent
 import sbnri.consumer.android.R
-import sbnri.consumer.android.SBNRIApp
 import sbnri.consumer.android.base.activity.BaseActivityComponent
 import sbnri.consumer.android.base.activity.BaseFragment
 import sbnri.consumer.android.base.contract.BaseView
 import sbnri.consumer.android.data.models.UserDetails
 import sbnri.consumer.android.databinding.HomeFragmentBinding
 
-class HomeFragment : BaseFragment() ,HomeContract.HomeFragmentView{
-
-
-   // val picasso : Picasso = (appContext as SBNRIApp).getComponent().getPicasso()
+class HomeFragment : BaseFragment(), HomeContract.HomeFragmentView {
 
     private var _binding: HomeFragmentBinding? = null
-     lateinit var userDetails: UserDetails
+    lateinit var userDetails: UserDetails
 
     override fun initView() {
 
         userDetails = Hawk.get("UserDetails");
         Picasso.get().load(userDetails.photoURL)
                 .into(_binding?.profileImage)
-        _binding?.userName?.setText(userDetails.firstName +" "+ userDetails.lastname)
+        _binding?.userName?.setText(userDetails.firstName + " " + userDetails.lastname)
 
     }
 
@@ -46,8 +42,7 @@ class HomeFragment : BaseFragment() ,HomeContract.HomeFragmentView{
         initView()
     }
 
-    companion object
-    {
+    companion object {
         fun newInstance(): HomeFragment {
             val fragment = HomeFragment()
             val args = Bundle()
@@ -58,9 +53,8 @@ class HomeFragment : BaseFragment() ,HomeContract.HomeFragmentView{
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        _binding = HomeFragmentBinding.inflate(inflater,container,false)
+        _binding = HomeFragmentBinding.inflate(inflater, container, false)
         val view = this._binding!!.root
-
         return view
     }
 
@@ -80,7 +74,7 @@ class HomeFragment : BaseFragment() ,HomeContract.HomeFragmentView{
 
     override fun onCreateKnifeView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        return inflater?.inflate(R.layout.home_fragment,container,false)!!
+        return inflater?.inflate(R.layout.home_fragment, container, false)!!
     }
 
     override fun initialiseDaggerDependencies(activityComponent: BaseActivityComponent) {

@@ -9,7 +9,6 @@ import io.reactivex.schedulers.Schedulers;
 import sbnri.consumer.android.scopes.ApplicationScope;
 
 /**
- * Created by swapnull on 06/12/16.
  */
 @ApplicationScope
 public class SchedulerProvider implements BaseSchedulerProvider {

@@ -3,6 +3,7 @@ package sbnri.consumer.android.onboarding
 import android.content.Context
 import sbnri.consumer.android.base.contract.BaseView
 import sbnri.consumer.android.base.schedulers.SchedulerProvider
+import sbnri.consumer.android.data.local.SBNRIPref
 import sbnri.consumer.android.data.models.UserDetails
 import sbnri.consumer.android.data.source.SBNRIDataSource
 import sbnri.consumer.android.qualifiers.ApplicationContext
@@ -15,14 +16,17 @@ import javax.inject.Inject
 
 
 class OnBoardingPresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val sbnriDataSource: SBNRIDataSource,
-                                                  schedulerProvider: SchedulerProvider,baseView: BaseView,@ApplicationContext context: Context)
+                                                  schedulerProvider: SchedulerProvider,baseView: BaseView,@ApplicationContext context: Context,sbnriPref: SBNRIPref)
     : OnBoardingContract.OnBoardingPresenter(sbnriDataSource,schedulerProvider,baseView, context = context)
 
 {
-
+    val sbnriPref : SBNRIPref = sbnriPref
     companion object
     {
         val FIREBASE_TOKEN_VERIFICATION = "firebaseTokenVerification"
+        val TOKEN = "token"
+        val PHOTOURL = "photoURL"
+        val USERNAME = "userName"
     }
 
     val view : OnBoardingContract.OnBoardingView? = baseView as OnBoardingContract.OnBoardingView
@@ -53,6 +57,9 @@ class OnBoardingPresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val 
 
     private fun handleUserCreatedSuccess(userDetails: UserDetails) {
 
+        sbnriPref.putString(TOKEN,userDetails.token)
+        sbnriPref.putString(PHOTOURL,userDetails.photoURL)
+        sbnriPref.putString(USERNAME,userDetails.userName)
         view?.userCreated(userDetails)
 
     }
