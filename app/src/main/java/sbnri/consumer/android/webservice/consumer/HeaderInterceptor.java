@@ -5,6 +5,7 @@ package sbnri.consumer.android.webservice.consumer;
         import android.util.Log;
 
         import com.google.gson.Gson;
+        import com.orhanobut.hawk.Hawk;
 
         import java.io.IOException;
 
@@ -44,15 +45,14 @@ public class HeaderInterceptor implements Interceptor {
 
         // put request on s3 fails if two authorization used
         if (!request.method().equalsIgnoreCase("put")) {
-            String accessToken = "Bearer "+ sbnriPref.getString(OnBoardingPresenterImpl.Companion.getTOKEN());
-            if (!TextUtils.isEmpty(sbnriPref.getString(OnBoardingPresenterImpl.Companion.getTOKEN())))
+            String accessToken = "Bearer "+ Hawk.get(OnBoardingPresenterImpl.Companion.getTOKEN(),"");
+            if (!TextUtils.isEmpty(Hawk.get(OnBoardingPresenterImpl.Companion.getTOKEN(),"")))
             {
                 builder.addHeader("Authorization", accessToken);
             }
-            if (!TextUtils.isEmpty(accessToken))
 
                 builder.addHeader("X-DEVICE","2"); //2 for android //1 for ios
-                builder.addHeader("X-USERNAME",sbnriPref.getString(OnBoardingPresenterImpl.Companion.getUSERNAME()));
+                builder.addHeader("X-USERNAME",Hawk.get(OnBoardingPresenterImpl.Companion.getUSERNAME(),""));
 
         }
         //Bearer fe9e06313a5d46dcbd32c991123d42d141cc9d5c

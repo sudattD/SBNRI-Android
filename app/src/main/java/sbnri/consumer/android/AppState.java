@@ -39,7 +39,6 @@ public class AppState {
     }
 
 
-
     public static String getAppStateMessage(Context context) {
         switch (appState) {
             case STATE_OFFLINE:

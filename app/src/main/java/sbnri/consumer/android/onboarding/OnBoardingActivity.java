@@ -199,10 +199,10 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
     @Override
     public void userCreated(UserDetails userDetails) {
-
-
         Hawk.put("UserDetails", userDetails);
         startActivity(HomeActivity.createInstance(context));
+
+
     }
 
     @Override

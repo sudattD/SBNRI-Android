@@ -5,9 +5,13 @@ import android.content.IntentFilter;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.flipboard.bottomsheet.BottomSheetLayout;
 
 import javax.inject.Inject;
 
@@ -16,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import sbnri.consumer.android.AppState;
 import sbnri.consumer.android.DaggerDependencyInjectorComponent;
 import sbnri.consumer.android.DependencyInjectorComponent;
@@ -23,11 +28,13 @@ import sbnri.consumer.android.R;
 import sbnri.consumer.android.SBNRIApp;
 import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.data.local.SBNRIPref;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.receivers.NetworkChangeReceiver;
 import sbnri.consumer.android.receivers.SharedListeners;
 import sbnri.consumer.android.util.ActivityUtils;
+import sbnri.consumer.android.util.BottomSheetUtil;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentContract, SharedListeners.NetworkChangeListener {
 
@@ -37,6 +44,15 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
 
     @BindView(R.id.tvToolbarTitle)
     public TextView tvToolbarTitle;
+
+    @BindView(R.id.no_internet_constraint)
+    View no_internet_view;
+
+    @BindView(R.id.btn_retry)
+    Button btn_retry;
+
+    @BindView(R.id.rl_progress)
+    public View rl_progress;
 
     private NetworkChangeReceiver networkChangeReceiver;
 
@@ -51,6 +67,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     @ActivityContext
     @Inject
     protected Context context;
+
+    @Inject
+    public BottomSheetLayout bottomSheet;
+
+    @Inject
+    public SBNRIPref sbnriPref;
+
+
 
     protected BaseActivityComponent activityComponent;
     private BasePresenterImp basePresenterImp;
@@ -154,8 +178,32 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
     protected abstract void callDependencyInjector(DependencyInjectorComponent injectorComponent);
 
 
+    protected boolean isNetworkOnline() {
+        return ActivityUtils.isNetworkOnline(context);
+    }
     @Override
     public void onNetworkChanged() {
+        AppState.setIsOnline(isNetworkOnline());
+
+        if (!AppState.isAppOnline()) {
+           // BottomSheetUtil.Companion.showNetworkBottomSheet(context,bottomSheet);
+
+            no_internet_view.setVisibility(View.VISIBLE);
+        }
+        if (AppState.isAppOnline()) {
+           //BottomSheetUtil.Companion.dismissNetworkBottomSheet(bottomSheet);
+            no_internet_view.setVisibility(View.GONE);
+
+        }
+    }
+
+
+    @OnClick(R.id.btn_retry)
+    public void setBtn_retry()
+    {
+        no_internet_view.setVisibility(View.GONE);
 
     }
+
+
 }

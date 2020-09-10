@@ -18,4 +18,7 @@ public interface ApiService {
 
     @POST("verify_id_token")
     Flowable<SBNRIResponse<UserDetails>> verifyFireBaseIdToken(@Body HashMap<String, Object> params);
+
+    @GET("get_all_banks_data")
+    Flowable<SBNRIResponse> getAllBanksData();
 }

@@ -126,7 +126,7 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     protected void initialiseDaggerDependencies() {
         DaggerHomeComponent.builder()
-                .homeModule(new HomeModule(this))
+                .homeModuleJ(new HomeModuleJ(this))
                 .baseActivityComponent(activityComponent)
                 .build().injectDependencies(this);
     }
@@ -164,7 +164,7 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
             bottomNav.getMenu().findItem(frag).setChecked(true);
         switch (frag) {
             case HOME_FRAG:
-                loadFragment(HomeFragment.Companion.newInstance());
+                loadFragment(HomeFragmentJ.newInstance());
                 break;
             case SERVICES_FRAG:
 
@@ -202,10 +202,10 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
     public void onBackPressed() {
         Fragment fragment = fragmentManager.findFragmentById(R.id.home_container);
 
-        if (fragment instanceof HomeFragment) {
+        if (fragment instanceof HomeFragmentJ) {
             super.onBackPressed();
         } else {
-            FragmentUtils.Companion.replaceFragment(fragmentManager, getContainerId(), HomeFragment.Companion.newInstance(), false);
+            FragmentUtils.Companion.replaceFragment(fragmentManager, getContainerId(), HomeFragmentJ.newInstance(), false);
             selectNavigationItem(HOME_FRAG, true);
         }
     }
@@ -213,7 +213,7 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     public void setBasePresenterImp(BasePresenterImp basePresenterImp) {
         super.setBasePresenterImp(basePresenterImp);
-        if (basePresenterImp instanceof HomePresenterImpl)
-            ((HomePresenterImpl) basePresenterImp).setHomeActivityInstance(this);
+        if (basePresenterImp instanceof HomePresenterImplJ)
+            ((HomePresenterImplJ) basePresenterImp).setHomeActivityInstance(this);
     }
 }

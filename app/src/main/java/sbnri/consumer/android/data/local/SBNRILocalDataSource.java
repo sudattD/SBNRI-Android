@@ -32,4 +32,9 @@ public class SBNRILocalDataSource implements SBNRIDataSource {
     public Flowable<SBNRIResponse<UserDetails>> verifyFireBaseIdToken(HashMap<String, Object> params) {
         return null;
     }
+
+    @Override
+    public Flowable<SBNRIResponse> getAllBanksData() {
+        return null;
+    }
 }

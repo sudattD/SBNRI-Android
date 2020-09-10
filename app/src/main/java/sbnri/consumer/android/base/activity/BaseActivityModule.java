@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 
+import com.flipboard.bottomsheet.BottomSheetLayout;
+
 import dagger.Module;
 import dagger.Provides;
+import sbnri.consumer.android.R;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.scopes.BaseActivityScope;
 
@@ -28,6 +31,12 @@ public class BaseActivityModule {
     @Provides
     Context activityContext() {
         return activity;
+    }
+
+    @BaseActivityScope
+    @Provides
+    BottomSheetLayout getBaseBottomSheetLayout() {
+        return activity.findViewById(R.id.bottomsheet);
     }
 
 

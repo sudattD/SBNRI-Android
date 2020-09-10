@@ -11,18 +11,8 @@ import sbnri.consumer.android.data.source.SBNRIDataSource
 import sbnri.consumer.android.qualifiers.*
 
 @Module
-class HomeModule(val baseView: BaseView) {
+class HomeModule constructor(val baseView: BaseView) {
 
-    @HomeActivityPresenter
-    @Provides
-    internal fun getHomeActivityPresenter(@SBNRIRepositoryQualifier dataSource: SBNRIDataSource, @LocalDataSource sbnriLocalDataSource: SBNRILocalDataSource, schedulerProvider: SchedulerProvider, @ApplicationContext context: Context, sbnriPref: SBNRIPref): HomePresenterImpl {
-        return HomePresenterImpl(dataSource, schedulerProvider,baseView,sbnriPref,context)
-    }
 
-    @HomeFragmentPresenter
-    @Provides
-    internal fun getHomeFragmentPresenter(@SBNRIRepositoryQualifier dataSource: SBNRIDataSource, @LocalDataSource sbnriLocalDataSource: SBNRILocalDataSource, schedulerProvider: SchedulerProvider, @ApplicationContext context: Context, sbnriPref: SBNRIPref): HomePresenterImpl {
-        return HomePresenterImpl(dataSource,schedulerProvider,baseView,sbnriPref,context)
-    }
 
 }

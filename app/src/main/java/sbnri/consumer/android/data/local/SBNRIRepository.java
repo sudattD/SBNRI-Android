@@ -28,4 +28,9 @@ public class SBNRIRepository implements SBNRIDataSource {
     public Flowable<SBNRIResponse<UserDetails>> verifyFireBaseIdToken(HashMap<String, Object> params) {
         return service.verifyFireBaseIdToken(params);
     }
+
+    @Override
+    public Flowable<SBNRIResponse> getAllBanksData() {
+        return service.getAllBanksData();
+    }
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
@@ -20,6 +22,7 @@ public interface HomeContract {
 
     interface HomeFragmentView extends BaseView {
 
+        void showAllBankData();
     }
 
 
@@ -34,6 +37,8 @@ public interface HomeContract {
         }
 
         abstract void setHomeActivityInstance(HomeActivityView homeActivityView);
+
+        abstract void getAllBanksData();
     }
 
 

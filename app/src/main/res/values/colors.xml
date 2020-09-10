@@ -37,6 +37,7 @@
     <color name="greenFundTransfer">#4AA48A</color>
     <color name="greenFundTransferRipple">#3a816c</color>
     <color name="transparent">#00000000</color>
+    <color name="semitransparent">#CC000000</color>
     <color name="tab_indicator_gray">#c0c0c0</color>
 
     <color name="gradient_start_color">#4c84ff</color>

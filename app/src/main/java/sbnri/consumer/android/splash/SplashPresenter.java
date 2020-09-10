@@ -48,7 +48,7 @@ public class SplashPresenter extends SplashContract.Presenter{
 
         mSplashView.navigateToPlayStore("fetching  ...");
 
-        NetworkUtils.makeNetworkCall(ApiCallTags.GET_ALL_NEWS, mSbnriDataSource.getAllNews(params), mSchedulerProvider, this);
+       // NetworkUtils.makeNetworkCall(ApiCallTags.GET_ALL_NEWS, mSbnriDataSource.getAllNews(params), mSchedulerProvider, this);
 
 
     }

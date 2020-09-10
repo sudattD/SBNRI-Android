@@ -1,6 +1,7 @@
 package sbnri.consumer.android.onboarding
 
 import android.content.Context
+import com.orhanobut.hawk.Hawk
 import sbnri.consumer.android.base.contract.BaseView
 import sbnri.consumer.android.base.schedulers.SchedulerProvider
 import sbnri.consumer.android.data.local.SBNRIPref
@@ -57,9 +58,14 @@ class OnBoardingPresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val 
 
     private fun handleUserCreatedSuccess(userDetails: UserDetails) {
 
-        sbnriPref.putString(TOKEN,userDetails.token)
+
+        //TODO refactor this
+   /*     sbnriPref.putString(TOKEN,userDetails.token)
         sbnriPref.putString(PHOTOURL,userDetails.photoURL)
-        sbnriPref.putString(USERNAME,userDetails.userName)
+        sbnriPref.putString(USERNAME,userDetails.userName)*/
+        Hawk.put(TOKEN,userDetails.token)
+        Hawk.put(PHOTOURL,userDetails.photoURL)
+        Hawk.put(USERNAME,userDetails.userName)
         view?.userCreated(userDetails)
 
     }

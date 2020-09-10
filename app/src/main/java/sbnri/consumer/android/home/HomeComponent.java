@@ -11,14 +11,14 @@ import sbnri.consumer.android.scopes.ActivityScope;
 /**
  */
 @ActivityScope
-@Component(modules = HomeModule.class, dependencies = BaseActivityComponent.class)
+@Component(modules = HomeModuleJ.class, dependencies = BaseActivityComponent.class)
 public interface HomeComponent {
 
     @ApplicationContext
     Context getContext();
 
     void injectDependencies(HomeActivity activity);
+    void injectDependencies(HomeFragmentJ fragmentJ);
 
-    void injectDependencies(HomeFragment fragment);
 
 }

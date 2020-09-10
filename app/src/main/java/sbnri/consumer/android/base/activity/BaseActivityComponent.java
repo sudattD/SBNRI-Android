@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 
+import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.squareup.picasso.Picasso;
 
 import dagger.Component;
@@ -43,5 +44,7 @@ public interface BaseActivityComponent {
 //    Picasso getPicasso();
 
     SBNRIPref getSBNRIPref();
+
+    BottomSheetLayout bottomSheet();
 
 }

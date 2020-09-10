@@ -8,9 +8,10 @@ import sbnri.consumer.android.data.local.SBNRIPref
 import sbnri.consumer.android.data.source.SBNRIDataSource
 import sbnri.consumer.android.qualifiers.ApplicationContext
 import sbnri.consumer.android.qualifiers.SBNRIRepositoryQualifier
+import sbnri.consumer.android.util.NetworkUtils
 import javax.inject.Inject
 
-class HomePresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val sbnriDataSource: SBNRIDataSource,
+class HomePresenterImpl constructor(@SBNRIRepositoryQualifier val sbnriDataSource: SBNRIDataSource,
                                             schedulerProvider: SchedulerProvider, baseView: BaseView,
                                             sbnriPref: SBNRIPref,
                                             @ApplicationContext context: Context
@@ -26,6 +27,11 @@ class HomePresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val sbnriD
 
     override fun setHomeActivityInstance(homeActivityView: HomeContract.HomeActivityView?) {
         this.activityView = homeActivityView
+    }
+
+    override fun getAllBanksData() {
+
+       // compositeDisposable.add(NetworkUtils.)
     }
 
 }
