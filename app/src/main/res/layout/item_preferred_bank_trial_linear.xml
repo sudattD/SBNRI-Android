@@ -20,6 +20,7 @@
         app:layout_constraintGuide_percent="0.90" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_label_openAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tv_account_brief"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

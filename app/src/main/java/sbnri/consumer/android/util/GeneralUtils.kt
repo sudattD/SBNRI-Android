@@ -90,3 +90,14 @@ fun fetchOthersBanksFromAllBanks(banks:List<Bank>?):List<SubBank>
     // return emptyList()
 }
 
+fun fetchFirstElementOfPreferredBank(banks:List<Bank>?):Bank?
+{
+
+    return banks?.firstOrNull { it.type.equals("preferred") }
+}
+
+fun fetchFirstElementOfOthersBank(banks:List<Bank>?):Bank?
+{
+
+    return banks?.firstOrNull { it.type.equals("others") }
+}
