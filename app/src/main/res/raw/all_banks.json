@@ -1,0 +1,162 @@
+{
+  "status": 1,
+  "data": {
+    "banks": [
+      {
+        "title": "Open account with SBM",
+        "subtitle": "Fastest approval time",
+        "banks": [
+          {
+            "bankName": "State Bank of Mauritius",
+            "bankImage": "https://d1jxrohjfpcwa7.cloudfront.net/bank_statics/sbm.png",
+            "bankBackgroundColor": {
+              "red": 3,
+              "green": 47,
+              "blue": 116,
+              "opacity": 1.0
+            },
+            "bankDescription": "State Bank of Mauritius (SBM) (Estb. 1973, headquartered in Port Louis, Mauritius with 43 branches) The second-largest bank in Mauritius with a market share of 25% of domestic bank assets acquired a majority stake in Fidelity Commercial Bank Ltd. (Kenya) in 2016. With the philosophy of putting their customers first in everything they do and a total asset valuation of approximately US$3.34 billion (2011), the SBM group consists of its subsidiary businesses in Kenya, Mauritius, Madagascar and India.",
+            "process": [
+              {
+                "title": "Apply Online",
+                "subtitle": "Get Started with filing up the form online"
+              },
+              {
+                "title": "Get Approved",
+                "subtitle": "Self attested KYC documents."
+              },
+              {
+                "title": "Get Activated",
+                "subtitle": "DHL pickup, account opened and initial inward remittance from your overseas account."
+              }
+            ],
+            "fdProcess": [
+              {
+                "title": "Open Account Digitally",
+                "subtitle": "Submit the documents online with our whole new scanning technology"
+              },
+              {
+                "title": "Get Approved (KYC)",
+                "subtitle": "We'll arrange a DHL pickup for your KYC Approval"
+              },
+              {
+                "title": "Fund Transfer & Book FD",
+                "subtitle": "You will be able to book your FD just the same day"
+              }
+            ],
+            "bankSize": "US$5 Billion",
+            "bankHighlight": "Savings bank rate of 6%* above 5 Lakhs",
+            "numberOfAccounts": "50+ accounts in 3 days",
+            "bankSavingsRate": "6%*",
+            "bankFDRate": "7%*",
+            "fdBookLink": "https://www.sbmbank.co.in/pdf/Fixed-Deposits.pdf",
+            "openingTime": "2 Days",
+            "id": "SBM"
+          }
+        ],
+        "type": "preferred"
+      },
+      {
+        "title": "Choose your banking partner",
+        "subtitle": null,
+        "banks": [
+          {
+            "bankName": "ICICI bank",
+            "bankImage": "https://d1jxrohjfpcwa7.cloudfront.net/bank_statics/icici.png",
+            "bankBackgroundColor": {
+              "red": 255,
+              "green": 50,
+              "blue": 0,
+              "opacity": 0.7
+            },
+            "bankDescription": "(Est. 1994, headquartered in Mumbai with 5,324 branches) Ranked among the top 4 banks in India with a consolidated total asset of US$140 billion, with a philosophy of improving its product and service offerings to deliver superior value to its customers.",
+            "process": [
+              {
+                "title": "Apply Online",
+                "subtitle": "Submit the documents online with our whole new scanning technology"
+              },
+              {
+                "title": "Get Approved",
+                "subtitle": "Self attested documents followed by In person verification"
+              },
+              {
+                "title": "Get Activated",
+                "subtitle": "DHL pickup, account opened and initial funding of only Rs. 10000"
+              }
+            ],
+            "fdProcess": [
+              {
+                "title": "Open Account Digitally",
+                "subtitle": "Submit the documents online with our whole new scanning technology"
+              },
+              {
+                "title": "Get Approved (KYC)",
+                "subtitle": "We'll arrange a DHL pickup for your KYC Approval"
+              },
+              {
+                "title": "Fund Transfer & Book FD",
+                "subtitle": "You will be able to book your FD just the same day"
+              }
+            ],
+            "bankSize": "US$140 billion",
+            "bankHighlight": "2nd largest Indian Private Sector Bank",
+            "numberOfAccounts": "30+ accounts in 3 days",
+            "bankSavingsRate": "3.50%*",
+            "bankFDRate": "5.50%*",
+            "fdBookLink": "https://www.icicibank.com/nri-banking/RHStemp/rates.page?#ratesnrefd",
+            "openingTime": "10 days",
+            "id": "ICICI"
+          },
+          {
+            "bankName": "State Bank of India",
+            "bankImage": "https://d1jxrohjfpcwa7.cloudfront.net/bank_statics/sbi.png",
+            "bankBackgroundColor": {
+              "red": 0,
+              "green": 99,
+              "blue": 229,
+              "opacity": 0.7
+            },
+            "bankDescription": "(Est. 1955, headquartered in Mumbai with 22,141 branches) Ranked 236th in the Fortune Global 500 list of world’s biggest corporations (2019), 54th largest Bank in Global Banks with total assets worth more than USD 550 billion, and the largest bank in India (23% market share by assets and a 25% share of the total loan and deposits market) with RBI having a 60% stake.",
+            "process": [
+              {
+                "title": "Get Started",
+                "subtitle": "Download, Print, Fill up the Form"
+              },
+              {
+                "title": "Get Approved",
+                "subtitle": "Attestation required from (Embassy/SBI Overseas Branch)"
+              },
+              {
+                "title": "Get Activated",
+                "subtitle": "Courier the forms and documents to NRI Centre (Ernakulam , Kerala), Init 2020-09-11 16:05:57.011 13828-14239/sbnri.consumer.android D/OkHttp: ial remittance not mandatory."
+              }
+            ],
+            "fdProcess": [
+              {
+                "title": "Open Account Digitally",
+                "subtitle": "Submit the documents online with our whole new scanning technology"
+              },
+              {
+                "title": "Get Approved (KYC)",
+                "subtitle": "We'll arrange a DHL pickup for your KYC Approval"
+              },
+              {
+                "title": "Fund Transfer & Book FD",
+                "subtitle": "You will be able to book your FD just the same day"
+              }
+            ],
+            "bankSize": "US$550 billion",
+            "bankHighlight": "Lowest Min. Balance of Rs. 1000",
+            "numberOfAccounts": "70+ accounts in 3 days",
+            "bankSavingsRate": "2.70%*",
+            "bankFDRate": "5.4%*",
+            "fdBookLink": "https://sbi.co.in/web/interest-rates/interest-rates/sbi-nri-services-interest-rates/sbi-nri-services-nre-fixed-deposit-interest-rate",
+            "openingTime": "16 days",
+            "id": "SBI"
+          }
+        ],
+        "type": "others"
+      }
+    ]
+  }
+}

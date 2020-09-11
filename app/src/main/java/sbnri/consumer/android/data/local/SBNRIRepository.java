@@ -3,6 +3,7 @@ package sbnri.consumer.android.data.local;
 import java.util.HashMap;
 
 import io.reactivex.Flowable;
+import sbnri.consumer.android.data.models.AllBanksData;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 import sbnri.consumer.android.webservice.consumer.ApiService;
@@ -30,7 +31,7 @@ public class SBNRIRepository implements SBNRIDataSource {
     }
 
     @Override
-    public Flowable<SBNRIResponse> getAllBanksData() {
+    public Flowable<SBNRIResponse<AllBanksData>> getAllBanksData() {
         return service.getAllBanksData();
     }
 }

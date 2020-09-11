@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.data.models.Bank;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.databinding.HomeFragmentBinding;
 import sbnri.consumer.android.qualifiers.HomeFragmentPresenter;
@@ -104,7 +107,9 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
 
 
     @Override
-    public void showAllBankData() {
+    public void showAllBankData(List<Bank> bankList) {
+
+        binding.cardBanks.tvSuccess.setText("SUCCESS / TEST");
 
 
     }

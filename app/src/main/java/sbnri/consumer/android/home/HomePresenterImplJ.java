@@ -12,11 +12,13 @@ import androidx.annotation.NonNull;
 import sbnri.consumer.android.base.schedulers.SchedulerProvider;
 import sbnri.consumer.android.data.local.SBNRILocalDataSource;
 import sbnri.consumer.android.data.local.SBNRIPref;
+import sbnri.consumer.android.data.models.AllBanksData;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.qualifiers.LocalDataSource;
 import sbnri.consumer.android.qualifiers.SBNRIRepositoryQualifier;
 import sbnri.consumer.android.scopes.ActivityScope;
+import sbnri.consumer.android.util.GeneralUtilsKt;
 import sbnri.consumer.android.util.NetworkUtils;
 import sbnri.consumer.android.webservice.ApiCallTags;
 import sbnri.consumer.android.webservice.model.SBNRIResponse;
@@ -82,8 +84,11 @@ class HomePresenterImplJ extends HomeContract.HomePresenter{
     }
 
     private void handleSuccessGetAllBanksData(SBNRIResponse data) {
+        //((AllBanksData) data.getData()).banks
 
-        fragmentView.showAllBankData();
+        GeneralUtilsKt.fetchOthersBanksFromAllBanks(((AllBanksData) data.getData()).getBanks());
+        GeneralUtilsKt.fetchPreferredBanksFromAllBanks(((AllBanksData) data.getData()).getBanks());
+        fragmentView.showAllBankData(((AllBanksData) data.getData()).getBanks());
     }
 
     @Override

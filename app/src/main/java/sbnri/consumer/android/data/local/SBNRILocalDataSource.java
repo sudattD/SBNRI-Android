@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Room;
 import io.reactivex.Flowable;
 import sbnri.consumer.android.base.schedulers.SchedulerProvider;
+import sbnri.consumer.android.data.models.AllBanksData;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 import sbnri.consumer.android.webservice.model.SBNRIResponse;
@@ -34,7 +35,7 @@ public class SBNRILocalDataSource implements SBNRIDataSource {
     }
 
     @Override
-    public Flowable<SBNRIResponse> getAllBanksData() {
+    public Flowable<SBNRIResponse<AllBanksData>> getAllBanksData() {
         return null;
     }
 }

@@ -60,7 +60,7 @@ public class HeaderInterceptor implements Interceptor {
 
         request = builder.build();
 
-        Log.d(new Gson().toJson(request.headers()),"HEADERS");
+        Log.d("###HEADERS###",new Gson().toJson(request.headers()));
         Response response = null;
         try {
             response = chain.proceed(request);
