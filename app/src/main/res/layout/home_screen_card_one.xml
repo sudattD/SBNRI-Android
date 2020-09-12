@@ -79,7 +79,7 @@
 
             >
             <Button
-
+                android:id="@+id/btn_open_nri_accnt"
                 style="@style/solidDodgerBlueButton"
                 android:text="open NRI account"
 

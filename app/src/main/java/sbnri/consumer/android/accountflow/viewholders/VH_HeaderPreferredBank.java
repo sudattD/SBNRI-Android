@@ -9,7 +9,7 @@ import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
 import sbnri.consumer.android.adapters.ItemEncapsulator;
 import sbnri.consumer.android.data.models.Bank;
 
-class VH_HeaderPreferredBank extends AbstractBetterViewHolder<ItemEncapsulator> {
+public class VH_HeaderPreferredBank extends AbstractBetterViewHolder<ItemEncapsulator> {
 
 
     @BindView(R.id.tv_label_openAccount)
@@ -22,7 +22,7 @@ class VH_HeaderPreferredBank extends AbstractBetterViewHolder<ItemEncapsulator> 
 
 
     public static final int LAYOUT = R.layout.item_header_preferred_banks;
-    protected VH_HeaderPreferredBank(View view) {
+    public VH_HeaderPreferredBank(View view) {
         super(view);
     }
 

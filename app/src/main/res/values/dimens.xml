@@ -251,6 +251,7 @@
     <dimen name="_13dp">13dp</dimen>
     <dimen name="action_bottom">@dimen/_8dp</dimen>
     <dimen name="toolbar_height">78dp</dimen>
+    <dimen name="toolbar_height_scroll_issue">82dp</dimen>
     <dimen name="instruction_activity_right">0dp</dimen>
     <dimen name="margin_choose_time_slot">32dp</dimen>
     <dimen name="margin_choose_time_slot_relative_layout">0dp</dimen>

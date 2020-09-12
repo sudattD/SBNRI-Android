@@ -10,6 +10,12 @@ public interface Constants {
 
     String FRAG_ID = "fragId";
 
+    String PREFERRED_BANKS_META_DATA = "mPreferredBanksMetaData";
+    String OTHERS_BANKS_META_DATA = "mOthersaBanksMetaData";
+    String PREFERRED_BANK_LIST = "mPreferredBanksList";
+    String OTHERS_BANK_LIST = "mOthersBanksList";
+    String ALL_BANKS_LIST = "allBanksList";
+
     // Network Constants
     int TIMEOUT = 90;
 }

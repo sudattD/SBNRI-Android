@@ -15,7 +15,7 @@ data class Bank(
     @SerializedName("banks")
     val subBanks: List<SubBank>,
     @SerializedName("subtitle")
-    val subtitle: String,
+    val subtitle: String?="",
     @SerializedName("title")
     val title: String,
     @SerializedName("type")
@@ -63,7 +63,9 @@ data class BankBackgroundColor(
     @SerializedName("opacity")
     val opacity: Double,
     @SerializedName("red")
-    val red: Int
+    val red: Int,
+    @SerializedName("hex")
+    val hex:String?
 ) : Parcelable
 
 @Parcelize

@@ -22,6 +22,7 @@ fun <T> singleElementAsArrayList(item: T?): ArrayList<T> {
     return if (item == null) arrayListOf() else arrayListOf(item)
 }
 
+
 fun isAlphabetsOnly(string: String?): Boolean {
     return string?.all { it.isLetter() } ?: false
 }
@@ -90,14 +91,25 @@ fun fetchOthersBanksFromAllBanks(banks:List<Bank>?):List<SubBank>
     // return emptyList()
 }
 
+fun fetchAllBanks(banks:List<Bank>?):List<SubBank>
+{
+    return banks?.flatMap { it.subBanks }?: emptyList()
+
+    // return emptyList()
+}
+
 fun fetchFirstElementOfPreferredBank(banks:List<Bank>?):Bank?
 {
 
     return banks?.firstOrNull { it.type.equals("preferred") }
+
+   // return listOf(banks?.firstOrNull { it.type.equals("others") })
 }
 
-fun fetchFirstElementOfOthersBank(banks:List<Bank>?):Bank?
+fun fetchFirstElementOfOthersBank(banks:List<Bank>?): Bank?
 {
 
     return banks?.firstOrNull { it.type.equals("others") }
+
+   // return  listOf(banks?.firstOrNull { it.type.equals("others") })
 }

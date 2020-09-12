@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    >
 
 
     <androidx.appcompat.widget.Toolbar
@@ -28,6 +30,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:background="@color/colorPrimary"
         android:id="@+id/rv_preferred_banks"
@@ -36,8 +40,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        android:padding="@dimen/_30dp"/>
+        tools:listitem="@layout/item_preferred_bank_trial_linear"
+        tools:itemCount="10"
+        android:paddingBottom="@dimen/toolbar_height_scroll_issue"
 
+        />
+<!--
     <androidx.recyclerview.widget.RecyclerView
         android:background="@drawable/recyclerview_bg_white"
         android:id="@+id/rv_other_banks"
@@ -46,6 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:padding="@dimen/_30dp"
-        app:layout_constraintTop_toBottomOf="@+id/rv_preferred_banks" />
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/rv_preferred_banks" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

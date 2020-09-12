@@ -19,30 +19,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/tv_label_openAccount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/bold"
-        android:text="Open an Account"
-        android:textSize="@dimen/font_16sp"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/tv_account_brief"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="we will help you open a new account with this bank"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tv_label_openAccount" />
-
-
     <LinearLayout
         android:id="@+id/cardViewOuter"
         android:layout_width="0dp"
@@ -51,7 +27,7 @@
         android:background="@drawable/background_curve_preferred_bank"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tv_account_brief" >
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,8 +55,8 @@
                 android:layout_marginStart="24dp"
                 android:fontFamily="@font/medium"
                 android:text="200+ accounts in 2 days"
-                android:textSize="@dimen/font_12sp"
                 android:textColor="@color/white"
+                android:textSize="@dimen/font_12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +120,6 @@
                 android:fontFamily="@font/bold"
                 android:text="State bank of Mauritius"
                 android:textColor="#A6ADB8"
-                android:textColorLink="#FFFFFF"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_bank_image"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -157,7 +132,6 @@
                 android:fontFamily="@font/bold"
                 android:text="100 Million"
                 android:textColor="#23314F"
-                android:textColorLink="#FFFFFF"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_bank_image"
                 app:layout_constraintTop_toBottomOf="@+id/tv_bank_name" />
@@ -191,7 +165,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/regular"
                 android:text="Opening Time"
-                android:textColorLink="#9198A7"
+                android:textColor="@color/darkBlueGrey"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline9" />
@@ -203,7 +177,6 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:text="Interest rate"
-                android:textColorLink="9198A7"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_opentime"
                 app:layout_constraintTop_toTopOf="@+id/guideline9" />
@@ -215,7 +188,6 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:text="FD rate"
-                android:textColorLink="9198A7"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_interest"
                 app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -226,7 +198,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:text="2 days"
-                android:textColorLink="4F5A72"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_label_opentime"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_opentime" />
@@ -237,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bold"
                 android:text="4.2%"
-                android:textColorLink="@color/darkGreyBlue4"
+                android:textColor="@color/darkGreyBlue4"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_label_interest"
                 app:layout_constraintTop_toBottomOf="@+id/tv_label_interest" />

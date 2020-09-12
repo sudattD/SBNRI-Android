@@ -8,6 +8,7 @@ import android.content.Context;
 import com.squareup.picasso.Picasso;
 
 import dagger.Component;
+import sbnri.consumer.android.accountflow.ShowBanksListActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseViewModule;
 import sbnri.consumer.android.base.contract.BaseView;
@@ -57,6 +58,8 @@ public interface DependencyInjectorComponent {
     //Activities
     void injectDependencies(SplashActivity activity);
     void injectDependencies(OnBoardingActivity activity);
+
+    void injectDependencies(ShowBanksListActivity activity);
 
 
 

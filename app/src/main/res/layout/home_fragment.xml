@@ -78,6 +78,7 @@
 
 
                <include
+                   android:id="@+id/card_open_nri"
                    layout="@layout/home_screen_card_one"
                    />
 

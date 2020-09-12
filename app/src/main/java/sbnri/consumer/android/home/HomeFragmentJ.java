@@ -1,5 +1,6 @@
 package sbnri.consumer.android.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,22 +9,27 @@ import android.view.ViewGroup;
 import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import butterknife.OnClick;
 import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.accountflow.ShowBanksListActivity;
 import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.data.models.Bank;
+import sbnri.consumer.android.data.models.SubBank;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.databinding.HomeFragmentBinding;
 import sbnri.consumer.android.qualifiers.HomeFragmentPresenter;
+import sbnri.consumer.android.util.GeneralUtilsKt;
 
 public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFragmentView {
 
@@ -36,6 +42,17 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
 
     UserDetails mUserDetails;
 
+
+    ArrayList<Bank> mPreferredBanksMetaData; //the size will always be one although it is a list
+    ArrayList<Bank> mOthersaBanksMetaData; //the size will always be one although it is a list
+
+
+    Bank mPreferredBank;
+    Bank mOthersaBank;
+    List<SubBank> mPreferredBanksList = new ArrayList<>();
+    List<SubBank> mOthersBanksList = new ArrayList<>();
+
+    List<SubBank> allBanks = new ArrayList<>();
     @Override
     protected BaseView getBaseView() {
         return this;
@@ -108,9 +125,29 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
 
     @Override
     public void showAllBankData(List<Bank> bankList) {
+        //binding.cardBanks.tvSuccess.setText("SUCCESS / TEST");
+        mPreferredBank = GeneralUtilsKt.fetchFirstElementOfPreferredBank(bankList);
+        mOthersaBank = GeneralUtilsKt.fetchFirstElementOfOthersBank(bankList);
 
-        binding.cardBanks.tvSuccess.setText("SUCCESS / TEST");
+        mPreferredBanksMetaData = GeneralUtilsKt.singleElementAsArrayList(mPreferredBank);
+        mOthersaBanksMetaData = GeneralUtilsKt.singleElementAsArrayList(mOthersaBank);
 
+        mOthersBanksList = GeneralUtilsKt.fetchOthersBanksFromAllBanks(bankList);
+        mPreferredBanksList = GeneralUtilsKt.fetchPreferredBanksFromAllBanks(bankList);
 
+        allBanks = GeneralUtilsKt.fetchAllBanks(bankList);
     }
+
+    @OnClick(R.id.btn_open_nri_accnt)
+    public void openBankListActivity()
+    {
+        context.startActivity(ShowBanksListActivity.createInstance(context,mPreferredBanksMetaData,
+                mOthersaBanksMetaData,
+                new ArrayList<>(mPreferredBanksList),
+                new ArrayList<>(mOthersBanksList),new ArrayList<>(allBanks)));
+       // Intent intent = new Intent()
+        //startActivity();
+    }
+
+
 }
