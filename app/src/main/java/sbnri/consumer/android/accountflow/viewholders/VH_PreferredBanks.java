@@ -1,11 +1,8 @@
 package sbnri.consumer.android.accountflow.viewholders;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -16,7 +13,7 @@ import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
 import sbnri.consumer.android.adapters.ItemEncapsulator;
 import sbnri.consumer.android.data.models.SubBank;
 
-public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
+public class VH_PreferredBanks extends AbstractBetterViewHolder<ItemEncapsulator> {
 
 
     @BindView(R.id.tv_highlight)
@@ -43,8 +40,6 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
     @BindView(R.id.tv_fd_rate)
     TextView tv_fd_rate;
 
-    @BindView(R.id.cardViewOuter)
-    LinearLayout cardViewOuter;
     SubBank subBankDetails;
 
 
@@ -56,27 +51,21 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
     }
 
     @Override
-    public void bind(SubBank element, int position) {
-        //subBankDetails =  element.
+    public void bind(ItemEncapsulator element, int position) {
 
-        tv_bank_name.setText(element.getBankName());
-        // tv_bank_turnover
+        subBankDetails = (SubBank) element.getItem();
+
+        tv_bank_name.setText(subBankDetails.getBankName());
+       // tv_bank_turnover
         //tv_days
         //tv_interest_rate
         //tv_fd_rate
         //iv_bank_image
 
-        tv_highlight.setText(element.getBankHighlight());
-        tv_achievement.setText(element.getNumberOfAccounts());
+        tv_highlight.setText(subBankDetails.getBankHighlight());
+        tv_achievement.setText(subBankDetails.getNumberOfAccounts());
 
+        Picasso.get().load(subBankDetails.getBankImage()).into(iv_bank_image);
 
-       // Picasso.get().load(mUserDetails.getPhotoURL()).into(binding.profileImage);
-        Picasso.get().load(element.getBankImage()).into(iv_bank_image);
-
-      //  cardViewOuter.setBackgroundColor(Color.parseColor(element.getBankBackgroundColor().getHex()));
-
-      //  cardViewOuter.setBackground(Drawable.createFromPath());
     }
-
-
 }

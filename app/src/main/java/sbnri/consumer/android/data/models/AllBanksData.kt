@@ -19,7 +19,8 @@ data class Bank(
     @SerializedName("title")
     val title: String,
     @SerializedName("type")
-    val type: String
+    val type: String,
+    val viewTYpe:Int=-1
 ) : Parcelable
 
 @Parcelize

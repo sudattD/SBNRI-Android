@@ -23,7 +23,6 @@ import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
 import sbnri.consumer.android.adapters.GenericAdapterBuilder;
 import sbnri.consumer.android.adapters.GenericRecyclerViewAdapter;
 import sbnri.consumer.android.adapters.ItemEncapsulator;
-import sbnri.consumer.android.adapters.SimpleGenericAdapterBuilder;
 import sbnri.consumer.android.adapters.SimpleGenericRecyclerViewAdapter;
 import sbnri.consumer.android.adapters.TypeNotSupportedException;
 import sbnri.consumer.android.base.activity.BaseActivity;
@@ -62,16 +61,14 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
 
 
     private GenericRecyclerViewAdapter<ItemEncapsulator> preferredBanksAdapter;
-    private SimpleGenericRecyclerViewAdapter<SubBank> simpleGenericRecyclerViewAdapter;
+    private SimpleGenericRecyclerViewAdapter<SubBank> subBankViewAdapter;
 
 
     @BindView(R.id.rv_preferred_banks)
     RecyclerView rv_preferred_banks;
-
 /*
     @BindView(R.id.rv_other_banks)
-    RecyclerView rv_other_banks;
-*/
+    RecyclerView rv_other_banks;*/
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -117,18 +114,17 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
     public void initView() {
 
         setUpHeaderPreferredBank(mPreferredBanksMetaData);
-        setUpBankListPreferredBank(mPreferredBanksList);
+        setUpBankListPreferredBank(allBanksList);
        // setUpHeaderOthersBank();
         //setUpBankListOthersBank();
        //setUpPreferredBanksAdapter();
-
-        setUpPreferredBanksAdapter(allBanksList);
     }
 
     private void setUpHeaderPreferredBank(ArrayList<Bank> banks) {
         ArrayList<ItemEncapsulator> items = new ArrayList<>(encapsulateItems(VH_HeaderPreferredBank.LAYOUT, banks));
 
-        //setUpPreferredBanksAdapter(items);
+
+        setUpPreferredBanksAdapter(items);
 
     }
 
@@ -136,22 +132,27 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
     {
         ArrayList<ItemEncapsulator> items = new ArrayList<>(encapsulateItems(VH_PreferredBanks.LAYOUT, subBanks));
 
-      //  setUpPreferredBanksAdapter(items);
+        setUpPreferredBanksAdapter(items);
 
 
     }
 
-    private void setUpPreferredBanksAdapter(ArrayList<SubBank> items) {
+    private void setUpPreferredBanksAdapter(ArrayList<ItemEncapsulator> items) {
 
-        simpleGenericRecyclerViewAdapter =  new SimpleGenericAdapterBuilder<>(context, SubBank.class, VH_PreferredBanks.LAYOUT, VH_PreferredBanks::new)
-                .setItems(items)
-                .setClickable(true)
-                .setSingleSelection(true)
-                .setSelectable(true)
-                .buildRecyclerViewAdapter();
+            preferredBanksAdapter = new GenericAdapterBuilder<ItemEncapsulator>(context,this)
+                    .setItems(items)
+                    .setClickable(true)
+                    .setSelectable(false)
+                    .buildRecyclerViewAdapter();
 
         rv_preferred_banks.setLayoutManager(new LinearLayoutManager(context));
-        rv_preferred_banks.setAdapter(simpleGenericRecyclerViewAdapter);
+        rv_preferred_banks.setHasFixedSize(false);
+        rv_preferred_banks.setVisibility(View.VISIBLE);
+
+        rv_preferred_banks.setAdapter(preferredBanksAdapter);
+
+
+        //setUpHeaderPreferredBank(mPreferredBanksMetaData);
     }
 
     @Override
@@ -178,12 +179,12 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
     public View getView(@NonNull ViewGroup parent, int viewType) {
         switch (viewType)
         {
-            case VH_HeaderPreferredBank
-                    .LAYOUT: return getLayoutInflater().inflate(VH_HeaderPreferredBank.LAYOUT,
+            case VH_HeaderPreferredBank.LAYOUT:
+                return getLayoutInflater().inflate(VH_HeaderPreferredBank.LAYOUT,
                     parent,false);
 
-            case VH_PreferredBanks
-                    .LAYOUT: return getLayoutInflater().inflate(VH_PreferredBanks
+            case VH_PreferredBanks.LAYOUT:
+                return getLayoutInflater().inflate(VH_PreferredBanks
                     .LAYOUT,
                     parent,false);
 
