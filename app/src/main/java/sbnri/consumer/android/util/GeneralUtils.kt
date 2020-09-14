@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import sbnri.consumer.android.R
 import sbnri.consumer.android.adapters.ItemEncapsulator
+import sbnri.consumer.android.data.models.AllBanksData
 import sbnri.consumer.android.data.models.Bank
 import sbnri.consumer.android.data.models.SubBank
 import sbnri.consumer.android.util.ActivityUtils.dpToPx
@@ -91,9 +92,17 @@ fun fetchOthersBanksFromAllBanks(banks:List<Bank>?):List<SubBank>
     // return emptyList()
 }
 
-fun fetchAllBanks(banks:List<Bank>?):List<SubBank>
+fun fetchAllSubBanks(banks:List<Bank>?):List<SubBank>
 {
     return banks?.flatMap { it.subBanks }?: emptyList()
+
+    // return emptyList()
+}
+
+
+fun fetchAllBanks(banks:AllBanksData):Int
+{
+    return banks?.banks.size + fetchAllSubBanks(banks?.banks).size
 
     // return emptyList()
 }

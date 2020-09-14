@@ -11,6 +11,7 @@ import butterknife.BindView;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
 import sbnri.consumer.android.adapters.ItemEncapsulator;
+import sbnri.consumer.android.data.models.Bank;
 import sbnri.consumer.android.data.models.SubBank;
 
 public class VH_PreferredBanks extends AbstractBetterViewHolder<ItemEncapsulator> {
@@ -40,7 +41,7 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<ItemEncapsulator
     @BindView(R.id.tv_fd_rate)
     TextView tv_fd_rate;
 
-    SubBank subBankDetails;
+    Bank bankDetails;
 
 
 
@@ -53,19 +54,21 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<ItemEncapsulator
     @Override
     public void bind(ItemEncapsulator element, int position) {
 
-        subBankDetails = (SubBank) element.getItem();
+        bankDetails = (Bank) element.getItem();
 
-        tv_bank_name.setText(subBankDetails.getBankName());
+
+
+        tv_bank_name.setText(bankDetails.getSubBanks().get(position).getBankName());
        // tv_bank_turnover
         //tv_days
         //tv_interest_rate
         //tv_fd_rate
         //iv_bank_image
 
-        tv_highlight.setText(subBankDetails.getBankHighlight());
-        tv_achievement.setText(subBankDetails.getNumberOfAccounts());
+        tv_highlight.setText(bankDetails.getSubBanks().get(position).getBankHighlight());
+        tv_achievement.setText(bankDetails.getSubBanks().get(position).getNumberOfAccounts());
 
-        Picasso.get().load(subBankDetails.getBankImage()).into(iv_bank_image);
+        Picasso.get().load(bankDetails.getSubBanks().get(position).getBankImage()).into(iv_bank_image);
 
     }
 }

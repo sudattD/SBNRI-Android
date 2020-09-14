@@ -40,21 +40,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:listitem="@layout/item_preferred_bank_trial_linear"
-        tools:itemCount="10"
-        android:paddingBottom="@dimen/toolbar_height_scroll_issue"
+       android:layout_marginBottom="@dimen/_15dp"
+
 
         />
-<!--
+
     <androidx.recyclerview.widget.RecyclerView
         android:background="@drawable/recyclerview_bg_white"
         android:id="@+id/rv_other_banks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:padding="@dimen/_30dp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/rv_preferred_banks" />-->
+        android:paddingBottom="@dimen/toolbar_height_scroll_issue"
+        app:layout_constraintTop_toBottomOf="@+id/rv_preferred_banks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

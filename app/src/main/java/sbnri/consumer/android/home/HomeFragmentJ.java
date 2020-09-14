@@ -24,6 +24,7 @@ import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.data.models.AllBanksData;
 import sbnri.consumer.android.data.models.Bank;
 import sbnri.consumer.android.data.models.SubBank;
 import sbnri.consumer.android.data.models.UserDetails;
@@ -52,7 +53,9 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
     List<SubBank> mPreferredBanksList = new ArrayList<>();
     List<SubBank> mOthersBanksList = new ArrayList<>();
 
-    List<SubBank> allBanks = new ArrayList<>();
+    List<SubBank> allSubBanks = new ArrayList<>();
+
+    AllBanksData allBanks = null;
     @Override
     protected BaseView getBaseView() {
         return this;
@@ -124,7 +127,7 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
 
 
     @Override
-    public void showAllBankData(List<Bank> bankList) {
+    public void showAllBankData(List<Bank> bankList, AllBanksData banksData) {
         //binding.cardBanks.tvSuccess.setText("SUCCESS / TEST");
         mPreferredBank = GeneralUtilsKt.fetchFirstElementOfPreferredBank(bankList);
         mOthersaBank = GeneralUtilsKt.fetchFirstElementOfOthersBank(bankList);
@@ -134,8 +137,8 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
 
         mOthersBanksList = GeneralUtilsKt.fetchOthersBanksFromAllBanks(bankList);
         mPreferredBanksList = GeneralUtilsKt.fetchPreferredBanksFromAllBanks(bankList);
-
-        allBanks = GeneralUtilsKt.fetchAllBanks(bankList);
+        this.allBanks = banksData;
+       // allBanks = GeneralUtilsKt.fetchAllBanks(bankList);
     }
 
     @OnClick(R.id.btn_open_nri_accnt)
@@ -144,7 +147,10 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
         context.startActivity(ShowBanksListActivity.createInstance(context,mPreferredBanksMetaData,
                 mOthersaBanksMetaData,
                 new ArrayList<>(mPreferredBanksList),
-                new ArrayList<>(mOthersBanksList),new ArrayList<>(allBanks)));
+                new ArrayList<>(mOthersBanksList),new ArrayList<>(allSubBanks),
+                mPreferredBank,
+                mOthersaBank,
+                allBanks));
        // Intent intent = new Intent()
         //startActivity();
     }

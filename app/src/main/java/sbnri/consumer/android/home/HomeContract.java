@@ -13,6 +13,7 @@ import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.base.schedulers.SchedulerProvider;
 import sbnri.consumer.android.data.local.SBNRILocalDataSource;
+import sbnri.consumer.android.data.models.AllBanksData;
 import sbnri.consumer.android.data.models.Bank;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 
@@ -24,7 +25,7 @@ public interface HomeContract {
 
     interface HomeFragmentView extends BaseView {
 
-        void showAllBankData(List<Bank> bankList);
+        void showAllBankData(List<Bank> bankList, AllBanksData allbanks);
     }
 
 

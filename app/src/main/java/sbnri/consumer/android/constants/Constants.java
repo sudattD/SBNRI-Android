@@ -15,6 +15,9 @@ public interface Constants {
     String PREFERRED_BANK_LIST = "mPreferredBanksList";
     String OTHERS_BANK_LIST = "mOthersBanksList";
     String ALL_BANKS_LIST = "allBanksList";
+    String PREFERRED_BANK_DATA = "preferredBankData";
+    String OTHERS_BANK_DATA = "othersBankData";
+    String ALL_BANKS = "allBanksData";
 
     // Network Constants
     int TIMEOUT = 90;

@@ -88,7 +88,7 @@ class HomePresenterImplJ extends HomeContract.HomePresenter{
 
         GeneralUtilsKt.fetchOthersBanksFromAllBanks(((AllBanksData) data.getData()).getBanks());
         GeneralUtilsKt.fetchPreferredBanksFromAllBanks(((AllBanksData) data.getData()).getBanks());
-        fragmentView.showAllBankData(((AllBanksData) data.getData()).getBanks());
+        fragmentView.showAllBankData(((AllBanksData) data.getData()).getBanks(),((AllBanksData) data.getData()));
     }
 
     @Override
