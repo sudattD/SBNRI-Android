@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
-        android:layout_height="200dp"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
+            app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary">
-
+            app:titleEnabled="false"
+            app:toolbarId="@+id/toolbar">
 
 
             <FrameLayout
@@ -25,26 +25,27 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
 
-              >
+                >
+
                 <sbnri.consumer.android.common.CircleImageView
                     android:id="@+id/profile_image"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:src="@drawable/profile"
                     android:layout_gravity="center"
+                    android:src="@drawable/profile"
 
                     />
+
                 <ProgressBar
                     android:id="@+id/progressBar"
+                    style="@style/ProfileProgress"
                     android:layout_width="98dp"
                     android:layout_height="98dp"
-                    android:padding="1dp"
-                    android:progressDrawable="@drawable/circular_progress"
                     android:background="@drawable/circle_shape"
-                    style="@style/ProfileProgress"
                     android:max="100"
+                    android:padding="1dp"
                     android:progress="100"
-                         />
+                    android:progressDrawable="@drawable/circular_progress" />
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -58,25 +59,34 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"
-                style="@style/PartialToolbarTitle"
-                >
 
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+
+                app:contentInsetStartWithNavigation="@dimen/_25dp"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_action_back">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    style="@style/ProfileToolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Profile" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_marginTop="@dimen/_16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_16dp"
         android:background="@drawable/bottomsheet_bg"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <FrameLayout
                 android:id="@+id/fragmentContainer"

@@ -70,6 +70,21 @@
 
     </style>
 
+    <style name="ProfileToolBar" parent="FontBold">
+        <item name="android:textSize">@dimen/font_14sp</item>
+        <item name="android:textColor">@color/darkBlueGrey</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">2dp</item>
+    </style>
+
+
+    <style name="LabelGeneral" parent="FontBold">
+        <item name="android:textSize">@dimen/font_12sp</item>
+        <item name="android:textColor">@color/darkBlueGrey</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
     <style name="FontRegular">
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/regular</item>
@@ -163,6 +178,10 @@
         <item name="android:layout_width">171dp</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:drawableLeft">@android:drawable/btn_dialog</item>
+    </style>
+
+    <style name="EditTextTheme">
+        <item name="backgroundTint">@color/tab_indicator_gray</item>
     </style>
 
 </resources>
