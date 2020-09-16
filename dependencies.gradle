@@ -87,7 +87,7 @@ ext.versions = [
 
         stripe                 : '10.3.1',
 
-        biometric              : '1.0.0-alpha04',
+        biometric_version      : '1.0.1',
 
         crashlytics            : '2.9.8@aar',
 

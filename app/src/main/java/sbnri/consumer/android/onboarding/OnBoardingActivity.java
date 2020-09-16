@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -42,8 +43,10 @@ import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.bottomsheetDialoguesFrags.UserEmailBottomSheetFragment;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.home.HomeActivity;
+import sbnri.consumer.android.util.BottomSheetUtil;
 
 public class OnBoardingActivity extends BaseActivity implements OnBoardingContract.OnBoardingView {
 
@@ -51,12 +54,19 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
     public static String TAG = OnBoardingActivity.class.getSimpleName();
     @BindView(R.id.tab_indicator)
     TabLayout tabIndicator;
+
     @BindView(R.id.signUpGoogle)
     Button btnSignUpGoogle;
+
     @BindView(R.id.screen_viewpager)
     ViewPager screenViewPager;
-    @BindView(R.id.displayResult)
-    TextView displayResult;
+
+    @BindView(R.id.ivEmail)
+    ImageView ivEmail;
+
+    @BindView(R.id.btnEmail)
+    Button btnEmail;
+
     @Inject
     OnBoardingPresenterImpl onBoardingPresenter;
     // [END declare_auth]
@@ -204,6 +214,18 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
 
     }
+
+
+
+    @OnClick({R.id.ivEmail,R.id.btnEmail})
+    public void onEmailClicked()
+    {
+       // BottomSheetUtil.Companion.showEmailBottomSheet(context,bottomSheet);
+        UserEmailBottomSheetFragment fragment = new UserEmailBottomSheetFragment();
+        fragment.show(getSupportFragmentManager(),"Enter Email");
+
+    }
+
 
     @Override
     public void initView() {
