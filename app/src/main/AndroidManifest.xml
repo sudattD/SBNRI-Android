@@ -40,6 +40,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
+
+            <!-- deep link -->
+
+            <intent-filter android:autoVerify="true">
+                <data
+                    android:host="open"
+                    android:scheme="@string/branch_uri_scheme" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/host_link"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/host_alternate_link"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/host_link_test"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/host_alternate_link_test"
+                    android:scheme="https" />
+            </intent-filter>
+
+
         </activity>
 
         <activity
@@ -53,6 +81,7 @@
             android:name=".onboarding.OnBoardingActivity"
             android:label="SBNRI"
             android:screenOrientation="portrait"
+
            />
 
         <activity
@@ -63,6 +92,12 @@
 
         <activity
             android:name=".profile.ProfileCompletionActivity"
+            android:label="SBNRI"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+        <activity
+            android:name=".EmailConfirmation.EmailConfirmationActivity"
             android:label="SBNRI"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize"

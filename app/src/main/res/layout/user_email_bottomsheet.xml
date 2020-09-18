@@ -8,7 +8,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tv_enterEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/label_email_details"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,7 +29,7 @@
         android:text="We will send you a confirmation link on this e-mail id"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_enterEmail" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -39,23 +39,23 @@
         app:layout_constraintGuide_percent="0.6768448" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="36dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:fontFamily="@font/bold"
         android:hint="example@ex.com"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/label_email_details" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnContinue"
         style="@style/solidDodgerBlueButtonCommon"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -63,13 +63,13 @@
         android:text="Continue"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <View
         android:id="@+id/view"
         android:layout_width="@dimen/_35dp"
         android:layout_height="3dp"
-
+        android:visibility="gone"
         android:layout_marginTop="1dp"
         android:background="#CACACA"
         app:layout_constraintEnd_toEndOf="parent"

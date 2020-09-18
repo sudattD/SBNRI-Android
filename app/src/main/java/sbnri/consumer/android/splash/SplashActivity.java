@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.orhanobut.hawk.Hawk;
+import com.orhanobut.logger.Logger;
 
 import javax.inject.Inject;
 
@@ -23,6 +24,7 @@ import sbnri.consumer.android.home.HomeActivity;
 import sbnri.consumer.android.onboarding.OnBoardingActivity;
 import sbnri.consumer.android.onboarding.OnBoardingContract;
 import sbnri.consumer.android.onboarding.OnBoardingPresenterImpl;
+import sbnri.consumer.android.util.DeeplinkUtils;
 import sbnri.consumer.android.util.Optional;
 
 public class SplashActivity extends BaseActivity implements SplashContract.View{
@@ -49,6 +51,16 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (this.getIntent().getData() != null) {
+            Logger.e("Deeplink: " + this.getIntent().getData().toString());
+           // Logger.e(String.valueOf(DeeplinkUtils.isParsed()));
+            DeeplinkUtils.parseAndHandleDynamicLinks(sbnriPref, this);
+        }
+    }
 
     @Override
     protected BaseView getBaseView() {
@@ -80,6 +92,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
             //TODO REFACTOR BELOW CONDITIONS
             if(Hawk.get("UserDetails")!=null && !TextUtils.isEmpty( (((UserDetails) Hawk.get("UserDetails")).getToken())))
             {
+                //TODO IF PROFILE FLOW IS INCOMPLETE IT SHOULD GO TO PROFILE FLOW -- NOT ON HOME SCREEN
                 startActivity(HomeActivity.createInstance(context));
             }
             else

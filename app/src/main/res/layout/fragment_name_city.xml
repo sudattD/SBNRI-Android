@@ -9,7 +9,7 @@
     >
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_label_name" />
 
     <EditText
-        android:id="@+id/editLastName"
+        android:id="@+id/etLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextCityName"
+        android:id="@+id/etCityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -43,14 +43,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Continue "
         style="@style/solidDodgerBlueButtonCommon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCityName" />
+        app:layout_constraintTop_toBottomOf="@+id/etCityName" />
 
     <TextView
         android:id="@+id/tv_label_name"
@@ -70,7 +70,7 @@
         android:layout_marginTop="32dp"
         android:text="Last Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <TextView
         android:id="@+id/textView5"
@@ -80,5 +80,5 @@
         android:layout_marginTop="32dp"
         android:text="City"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLastName" />
+        app:layout_constraintTop_toBottomOf="@+id/etLastName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

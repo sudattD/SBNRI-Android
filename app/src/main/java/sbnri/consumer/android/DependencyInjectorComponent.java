@@ -8,11 +8,13 @@ import android.content.Context;
 import com.squareup.picasso.Picasso;
 
 import dagger.Component;
+import sbnri.consumer.android.EmailConfirmation.EmailConfirmationActivity;
 import sbnri.consumer.android.accountflow.ShowBanksListActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseViewModule;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.base.schedulers.SchedulerProvider;
+import sbnri.consumer.android.bottomsheetDialoguesFrags.UserEmailBottomSheetFragment;
 import sbnri.consumer.android.data.local.SBNRILocalDataSource;
 import sbnri.consumer.android.data.local.SBNRIPref;
 import sbnri.consumer.android.data.local.SBNRIRepository;
@@ -62,5 +64,7 @@ public interface DependencyInjectorComponent {
     void injectDependencies(ShowBanksListActivity activity);
 
 
+    void injectDependencies(UserEmailBottomSheetFragment fragment);
 
+    void injectDependencies(EmailConfirmationActivity activity);
 }

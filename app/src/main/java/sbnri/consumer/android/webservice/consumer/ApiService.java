@@ -23,4 +23,7 @@ public interface ApiService {
 
     @GET("get_all_banks_data")
     Flowable<SBNRIResponse<AllBanksData>> getAllBanksData();
+
+    @POST("generate_link_for_email")
+    Flowable<SBNRIResponse> generateLinkForEmail(@Body HashMap<String, Object> params);
 }

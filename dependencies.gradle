@@ -109,7 +109,13 @@ ext.versions = [
 
         installreferrer        : '1.1.1',
 
-        googleServices          : '18.1.0'
+        googleServices          : '18.1.0',
+
+        firebaseAuth : '19.3.2',
+
+        firebaseDataBase : '19.4.0',
+
+        firebaseAnalytics : '17.5.0'
 
 
 

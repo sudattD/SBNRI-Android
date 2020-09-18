@@ -28,6 +28,7 @@ import sbnri.consumer.android.qualifiers.LocalDataSource;
 import sbnri.consumer.android.qualifiers.SBNRIRepositoryQualifier;
 import sbnri.consumer.android.scopes.ApplicationScope;
 import sbnri.consumer.android.webservice.consumer.ApiService;
+import sbnri.consumer.android.webservice.consumer.CurlLoggingInterceptor;
 import sbnri.consumer.android.webservice.consumer.HeaderInterceptor;
 import sbnri.consumer.android.webservice.consumer.RestClient;
 
@@ -43,7 +44,7 @@ public class NetworkModule {
                 .readTimeout(Constants.TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(Constants.TIMEOUT, TimeUnit.SECONDS);
 
-        return clientBuilder.addInterceptor(loggingInterceptor).addInterceptor(headerInterceptor).build();
+        return clientBuilder.addInterceptor(loggingInterceptor).addInterceptor(headerInterceptor).addInterceptor(new CurlLoggingInterceptor()).build();
     }
 
     @ApplicationScope

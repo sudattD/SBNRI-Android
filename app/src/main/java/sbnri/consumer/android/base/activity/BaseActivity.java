@@ -188,11 +188,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         if (!AppState.isAppOnline()) {
            // BottomSheetUtil.Companion.showNetworkBottomSheet(context,bottomSheet);
 
-            no_internet_view.setVisibility(View.VISIBLE);
+         //   no_internet_view.setVisibility(View.VISIBLE);
         }
         if (AppState.isAppOnline()) {
            //BottomSheetUtil.Companion.dismissNetworkBottomSheet(bottomSheet);
-            no_internet_view.setVisibility(View.GONE);
+          //  no_internet_view.setVisibility(View.GONE);
 
         }
     }

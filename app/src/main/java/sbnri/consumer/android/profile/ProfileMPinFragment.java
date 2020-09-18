@@ -18,25 +18,15 @@ import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.data.models.UserDetails;
-import sbnri.consumer.android.util.FragmentUtils;
 
-public class ProfileNameAndCityFragment extends BaseFragment {
+public class ProfileMPinFragment extends BaseFragment {
 
-    UserDetails mUserDetails;
-
-    @BindView(R.id.etName)
-    EditText etName;
-
-    @BindView(R.id.etLastName)
-    EditText etLastName;
 
     @BindView(R.id.btnContinue)
     Button btnContinue;
 
-
-
-    public static ProfileNameAndCityFragment newInstance() {
-        ProfileNameAndCityFragment fragment = new ProfileNameAndCityFragment();
+    public static ProfileMPinFragment newInstance() {
+        ProfileMPinFragment fragment = new ProfileMPinFragment();
         Bundle args = new Bundle();
         //args.putString(Constants.FLOW, flow);
         fragment.setArguments(args);
@@ -57,7 +47,7 @@ public class ProfileNameAndCityFragment extends BaseFragment {
 
     @Override
     public View onCreateKnifeView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return LayoutInflater.from(container.getContext()).inflate(R.layout.fragment_name_city,container,false);
+        return LayoutInflater.from(container.getContext()).inflate(R.layout.fragment_mpin_password,container,false);
     }
 
     @Override
@@ -69,10 +59,7 @@ public class ProfileNameAndCityFragment extends BaseFragment {
 
     private void initView() {
 
-        mUserDetails = Hawk.get("UserDetails");
 
-        etLastName.setText(mUserDetails.getLastname());
-        etName.setText(mUserDetails.getFirstName());
     }
 
 
@@ -80,6 +67,5 @@ public class ProfileNameAndCityFragment extends BaseFragment {
     public void btnContinue()
     {
 
-        FragmentUtils.replaceFragment(this,ProfileMPinFragment.newInstance(),true);
     }
 }

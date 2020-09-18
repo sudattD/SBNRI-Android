@@ -34,4 +34,9 @@ public class SBNRIRepository implements SBNRIDataSource {
     public Flowable<SBNRIResponse<AllBanksData>> getAllBanksData() {
         return service.getAllBanksData();
     }
+
+    @Override
+    public Flowable<SBNRIResponse> generateLinkForEmail(HashMap<String, Object> params) {
+        return service.generateLinkForEmail(params);
+    }
 }

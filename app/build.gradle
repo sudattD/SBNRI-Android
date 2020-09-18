@@ -65,14 +65,15 @@ dependencies {
     implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:$versions.picassoOkHttpDownloader"
     implementation "androidx.cardview:cardview:$versions.supportLibs"
     implementation "com.google.android.gms:play-services-auth:$versions.googleServices"
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation "com.flipboard:bottomsheet-core:$versions.flipboard"
-
+    implementation "com.orhanobut:logger:$versions.logger"
     //biometric fingerprint sensor
     implementation "androidx.biometric:biometric:$versions.biometric_version"
 
     //Firebase
-    implementation 'com.google.firebase:firebase-auth:19.3.2'
-    implementation 'com.google.firebase:firebase-database:19.4.0'
+    implementation "com.google.firebase:firebase-auth:$versions.firebaseAuth"
+    implementation "com.google.firebase:firebase-database:$versions.firebaseDataBase"
+    implementation "com.google.firebase:firebase-analytics:$versions.firebaseAnalytics"
+    implementation "com.google.firebase:firebase-dynamic-links:$versions.firebase"
 
 }

@@ -14,6 +14,7 @@
         <item name="android:fontFamily">@font/regular</item>
         <item name="android:windowLightStatusBar">true</item>
 
+
     </style>
 
 
@@ -195,7 +196,8 @@
     <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
-        <item name="android:drawable">@drawable/bottomsheet_bg</item>
+        <item name="bottomSheetStyle">@drawable/bottomsheet_bg</item>
+        <item name="android:theme">@style/AppTheme</item>
     </style>
 
 </resources>

@@ -51,8 +51,13 @@ public class HeaderInterceptor implements Interceptor {
                 builder.addHeader("Authorization", accessToken);
             }
 
-                builder.addHeader("X-DEVICE","2"); //2 for android //1 for ios
+            if(!TextUtils.isEmpty(Hawk.get(OnBoardingPresenterImpl.Companion.getUSERNAME(),"")))
+            {
                 builder.addHeader("X-USERNAME",Hawk.get(OnBoardingPresenterImpl.Companion.getUSERNAME(),""));
+
+            }
+
+                builder.addHeader("X-DEVICE","2"); //2 for android //1 for ios
 
         }
         //Bearer fe9e06313a5d46dcbd32c991123d42d141cc9d5c

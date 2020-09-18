@@ -50,7 +50,7 @@ public class FragmentUtils {
                                        @NonNull Fragment fragment,
                                        int containerId,
                                        boolean isHide) {
-        return addFragment(fragmentManager, fragment, containerId, isHide, false);
+        return addFragment(fragmentManager, fragment, containerId, isHide, true);
     }
 
     /**

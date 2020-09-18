@@ -20,8 +20,18 @@
     <string name="app_language">en</string>
     <string name="you_seem_to_be_offline">you seem to be offline</string>
     <string name="refreshing_data">refreshing your data</string>
-    
-    
+
+
+    <!--Deep Link URLs -->
+    <string name="branch_uri_scheme" translatable="false">sbnri</string>
+    <string name="host_link" translatable="false">app-link.sbnri.com</string>
+    <string name="host_alternate_link" translatable="false">sbnri-alternate.app.link</string>
+    <string name="host_link_test" translatable="false">sbnri.test-app.link</string>
+    <string name="host_alternate_link_test" translatable="false">sbnri-alternate.test-app.link</string>
+
+
+
+
     <!-- Home CArd strings -->
     <!-- to be kept inside firebase realtime db -->
     <string name="open_account_card">Book TAX-FREE FDs\nof up to 7.5%\nin Indian Banks</string>
@@ -46,6 +56,12 @@
     <string name="onboarding_subtitle_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
     <string name="onboarding_subtitle_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
     <string name="onboarding_subtitle_four">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
+
+
+    <string name="terms_and_condition">Agree and continue with &lt;u>terms and conditions&lt;/u>.</string>
+    <string name="confirm_email_address">To confirm your email address,tap the link in the email at %s</string>
+
+    <string name="open_gmail">&lt;u>Open gmail App&lt;/u>.</string>
 
 
 </resources>

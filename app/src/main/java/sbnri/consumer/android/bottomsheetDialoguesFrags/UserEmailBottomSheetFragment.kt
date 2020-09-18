@@ -1,32 +1,83 @@
 package sbnri.consumer.android.bottomsheetDialoguesFrags
 
 import android.app.Dialog
+import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputFilter
+import android.text.InputFilter.LengthFilter
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.FrameLayout
 import androidx.fragment.app.DialogFragment
-import butterknife.ButterKnife
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kotlinx.android.synthetic.main.user_email_bottomsheet.*
+import sbnri.consumer.android.DaggerDependencyInjectorComponent
+import sbnri.consumer.android.DependencyInjectorComponent
+import sbnri.consumer.android.EmailConfirmation.EmailConfirmationActivity
 import sbnri.consumer.android.R
+import sbnri.consumer.android.base.activity.BaseActivityComponent
+import sbnri.consumer.android.base.activity.BaseFragment
+import sbnri.consumer.android.base.activity.BaseViewModule
+import sbnri.consumer.android.base.contract.BaseView
+import sbnri.consumer.android.constants.Constants.EMAIL_ADDRESS_PATTERN
+import sbnri.consumer.android.databinding.UserEmailBottomsheetBinding
 import sbnri.consumer.android.onboarding.UserEmail.UserEmailContract
-import sbnri.consumer.android.splash.SplashContract
+import sbnri.consumer.android.onboarding.UserEmail.UserEmailPresenterImpl
+import sbnri.consumer.android.util.extensions.disable
+import sbnri.consumer.android.util.extensions.enable
+import javax.inject.Inject
+
 
 class UserEmailBottomSheetFragment : BottomSheetDialogFragment(),UserEmailContract.View
 {
+    private var mContext: Context? = null
+    private var baseFragmentContract: BaseFragment.BaseFragmentContract? = null
+
+    private lateinit var binding:UserEmailBottomsheetBinding
+
+
+    //https://stackoverflow.com/questions/45614024/dagger2-inject-a-presenter-into-a-kotlin-activity-error
+    @Inject internal lateinit var
+     presenterImpl : UserEmailPresenterImpl
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogStyle)
+
+        this.mContext = activity
+        if (activity is BaseFragment.BaseFragmentContract) {
+            baseFragmentContract = activity as BaseFragment.BaseFragmentContract?
+        }
+        if (baseFragmentContract != null) initialiseDaggerDependencies(baseFragmentContract?.getBaseActivityComponent())
+
+    }
+
+    private fun initialiseDaggerDependencies(baseActivityComponent: BaseActivityComponent?) {
+        callDependencyInjector(DaggerDependencyInjectorComponent.builder().baseActivityComponent(baseActivityComponent)
+                .baseViewModule(BaseViewModule(getBaseView())).build())
+    }
+
+    private fun callDependencyInjector(injectorComponent: DependencyInjectorComponent) {
+        injectorComponent.injectDependencies(this)
     }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view:View = inflater.inflate(R.layout.user_email_bottomsheet,container,false)
-        ButterKnife.bind(this,view);
+
+        binding = UserEmailBottomsheetBinding.inflate(inflater,container,false)
+        val view:View = binding.root
+        initView()
         return view
     }
 
@@ -44,8 +95,27 @@ class UserEmailBottomSheetFragment : BottomSheetDialogFragment(),UserEmailContra
         return dialog
     }
 
+
     override fun initView() {
-        TODO("Not yet implemented")
+        binding.btnContinue.disable()
+        setUpEditText();
+        binding.btnContinue.setOnClickListener {
+
+            presenterImpl.generateLinkForEmail(binding.etEmail.text.toString())
+           /* (activity as OnBoardingActivity).onItemClick(binding.btnContinue, binding.etEmail.text)
+                dismiss()*/
+        }
+
+
+    }
+
+
+
+
+    private fun setUpEditText() {
+
+        binding.etEmail.addTextChangedListener(textWatcherForEmail)
+
     }
 
     override fun showToastMessage(toastMessage: String?, isErrortoast: Boolean) {
@@ -63,4 +133,45 @@ class UserEmailBottomSheetFragment : BottomSheetDialogFragment(),UserEmailContra
     override fun showProgress() {
         TODO("Not yet implemented")
     }
+    private fun getBaseView(): BaseView? {
+        return this
+    }
+
+    interface OnCommonItemClickListener
+    {
+        fun onItemClick(view: View?, `object`: Any?)
+    }
+
+    private val textWatcherForEmail: TextWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+
+            if (!TextUtils.isEmpty(etEmail.text)) {
+                if (!s.toString().matches(Regex(EMAIL_ADDRESS_PATTERN))) {
+
+                    binding.btnContinue.disable()
+                }
+                else
+                    binding.btnContinue.enable()
+            }
+        }
+        override fun afterTextChanged(s: Editable) {
+
+
+        }
+    }
+
+
+
+    override fun generateLinkForEmailSuccess(status: Int) {
+        when (status)
+        {
+            1 -> startActivity(EmailConfirmationActivity.createInstance(context))
+        }
+    }
+
+    override fun dismissBottomSheet() {
+        dismiss()
+    }
 }
+

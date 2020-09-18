@@ -84,18 +84,18 @@
         app:srcCompat="@drawable/arrow_right" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTermsAndCondition"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:gravity="center"
         android:layout_marginBottom="24dp"
-        android:text="Agree and continue with terms and conditions"
+        tools:text="Agree and continue with \nterms and conditions"
         android:textAllCaps="false"
-        android:textColor="#4C5682"
+        android:lines="2"
+        android:textColor="@color/offWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.65999997" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
