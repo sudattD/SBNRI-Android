@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent">
+    android:background="@color/transparent"
+    >
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -16,11 +17,12 @@
         android:id="@+id/intro_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Get Tax and Legal\n advisory "
-        android:textColor="@color/white"
-        android:textSize="22dp"
-        android:textStyle="bold"
-
+        android:text="@string/onboarding_title_two"
+        android:textColor="@color/offWhite"
+        android:textSize="@dimen/font_24sp"
+       android:fontFamily="@font/bold"
+        android:alpha="0.9"
+        android:letterSpacing="0.01"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -29,10 +31,13 @@
     <TextView
         android:id="@+id/intro_description"
         android:layout_width="0dp"
-        android:textColor="@color/onboarding_subtitle"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/medium"
         android:gravity="left"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis nisi ac ligula aliquam, id aliquam mi dapibus"
+        android:textColor="@color/offWhite"
+        android:alpha="0.5"
+        android:letterSpacing="0.02"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/intro_title"
         app:layout_constraintStart_toStartOf="@+id/intro_title"
@@ -52,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8"
+        app:layout_constraintGuide_percent="0.83"
         app:layout_constraintStart_toStartOf="parent" />
 
 

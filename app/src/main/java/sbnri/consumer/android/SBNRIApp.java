@@ -15,7 +15,6 @@ import sbnri.consumer.android.modules.AppModule;
 
 public class SBNRIApp extends MultiDexApplication {
 
-
     private SBNRIAppComponent component;
 
     @Inject

@@ -49,16 +49,16 @@
 
     <!-- Onboarding strings-->
     <string name="onboarding_title_one">Welcome to SB NRI</string>
-    <string name="onboarding_title_two">Open NRI bank/naccount in 10 minutes</string>
+    <string name="onboarding_title_two">Open NRI bank  account in 10 minutes</string>
     <string name="onboarding_title_three">Book tax free FD up-to 7% p.a.</string>
-    <string name="onboarding_title_four">Get tax and legal/nadvisory</string>
+    <string name="onboarding_title_four">Get tax and legal advisory</string>
     <string name="onboarding_subtitle_one">Redefining the NRI banking experience.</string>
     <string name="onboarding_subtitle_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
     <string name="onboarding_subtitle_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
     <string name="onboarding_subtitle_four">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
 
 
-    <string name="terms_and_condition">Agree and continue with &lt;u>terms and conditions&lt;/u>.</string>
+    <string name="terms_and_condition">Agree &amp; continue with \n &lt;u>Terms &amp; conditions&lt;/u>.</string>
     <string name="confirm_email_address">To confirm your email address,tap the link in the email at %s</string>
 
     <string name="open_gmail">&lt;u>Open gmail App&lt;/u>.</string>

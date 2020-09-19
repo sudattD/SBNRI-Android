@@ -29,6 +29,7 @@ sbnriPref: SBNRIPref,
       val params = HashMap<String,Any?>()
         params[ApiParameters.EMAIL] = email
 
+        view?.showProgress()
         val extras = HashMap<String,Any?>()
         extras.put(ApiParameters.EMAIL,email)
         NetworkUtils.makeNetworkCall(ApiCallTags.GENERATE_LINK_FOR_EMAIL,sbnriDataSource.generateLinkForEmail(params),
@@ -37,6 +38,7 @@ sbnriPref: SBNRIPref,
 
 
     override fun onSuccess(callTag: String?, response: SBNRIResponse<*>?, extras: java.util.HashMap<String, Any>?) {
+        view?.hideProgress()
         if(response?.data == null)
         {
             onFailure(callTag, response, extras)
@@ -61,10 +63,12 @@ sbnriPref: SBNRIPref,
 
 
     override fun onFailure(callTag: String?, response: SBNRIResponse<*>?, extras: java.util.HashMap<String, Any>?) {
+        view?.hideProgress()
         super.onFailure(callTag, response, extras)
     }
 
     override fun onError(callTag: String?, e: Throwable?, extras: java.util.HashMap<String, Any>?) {
+        view?.hideProgress()
         super.onError(callTag, e, extras)
     }
 }

@@ -35,6 +35,8 @@ import sbnri.consumer.android.onboarding.UserEmail.UserEmailContract
 import sbnri.consumer.android.onboarding.UserEmail.UserEmailPresenterImpl
 import sbnri.consumer.android.util.extensions.disable
 import sbnri.consumer.android.util.extensions.enable
+import sbnri.consumer.android.util.extensions.hideKeyboard
+import sbnri.consumer.android.util.extensions.showKeyboard
 import javax.inject.Inject
 
 
@@ -97,7 +99,10 @@ class UserEmailBottomSheetFragment : BottomSheetDialogFragment(),UserEmailContra
 
 
     override fun initView() {
+
+        binding.root.showKeyboard()
         binding.btnContinue.disable()
+        binding.progressBar.visibility = View.GONE
         setUpEditText();
         binding.btnContinue.setOnClickListener {
 
@@ -123,7 +128,8 @@ class UserEmailBottomSheetFragment : BottomSheetDialogFragment(),UserEmailContra
     }
 
     override fun hideProgress() {
-        TODO("Not yet implemented")
+        binding.progressBar.visibility = View.GONE
+        binding.root.hideKeyboard()
     }
 
     override fun accessTokenExpired() {
@@ -131,7 +137,7 @@ class UserEmailBottomSheetFragment : BottomSheetDialogFragment(),UserEmailContra
     }
 
     override fun showProgress() {
-        TODO("Not yet implemented")
+        binding.progressBar.visibility = View.VISIBLE
     }
     private fun getBaseView(): BaseView? {
         return this

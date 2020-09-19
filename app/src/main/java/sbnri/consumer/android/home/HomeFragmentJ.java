@@ -142,13 +142,12 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
     @OnClick(R.id.btn_open_nri_accnt)
     public void openBankListActivity()
     {
-/*        context.startActivity(ShowBanksListActivity.createInstance(context,mPreferredBanksMetaData,
+        context.startActivity(ShowBanksListActivity.createInstance(context,mPreferredBanksMetaData,
                 mOthersaBanksMetaData,
                 new ArrayList<>(mPreferredBanksList),
                 new ArrayList<>(mOthersBanksList),new ArrayList<>(allBanks)));
-        */
 
-        context.startActivity(ProfileCompletionActivity.createInstance(context));
+       // context.startActivity(ProfileCompletionActivity.createInstance(context));
        // Intent intent = new Intent()
         //startActivity();
     }

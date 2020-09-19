@@ -11,30 +11,24 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:layout_height="match_parent">
 
     </androidx.viewpager.widget.ViewPager>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_width="@dimen/_60dp"
+        android:layout_height="@dimen/_10dp"
         app:layout_constrainedHeight="false"
+        android:layout_marginBottom="@dimen/_35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintVertical_bias="0.78"
         app:tabBackground="@drawable/indicator_selector"
-        app:tabIndicatorHeight="@dimen/_0dp">
+        app:tabIndicatorHeight="@dimen/_0dp"
+        >
 
 
     </com.google.android.material.tabs.TabLayout>
@@ -42,15 +36,20 @@
     <Button
         android:id="@+id/signUpGoogle"
         style="@style/signupButtonTheme"
-        android:layout_width="250dp"
-        android:layout_marginTop="24dp"
-        android:drawablePadding="15dp"
+        android:layout_width="267dp"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="@dimen/_8dp"
+        android:fontFamily="@font/bold"
         android:text="Sign-Up with google"
+        android:textSize="@dimen/font_15sp"
+        android:textColor="@color/offWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tab_indicator"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        />
+
 
     <Button
         android:id="@+id/btnEmail"
@@ -64,9 +63,10 @@
         android:gravity="center"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:text="Use Email"
+        android:text="Use E-mail"
+        android:alpha="0.7"
         android:textAllCaps="false"
-
+        android:fontFamily="@font/bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpGoogle" />
@@ -75,8 +75,8 @@
         android:id="@+id/ivEmail"
         android:layout_width="@dimen/_7dp"
         android:layout_height="@dimen/_10dp"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="@dimen/_4dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnEmail"
         app:layout_constraintStart_toEndOf="@+id/btnEmail"
         app:layout_constraintTop_toBottomOf="@+id/signUpGoogle"
@@ -87,15 +87,19 @@
         android:id="@+id/tvTermsAndCondition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginBottom="24dp"
-        tools:text="Agree and continue with \nterms and conditions"
+        android:fontFamily="@font/medium"
+        android:textSize="@dimen/font_11sp"
+        android:gravity="center"
         android:textAllCaps="false"
-        android:lines="2"
         android:textColor="@color/offWhite"
+        android:alpha="0.25"
+        android:letterSpacing="0.03"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/terms_and_condition"
+        tools:text="Agree and continue with \nterms and conditions" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

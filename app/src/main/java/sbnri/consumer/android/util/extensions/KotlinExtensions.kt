@@ -1,6 +1,9 @@
 package sbnri.consumer.android.util.extensions
 
+import android.content.Context
 import android.graphics.PorterDuff
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import sbnri.consumer.android.R
 
@@ -23,4 +26,18 @@ fun Button.enable()
 fun Any.isNullTrue(obj:Any?):Boolean
 {
     return obj == null
+}
+
+fun View.showKeyboard() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    this.requestFocus()
+    imm.showSoftInput(this, 0)
+}
+
+fun View.hideKeyboard(): Boolean {
+    try {
+        val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        return inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
+    } catch (ignored: RuntimeException) { }
+    return false
 }
