@@ -7,7 +7,6 @@
     android:background="@drawable/onboarding_bg"
     tools:context=".onboarding.OnBoardingActivity">
 
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
         android:layout_width="match_parent"
@@ -27,8 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.78"
         app:tabBackground="@drawable/indicator_selector"
-        app:tabIndicatorHeight="@dimen/_0dp"
-        >
+        app:tabIndicatorHeight="@dimen/_0dp">
 
 
     </com.google.android.material.tabs.TabLayout>
