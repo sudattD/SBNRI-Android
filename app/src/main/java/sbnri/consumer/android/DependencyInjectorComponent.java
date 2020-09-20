@@ -20,6 +20,8 @@ import sbnri.consumer.android.data.local.SBNRIPref;
 import sbnri.consumer.android.data.local.SBNRIRepository;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 import sbnri.consumer.android.onboarding.OnBoardingActivity;
+import sbnri.consumer.android.profile.ProfileCompletionActivity;
+import sbnri.consumer.android.profile.ProfileNameAndCityFragment;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.qualifiers.LocalDataSource;
@@ -67,4 +69,7 @@ public interface DependencyInjectorComponent {
     void injectDependencies(UserEmailBottomSheetFragment fragment);
 
     void injectDependencies(EmailConfirmationActivity activity);
+
+    void injectDependencies(ProfileNameAndCityFragment fragment);
+    void injectDependencies(ProfileCompletionActivity activity);
 }

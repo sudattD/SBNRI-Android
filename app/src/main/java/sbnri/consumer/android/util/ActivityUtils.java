@@ -1,13 +1,22 @@
 package sbnri.consumer.android.util;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.math.BigInteger;
 
@@ -15,6 +24,7 @@ import androidx.core.content.ContextCompat;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.adapters.ItemEncapsulator;
 import sbnri.consumer.android.base.activity.BaseActivity;
+import sbnri.consumer.android.dialogue.BottomsheetReplacementDialog;
 
 public class ActivityUtils {
 
@@ -78,6 +88,51 @@ public class ActivityUtils {
         return status;
     }
 
+    // Use if you want to create normal dialogs.
+    public static Dialog getFlavourSpecificDialog(Context context, int layout) {
+        return getFlavourSpecificDialog(context, 0, layout, true, true, false);
+    }
+    public static Dialog getFlavourSpecificDialog(Context context, int style, int layout, boolean isCancelable, boolean isCancelableOutside, boolean isSoftInputStateVisible) {
+        Dialog dialog = getDialog(context, style);
+        if (layout != 0)
+            dialog.setContentView(layout);
+        Window window = dialog.getWindow();
+        if (window != null && isSoftInputStateVisible) {
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        }
+        setFlavourSpecificWindowAttributes(context, window);
+        dialog.setCancelable(isCancelable);
+        dialog.setCanceledOnTouchOutside(isCancelableOutside);
+        return dialog;
+    }
+
+    private static Dialog getDialog(Context context, int style) {
+
+         return new BottomsheetReplacementDialog(context, style);
+    }
+
+    public static void setFlavourSpecificWindowAttributes(Context context, Window window) {
+        if (window != null) {
+            WindowManager.LayoutParams wmlp = window.getAttributes();
+                window.setGravity(Gravity.BOTTOM);
+                wmlp.width = android.view.WindowManager.LayoutParams.MATCH_PARENT;
+                wmlp.height = android.view.WindowManager.LayoutParams.WRAP_CONTENT;
+
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+    }
+
+    public static Bitmap getResizedBitmap(Bitmap bitmap, int compressTo) {
+        float bmpHeight = bitmap.getHeight();
+        float bmpWidth = bitmap.getWidth();
+        float ratio = bmpHeight / bmpWidth;
+
+        int bitmapWidth = compressTo;
+        float ratioHeight = compressTo * ratio;
+        int bitmapHeight = Math.round(ratioHeight);
+
+        return Bitmap.createScaledBitmap(bitmap, bitmapWidth, bitmapHeight, true);
+    }
 
     }
 

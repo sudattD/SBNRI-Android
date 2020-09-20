@@ -15,6 +15,7 @@
         <item name="android:windowLightStatusBar">true</item>
 
 
+        <!--  <item name="android:colorBackground">@color/colorPrimary</item> -->
     </style>
 
 
@@ -80,7 +81,7 @@
 
 
     <style name="LabelGeneral" parent="FontBold">
-        <item name="android:textSize">@dimen/font_12sp</item>
+        <item name="android:textSize">@dimen/font_14sp</item>
         <item name="android:textColor">@color/darkBlueGrey</item>
         <item name="android:gravity">center_vertical</item>
     </style>

@@ -67,8 +67,12 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth:$versions.googleServices"
     implementation "com.flipboard:bottomsheet-core:$versions.flipboard"
     implementation "com.orhanobut:logger:$versions.logger"
+    implementation "com.tbruyelle.rxpermissions2:rxpermissions:$versions.rxPermissions"
     //biometric fingerprint sensor
     implementation "androidx.biometric:biometric:$versions.biometric_version"
+
+    //places
+    implementation "com.google.android.libraries.places:places:$versions.places"
 
     //Firebase
     implementation "com.google.firebase:firebase-auth:$versions.firebaseAuth"

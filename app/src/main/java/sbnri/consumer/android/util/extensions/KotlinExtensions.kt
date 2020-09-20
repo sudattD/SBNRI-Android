@@ -10,7 +10,7 @@ import sbnri.consumer.android.R
 
 fun Button.disable()
 {
-    getBackground().setColorFilter(resources.getColor(R.color.semitransparent), PorterDuff.Mode.MULTIPLY)
+    //getBackground().setColorFilter(resources.getColor(R.color.semitransparent), PorterDuff.Mode.MULTIPLY)
     alpha = 0.5f
     setClickable(false)
 }
@@ -19,7 +19,7 @@ fun Button.disable()
 fun Button.enable()
 {
         alpha = 1f
-        getBackground().setColorFilter(resources.getColor(R.color.dodgerBlue), PorterDuff.Mode.MULTIPLY)
+      //  getBackground().setColorFilter(resources.getColor(R.color.dodgerBlue), PorterDuff.Mode.MULTIPLY)
         setClickable(true)
     }
 

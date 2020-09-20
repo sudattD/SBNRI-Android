@@ -14,9 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:ems="10"
+        android:fontFamily="@font/bold"
         android:hint="@string/full_name"
         android:inputType="textPersonName"
-
+        tools:text="John Doe"
+        android:textSize="@dimen/font_20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_label_name" />
 
@@ -27,9 +29,11 @@
         android:layout_marginStart="32dp"
         android:ems="10"
         android:hint="@string/last_name"
-        android:inputType="textAutoComplete"
+        tools:text="Last Name"
+        android:fontFamily="@font/bold"
+        android:textSize="@dimen/font_20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_lastName" />
 
     <EditText
         android:id="@+id/etCityName"
@@ -38,6 +42,9 @@
         android:layout_marginStart="32dp"
         android:ems="10"
         android:hint="@string/city"
+        tools:text="Jakarta"
+        android:textSize="@dimen/font_20sp"
+        android:fontFamily="@font/bold"
         android:inputType="textAutoComplete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -59,16 +66,18 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/name"
+        android:textColor="@color/darkBlueGreyopacity50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_label_lastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/last_name"
+        android:textColor="@color/darkBlueGreyopacity50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
@@ -79,6 +88,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="@string/city"
+        android:textColor="@color/darkBlueGreyopacity50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etLastName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

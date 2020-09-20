@@ -2,6 +2,7 @@ package sbnri.consumer.android;
 
 import android.content.Context;
 
+import com.google.android.libraries.places.api.Places;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
 import com.orhanobut.hawk.NoEncryption;
@@ -30,10 +31,17 @@ public class SBNRIApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         buildAppComponent();
-
+        initPlaces();
         HawkBuilder builder = Hawk.init(this);
         builder.setEncryption(new NoEncryption());
         builder.build();
+    }
+
+    private void initPlaces() {
+        if (!Places.isInitialized()) {
+            Places.initialize(this, getString(R.string.maps_api_key));
+        }
+
     }
 
     private void buildAppComponent() {

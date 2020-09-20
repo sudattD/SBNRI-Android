@@ -1,5 +1,7 @@
 package sbnri.consumer.android.constants;
 
+import android.Manifest;
+
 import java.util.regex.Pattern;
 
 public interface Constants {
@@ -10,6 +12,10 @@ public interface Constants {
     String BASE_URL = "BaseURL";
     String ACCESS_TOKEN = "AccessToken";
 
+    int COMPRESSED_IMAGE_WIDTH = 720;
+
+    int REQUEST_PERMISSION_INDIVIDUAL = 71;
+
     String FRAG_ID = "fragId";
 
     String PREFERRED_BANKS_META_DATA = "mPreferredBanksMetaData";
@@ -19,6 +25,9 @@ public interface Constants {
     String ALL_BANKS_LIST = "allBanksList";
 
     String  SBNRI_USER_OBJ = "UserDetails";
+
+    // PERMISSIONS
+    String[] CAMERA_PERMISSIONS = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
 
     String ID_TOKEN = "idToken";

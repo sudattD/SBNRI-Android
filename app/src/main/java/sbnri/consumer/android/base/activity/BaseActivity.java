@@ -10,6 +10,7 @@ import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.flipboard.bottomsheet.BottomSheetLayout;
 
@@ -196,6 +197,23 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
         }
     }
 
+    public void runNetworkDependentTask(Runnable onNetworkAvailable, Runnable onNetworkUnavailable) {
+        switch (AppState.getAppState()) {
+            case AppState.STATE_ONLINE:
+                onNetworkAvailable.run();
+                break;
+            case AppState.STATE_OFFLINE:
+                if (onNetworkUnavailable != null) {
+                    onNetworkUnavailable.run();
+                } else {
+                    //servifyToast(getString(R.string.please_connect_to_internet_to_contiue), Toast.LENGTH_SHORT, true);
+                }
+                break;
+            case AppState.STATE_SYNCING:
+                //servifyToast(getString(R.string.refreshing_data_wait), Toast.LENGTH_SHORT, true);
+                break;
+        }
+    }
 
     @OnClick(R.id.btn_retry)
     public void setBtn_retry()

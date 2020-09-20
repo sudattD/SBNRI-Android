@@ -7,6 +7,9 @@
     <string name="profile_navigation">Profile</string>
     <string name="secret_key_shared_preference"><![CDATA[<string name=\"secret_keyPBKDF2WithHmacSHA1]]></string>
 
+    <string name="maps_api_key_new" translatable="false">AIzaSyAGME3dc_BPY4LrtDr9hZmFG_evOTqm39Y</string>
+    <string name="maps_api_key" translatable="false">AIzaSyDgPnb8PhOuPi9OrWbeUg4kAReEUKgdxvQ</string>
+
 
     <string name="something_went_wrong">Something went wrong!</string>
 
@@ -86,5 +89,23 @@
     <string name="interest_rate">Interest rate</string>
     <string name="fd_rate">FD rate</string>
     <string name="_2_days">2 days</string>
+
+
+    <!-- Utils -->
+    <string name="permission_denied_count_3">This application will not work unless you allow the permission. Please click on "allow" when you are asked to grant us permission.</string>
+    <string name="permission_denied_count_6">This application will exit if you deny the permission again. Please click on "allow" when you are asked to grant us permission.</string>
+    <string name="open_permission_setting_for_best_app_experience">To get the best app experience, please tap on the Open Settings -> Permissions and enable %s permission.</string>
+    <string name="permission_rational">For proper functionality we need access to some of the features of this phone. Please click on "allow" when you will be asked to grant us permission.</string>
+    <string name="change_permissions">Change Permissions</string>
+    <string name="we_need_your_permissions">We Need Your Permission</string>
+    <string name="permission_required">Permission Required !!!</string>
+    <string name="permission_not_granted">permission not granted</string>
+    <string name="device_seems_to_be_on_airplane_mode">device seems to be on airplane mode</string>
+    <string name="go_to_settings">Go to settings</string>
+    <string name="cancel">cancel</string>
+    <string name="lets_do_it">lets do it</string>
+    <string name="allow">allow</string>
+    <string name="skip">skip</string>
+
 
 </resources>

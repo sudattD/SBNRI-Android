@@ -55,6 +55,7 @@ public class ProfileMPinFragment extends BaseFragment {
 
     private void initView() {
 
+        ((ProfileCompletionActivity)  getActivity()).setToolBarTitle("Set Mobile Pin");
 
     }
 
