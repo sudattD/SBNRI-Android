@@ -17,6 +17,7 @@ import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.util.FragmentUtils;
 
@@ -69,7 +70,7 @@ public class ProfileNameAndCityFragment extends BaseFragment {
 
     private void initView() {
 
-        mUserDetails = Hawk.get("UserDetails");
+        mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
 
         etLastName.setText(mUserDetails.getLastname());
         etName.setText(mUserDetails.getFirstName());

@@ -55,7 +55,7 @@
                             style="@style/PartialToolbarTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello,Welcome"
+                            tools:text="Hello,Welcome"
                             android:textColor="@color/darkBlueGrey"
                             android:textSize="@dimen/font_14sp"
                             android:alpha="0.6"
@@ -66,7 +66,7 @@
                             style="@style/PartialToolbarTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sudatt"
+                            tools:text="Sudatt"
                             android:textSize="@dimen/font_16sp" />
 
                </LinearLayout>

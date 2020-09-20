@@ -58,11 +58,7 @@ class OnBoardingPresenterImpl @Inject constructor(@SBNRIRepositoryQualifier val 
 
     private fun handleUserCreatedSuccess(userDetails: UserDetails) {
 
-
         //TODO refactor this
-   /*     sbnriPref.putString(TOKEN,userDetails.token)
-        sbnriPref.putString(PHOTOURL,userDetails.photoURL)
-        sbnriPref.putString(USERNAME,userDetails.userName)*/
         Hawk.put(TOKEN,userDetails.token)
         Hawk.put(PHOTOURL,userDetails.photoURL)
         Hawk.put(USERNAME,userDetails.userName)

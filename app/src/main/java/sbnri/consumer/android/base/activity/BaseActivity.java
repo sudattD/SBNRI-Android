@@ -34,7 +34,6 @@ import sbnri.consumer.android.qualifiers.ApplicationContext;
 import sbnri.consumer.android.receivers.NetworkChangeReceiver;
 import sbnri.consumer.android.receivers.SharedListeners;
 import sbnri.consumer.android.util.ActivityUtils;
-import sbnri.consumer.android.util.BottomSheetUtil;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseFragment.BaseFragmentContract, SharedListeners.NetworkChangeListener {
 

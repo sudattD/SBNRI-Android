@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import io.reactivex.Flowable;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.SBNRIApp;
+import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.local.SBNRIPref;
 import sbnri.consumer.android.onboarding.OnBoardingActivity;
 import sbnri.consumer.android.profile.ProfileCompletionActivity;
@@ -39,14 +40,7 @@ public class DeeplinkUtils {
         if (activity == null)
             return;
         isParsed = true;
-   /*     if (!ActivityUtils.isLoggedIn(servifyPref)) {
-            Intent intent = new Intent(activity, LoginActivity.class);
-            intent.setData(activity.getIntent().getData());
-            activity.startActivity(intent);
-            activity.finish();
-            activity.overridePendingTransition(R.anim.enter_from_right, R.anim.stay);
-            return;
-        }*/
+
         FirebaseDynamicLinks.getInstance()
                 .getDynamicLink(activity.getIntent())
                 .addOnSuccessListener(pendingDynamicLinkData -> {
@@ -90,8 +84,8 @@ public class DeeplinkUtils {
                                                                 String idToken = t.getResult().getToken();
                                                                 // Send token to your backend via HTTPS
                                                                 Intent intent1 = new Intent(activity, OnBoardingActivity.class);
-                                                                intent1.putExtra("idToken",idToken);
-                                                                intent.putExtra("isPushed",true);
+                                                                intent1.putExtra(Constants.ID_TOKEN,idToken);
+                                                                intent.putExtra(Constants.IS_PUSHED,true);
                                                                 gotoNextActivity(activity, intent1);
                                                                // onBoardingPresenter.getFireBasetokenVerified(idToken);
                                                                 // ...

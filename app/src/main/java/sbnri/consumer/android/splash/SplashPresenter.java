@@ -39,6 +39,8 @@ public class SplashPresenter extends SplashContract.Presenter{
 
     }
 
+
+    //TESTING PURPOSE
     @Override
     void getAllNews() {
 
@@ -46,7 +48,6 @@ public class SplashPresenter extends SplashContract.Presenter{
         params.put("page",1);
         params.put("last_hash_id",0);
 
-        mSplashView.navigateToPlayStore("fetching  ...");
 
        // NetworkUtils.makeNetworkCall(ApiCallTags.GET_ALL_NEWS, mSbnriDataSource.getAllNews(params), mSchedulerProvider, this);
 

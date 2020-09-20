@@ -20,7 +20,6 @@ public class SBNRIApp extends MultiDexApplication {
     @Inject
     SBNRIPref sbnriPref;
 
-
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);

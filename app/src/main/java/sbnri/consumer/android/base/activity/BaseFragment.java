@@ -1,7 +1,6 @@
 package sbnri.consumer.android.base.activity;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +21,6 @@ import sbnri.consumer.android.base.contract.BasePresenterImp;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.qualifiers.ActivityContext;
 import sbnri.consumer.android.qualifiers.ApplicationContext;
-import sbnri.consumer.android.qualifiers.BottomSheetDialog;
 import sbnri.consumer.android.util.ActivityUtils;
 
 public abstract class BaseFragment extends Fragment {
@@ -37,16 +35,12 @@ public abstract class BaseFragment extends Fragment {
 
     @Inject
     protected Activity activity;
-
-
-    private FragmentTransacListener fragmentTransacListener;
-    private FragmentAttachListener fragmentAttachListener;
-    private BaseFragmentContract baseFragmentContract;
     protected boolean isOfflineActive = false;
     //StickyBottomSheetDialog stickyBottomSheetDialog;
     protected String flow;
-
-
+    private FragmentTransacListener fragmentTransacListener;
+    private FragmentAttachListener fragmentAttachListener;
+    private BaseFragmentContract baseFragmentContract;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -83,14 +77,6 @@ public abstract class BaseFragment extends Fragment {
         return null;
     }
 
-    public interface FragmentTransacListener {
-        void requestTransaction(BaseFragment baseFragment, boolean shouldReplace);
-    }
-
-    public interface FragmentAttachListener {
-        void onAttached(BaseFragment fragment);
-    }
-
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
@@ -118,7 +104,6 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-
     protected void initToolbar(String title, int titleColor, int toolbarColor, int navigationIcon) {
         ActivityUtils.initToolbar((BaseActivity) getActivity(), title, titleColor, toolbarColor, navigationIcon);
     }
@@ -133,11 +118,9 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-
     protected boolean isNetworkOnline() {
         return ActivityUtils.isNetworkOnline(getActivity());
     }
-
 
     protected void hideKeyboard() {
         if (getActivity() != null) {
@@ -151,8 +134,6 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-
-
     protected void showKeyboard(View view) {
         if (view != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -163,7 +144,6 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -172,7 +152,6 @@ public abstract class BaseFragment extends Fragment {
             showNetworkBottomSheet();
         }
     }
-
 
     public void overridePendingTransition(int enterAnim, int exitAnim) {
         if (getActivity() != null) {
@@ -185,7 +164,6 @@ public abstract class BaseFragment extends Fragment {
             getActivity().finish();
         }
     }
-
 
     public void setResult(int resultCode, Intent data) {
         if (getActivity() != null) {
@@ -201,10 +179,6 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
        // RxBus.unregisterSubject(RxBus.APP_ONLINE, this);
-    }
-
-    public interface BaseFragmentContract {
-        BaseActivityComponent getBaseActivityComponent();
     }
 
     public void accessTokenExpired() {
@@ -231,11 +205,23 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-
     protected int getPreviousState() {
         if (getActivity() instanceof BaseActivity) {
             return ((BaseActivity) getActivity()).previousState;
         } else return AppState.getAppState();
+    }
+
+    public interface FragmentTransacListener {
+        void requestTransaction(BaseFragment baseFragment, boolean shouldReplace);
+    }
+
+    public interface FragmentAttachListener {
+        void onAttached(BaseFragment fragment);
+    }
+
+
+    public interface BaseFragmentContract {
+        BaseActivityComponent getBaseActivityComponent();
     }
 
 }

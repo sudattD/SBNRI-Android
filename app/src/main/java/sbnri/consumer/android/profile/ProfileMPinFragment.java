@@ -5,9 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-
-import com.orhanobut.hawk.Hawk;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +14,6 @@ import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
-import sbnri.consumer.android.data.models.UserDetails;
 
 public class ProfileMPinFragment extends BaseFragment {
 

@@ -24,6 +24,7 @@ import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.models.Bank;
 import sbnri.consumer.android.data.models.SubBank;
 import sbnri.consumer.android.data.models.UserDetails;
@@ -90,7 +91,7 @@ public class HomeFragmentJ extends BaseFragment implements HomeContract.HomeFrag
     @Override
     public void initView() {
 
-        mUserDetails = Hawk.get("UserDetails");
+        mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
 
         Picasso.get().load(mUserDetails.getPhotoURL()).into(binding.profileImage);
         binding.userName.setText(mUserDetails.getFirstName());

@@ -18,6 +18,12 @@ public interface Constants {
     String OTHERS_BANK_LIST = "mOthersBanksList";
     String ALL_BANKS_LIST = "allBanksList";
 
+    String  SBNRI_USER_OBJ = "UserDetails";
+
+
+    String ID_TOKEN = "idToken";
+    String IS_PUSHED = "isPushed";
+
     // Network Constants
     int TIMEOUT = 90;
 

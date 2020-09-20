@@ -1,7 +1,6 @@
 package sbnri.consumer.android.base.activity;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 
 import com.flipboard.bottomsheet.BottomSheetLayout;

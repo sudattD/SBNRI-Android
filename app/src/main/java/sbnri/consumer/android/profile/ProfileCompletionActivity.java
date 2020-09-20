@@ -50,11 +50,9 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
         setContentView(R.layout.activity_profile_completion);
         baseToolbar.setVisibility(View.GONE);
 
-        mUserDetails = Hawk.get("UserDetails");
+        mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
         Picasso.get().load(mUserDetails.getPhotoURL()).into(profile_image);
-
-         FragmentManager  fragmentManager = getSupportFragmentManager();;
-
+         FragmentManager  fragmentManager = getSupportFragmentManager();
         FragmentUtils.addFragment(fragmentManager, ProfileNameAndCityFragment.newInstance(), getContainerId(), false);
 
     }

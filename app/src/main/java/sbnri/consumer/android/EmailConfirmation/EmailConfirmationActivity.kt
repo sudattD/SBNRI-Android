@@ -19,12 +19,10 @@ import sbnri.consumer.android.base.activity.BaseActivity
 import sbnri.consumer.android.base.contract.BaseView
 
 
-class EmailConfirmationActivity : BaseActivity()
-{
+class EmailConfirmationActivity : BaseActivity() {
 
 
-    companion object
-    {
+    companion object {
         fun createInstance(context: Context?): Intent? {
             val intent = Intent(context, EmailConfirmationActivity::class.java)
 
@@ -33,13 +31,11 @@ class EmailConfirmationActivity : BaseActivity()
     }
 
 
-
     @BindView(R.id.tv_email_detail)
-    internal lateinit var tv_email_detail:TextView
+    internal lateinit var tv_email_detail: TextView
 
     @BindView(R.id.tv_open_gmail)
-    internal lateinit var tv_open_gmail:TextView
-
+    internal lateinit var tv_open_gmail: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,11 +50,10 @@ class EmailConfirmationActivity : BaseActivity()
     }
 
 
-
     private fun initView() {
 
         baseToolbar.visibility = View.GONE
-        tv_email_detail.setText(String.format(getString(R.string.confirm_email_address)," your email address here"))
+        tv_email_detail.setText(String.format(getString(R.string.confirm_email_address), " your email address here"))
         tv_open_gmail.setText(HtmlCompat.fromHtml(context.getString(R.string.open_gmail), HtmlCompat.FROM_HTML_MODE_LEGACY))
     }
 
@@ -67,22 +62,16 @@ class EmailConfirmationActivity : BaseActivity()
     }
 
     override fun callDependencyInjector(injectorComponent: DependencyInjectorComponent?) {
-       injectorComponent?.injectDependencies(this)
+        injectorComponent?.injectDependencies(this)
     }
 
 
     @OnClick(R.id.tv_open_gmail)
-    fun openGmailApp()
-    {
-  /*      try {
-            val gmail = Intent(Intent.ACTION_SENDTO, Uri.parse(""))
-            context.startActivity(gmail)
-        } catch (e: ActivityNotFoundException) {
-            Logger.d("Activity Not Found Exception")
-        }
-*/
+    fun openGmailApp() {
+        //GMAIL NOT GETTING OPEN
+        //TO-DO OPTIMISE THE METHOD
 
-      val intent = Intent(Intent.ACTION_SEND)
+        val intent = Intent(Intent.ACTION_SEND)
         intent.setPackage("com.google.android.gm")
         startActivity(Intent.createChooser(intent, ""))
     }

@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNav"
-        android:visibility="visible"
-       />
+        android:visibility="visible" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
@@ -26,11 +25,10 @@
         android:paddingBottom="@dimen/_2dp"
         android:visibility="visible"
         app:itemBackground="@color/white"
+        app:itemIconSize="@dimen/_32dp"
         app:itemIconTint="@color/selector_bottom_nav"
         app:itemTextColor="@color/selector_bottom_nav"
         app:labelVisibilityMode="selected"
-        app:menu="@menu/navigation"
-        app:itemIconSize="@dimen/_32dp"
-        />
+        app:menu="@menu/navigation" />
 
 </RelativeLayout>

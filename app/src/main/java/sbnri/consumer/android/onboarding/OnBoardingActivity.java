@@ -2,7 +2,6 @@ package sbnri.consumer.android.onboarding;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -17,19 +16,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.gson.Gson;
 import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
@@ -37,7 +30,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -50,9 +42,7 @@ import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.bottomsheetDialoguesFrags.UserEmailBottomSheetFragment;
 import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.models.UserDetails;
-import sbnri.consumer.android.home.HomeActivity;
 import sbnri.consumer.android.profile.ProfileCompletionActivity;
-import sbnri.consumer.android.util.BottomSheetUtil;
 
 public class OnBoardingActivity extends BaseActivity implements OnBoardingContract.OnBoardingView, UserEmailBottomSheetFragment.OnCommonItemClickListener {
 
@@ -103,7 +93,7 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
         Intent intent =  getIntent();
         if(intent != null)
         {
-            String idToken = intent.getStringExtra("idToken");
+            String idToken = intent.getStringExtra(Constants.ID_TOKEN);
             if(!TextUtils.isEmpty(idToken))
             onBoardingPresenter.getFireBasetokenVerified(idToken);
 
@@ -203,11 +193,10 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
     @Override
     public void userCreated(UserDetails userDetails) {
-        Hawk.put("UserDetails", userDetails);
+        Hawk.put(Constants.SBNRI_USER_OBJ, userDetails);
 
         // will have to start Profile Activity FLOW from here.
        // startActivity(HomeActivity.createInstance(context));
-
         Intent intent = new Intent(this, ProfileCompletionActivity.class);
        startActivity(intent);
 
@@ -237,9 +226,7 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
                 .requestEmail()
                 .build();
         // [END config_signin]
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
@@ -254,7 +241,6 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
         OnBoardingViewPagerAdapter onBoardingViewPagerAdapter =
                 new OnBoardingViewPagerAdapter(this, mList);
-
 
         screenViewPager.setAdapter(onBoardingViewPagerAdapter);
         tabIndicator.setupWithViewPager(screenViewPager);
@@ -286,7 +272,6 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
     @Override
     public void onItemClick(@org.jetbrains.annotations.Nullable View view, @org.jetbrains.annotations.Nullable Object object) {
 
-
-        Toast.makeText(context,((String)object.toString()),Toast.LENGTH_LONG).show();
+        Toast.makeText(context,("Clicked..."),Toast.LENGTH_LONG).show();
     }
 }
