@@ -1,10 +1,12 @@
 package sbnri.consumer.android.profile;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,12 +16,21 @@ import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.util.FragmentUtils;
+import sbnri.consumer.android.util.extensions.KotlinExtensionsKt;
 
 public class ProfileMPinFragment extends BaseFragment {
 
 
     @BindView(R.id.btnContinue)
     Button btnContinue;
+
+    @BindView(R.id.etPassword)
+    EditText etPassword;
+
+    @BindView(R.id.etRepeatPassword)
+    EditText etRepeatPassword;
+
 
     public static ProfileMPinFragment newInstance() {
         ProfileMPinFragment fragment = new ProfileMPinFragment();
@@ -54,8 +65,15 @@ public class ProfileMPinFragment extends BaseFragment {
     }
 
     private void initView() {
-
+      //  KotlinExtensionsKt.disable(btnContinue);
         ((ProfileCompletionActivity)  getActivity()).setToolBarTitle("Set Mobile Pin");
+
+
+  /*      if(!TextUtils.isEmpty(etPassword.getText()) &&
+                !TextUtils.isEmpty(etRepeatPassword.getText()))
+        {
+            KotlinExtensionsKt.enable(btnContinue);
+        }*/
 
     }
 
@@ -63,6 +81,6 @@ public class ProfileMPinFragment extends BaseFragment {
     @OnClick(R.id.btnContinue)
     public void btnContinue()
     {
-
+        FragmentUtils.replaceFragment(this,ProfileBiometricAuthorizeFragment.Companion.newInstance(),true);
     }
 }

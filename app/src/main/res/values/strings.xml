@@ -75,6 +75,7 @@
     <string name="sign_up_with_google">Sign-Up with google</string>
     <string name="use_e_mail">Use E-mail</string>
     <string name="continue_">Continue</string>
+    <string name="authorize_">Authorize</string>
     <string name="city">City</string>
     <string name="name">Name</string>
     <string name="full_name">Full Name</string>
@@ -106,6 +107,7 @@
     <string name="lets_do_it">lets do it</string>
     <string name="allow">allow</string>
     <string name="skip">skip</string>
+    <string name="skip_">Skip</string>
 
 
 </resources>

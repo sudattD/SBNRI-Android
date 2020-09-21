@@ -2,10 +2,7 @@ package sbnri.consumer.android;
 
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-
-import com.squareup.picasso.Picasso;
 
 import dagger.Component;
 import sbnri.consumer.android.EmailConfirmation.EmailConfirmationActivity;
@@ -17,9 +14,9 @@ import sbnri.consumer.android.base.schedulers.SchedulerProvider;
 import sbnri.consumer.android.bottomsheetDialoguesFrags.UserEmailBottomSheetFragment;
 import sbnri.consumer.android.data.local.SBNRILocalDataSource;
 import sbnri.consumer.android.data.local.SBNRIPref;
-import sbnri.consumer.android.data.local.SBNRIRepository;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 import sbnri.consumer.android.onboarding.OnBoardingActivity;
+import sbnri.consumer.android.profile.ProfileBiometricAuthorizeFragment;
 import sbnri.consumer.android.profile.ProfileCompletionActivity;
 import sbnri.consumer.android.profile.ProfileNameAndCityFragment;
 import sbnri.consumer.android.qualifiers.ActivityContext;
@@ -72,4 +69,5 @@ public interface DependencyInjectorComponent {
 
     void injectDependencies(ProfileNameAndCityFragment fragment);
     void injectDependencies(ProfileCompletionActivity activity);
+    void injectDependencies(ProfileBiometricAuthorizeFragment fragment);
 }
