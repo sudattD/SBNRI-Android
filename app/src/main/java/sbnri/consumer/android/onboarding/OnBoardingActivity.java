@@ -247,6 +247,15 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
         tvTermsAndCondition.setText(HtmlCompat.fromHtml(context.getString(R.string.terms_and_condition),HtmlCompat.FROM_HTML_MODE_LEGACY));
 
+
+
+
+        //to be removed later
+        Intent intent = new Intent(this, ProfileCompletionActivity.class);
+        startActivity(intent);
+
+
+
     }
 
     @Override

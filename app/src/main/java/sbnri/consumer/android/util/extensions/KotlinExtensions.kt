@@ -23,7 +23,7 @@ fun Button.enable()
         setClickable(true)
     }
 
-fun Any.isNullTrue(obj:Any?):Boolean
+fun isNullTrue(obj:Any?):Boolean
 {
     return obj == null
 }

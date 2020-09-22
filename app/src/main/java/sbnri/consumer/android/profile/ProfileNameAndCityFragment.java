@@ -16,6 +16,7 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.orhanobut.hawk.Hawk;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.List;
@@ -90,12 +91,18 @@ public class ProfileNameAndCityFragment extends BaseFragment {
 
     private void initView() {
 
-        KotlinExtensionsKt.disable(btnContinue);
+       // KotlinExtensionsKt.disable(btnContinue);
         mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
 
-        etLastName.setText(mUserDetails.getLastname());
-        etName.setText(mUserDetails.getFirstName());
-        etCityName.setText(mUserDetails.getLocation().getCityName());
+        if(!KotlinExtensionsKt.isNullTrue(mUserDetails))
+        {
+            etLastName.setText(mUserDetails.getLastname());
+            etName.setText(mUserDetails.getFirstName());
+            etCityName.setText(mUserDetails.getLocation().getCityName());
+
+        }
+
+
 
         if(!TextUtils.isEmpty(etLastName.getText()) &&
                 !TextUtils.isEmpty(etName.getText()) &&

@@ -29,6 +29,7 @@ import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.util.ActivityUtils;
 import sbnri.consumer.android.util.FragmentUtils;
 import sbnri.consumer.android.util.PermissionUtils;
+import sbnri.consumer.android.util.extensions.KotlinExtensionsKt;
 
 public class ProfileCompletionActivity extends BaseFragmentActivity {
 
@@ -61,7 +62,11 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
         baseToolbar.setVisibility(View.GONE);
 
         mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
-        Picasso.get().load(mUserDetails.getPhotoURL()).into(profile_image);
+        if(!KotlinExtensionsKt.isNullTrue(mUserDetails))
+        {
+            Picasso.get().load(mUserDetails.getPhotoURL()).into(profile_image);
+        }
+
          FragmentManager  fragmentManager = getSupportFragmentManager();
         FragmentUtils.addFragment(fragmentManager, ProfileNameAndCityFragment.newInstance(), getContainerId(), false);
 
