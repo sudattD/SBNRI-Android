@@ -8,7 +8,8 @@
     <string name="secret_key_shared_preference"><![CDATA[<string name=\"secret_keyPBKDF2WithHmacSHA1]]></string>
 
     <string name="maps_api_key_new" translatable="false">AIzaSyAGME3dc_BPY4LrtDr9hZmFG_evOTqm39Y</string>
-    <string name="maps_api_key" translatable="false">AIzaSyDgPnb8PhOuPi9OrWbeUg4kAReEUKgdxvQ</string>
+    <string name="maps_api_key_old" translatable="false">AIzaSyDgPnb8PhOuPi9OrWbeUg4kAReEUKgdxvQ</string>
+    <string name="maps_api_key" translatable="false">AIzaSyCc_tdvw_F4O7R5R6utTgymrS487t3qnRc</string>    <!-- suyash  -->
 
 
     <string name="something_went_wrong">Something went wrong!</string>

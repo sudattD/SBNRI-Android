@@ -251,11 +251,11 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
 
 
 
-        //to be removed later
+ /*       //to be removed later
         Intent intent = new Intent(this, AccountIntroSplashActivity.class);
         startActivity(intent);
 
-
+*/
 
     }
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
 import sbnri.consumer.android.adapters.GenericAdapterBuilder;
 import sbnri.consumer.android.adapters.GenericRecyclerViewAdapter;
 import sbnri.consumer.android.adapters.ItemEncapsulator;
+import sbnri.consumer.android.adapters.OnCommonItemClickListener;
 import sbnri.consumer.android.adapters.SimpleGenericAdapterBuilder;
 import sbnri.consumer.android.adapters.SimpleGenericRecyclerViewAdapter;
 import sbnri.consumer.android.adapters.TypeNotSupportedException;
@@ -64,6 +66,7 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
     private GenericRecyclerViewAdapter<ItemEncapsulator> preferredBanksAdapter;
     private SimpleGenericRecyclerViewAdapter simpleGenericRecyclerViewAdapter;
 
+    OnCommonItemClickListener cardClickListener;
 
     @BindView(R.id.rv_preferred_banks)
     RecyclerView rv_preferred_banks;
@@ -143,13 +146,25 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
 
     private void setUpPreferredBanksAdapter(ArrayList<SubBank> items) {
 
-        simpleGenericRecyclerViewAdapter =  new SimpleGenericAdapterBuilder<>(context, SubBank.class, VH_PreferredBanks.LAYOUT, VH_PreferredBanks::new)
+
+        cardClickListener = (view, object) ->
+        {
+            switch (view.getId())
+            {
+                case R.id.cardViewOuter:
+                    Intent intent = new Intent(this, AccountIntroSplashActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+        };
+
+        simpleGenericRecyclerViewAdapter =  new SimpleGenericAdapterBuilder<>(context, SubBank.class, VH_PreferredBanks.LAYOUT, view -> new VH_PreferredBanks(view, cardClickListener))
                 .setItems(items)
                 .setClickable(true)
-                .setSingleSelection(true)
-                .setSelectable(true)
                 .setOnItemClicked((position, item) ->{
                         clickedBank = (SubBank) item;
+
+
                         //
                             })
                 .buildRecyclerViewAdapter();

@@ -9,8 +9,10 @@ import com.squareup.picasso.Picasso;
 
 import androidx.cardview.widget.CardView;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
+import sbnri.consumer.android.adapters.OnCommonItemClickListener;
 import sbnri.consumer.android.data.models.SubBank;
 
 public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
@@ -43,14 +45,29 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
     @BindView(R.id.cardViewOuter)
     CardView cardViewOuter;
 
+    @BindView(R.id.cardViewInner)
+    CardView cardViewInner;
+
+    @BindView(R.id.iv_info)
+    ImageView iv_info;
+
     SubBank subBankDetails;
 
+    OnCommonItemClickListener commonItemClickListener;
 
 
     public static final int LAYOUT = R.layout.item_bank_list_card;
 
      public VH_PreferredBanks(View view) {
         super(view);
+         ButterKnife.bind(this, view);
+
+    }
+    public VH_PreferredBanks(View view, OnCommonItemClickListener commonItemClickListener) {
+        super(view);
+        this.commonItemClickListener = commonItemClickListener;
+        ButterKnife.bind(this, view);
+
     }
 
     @Override
@@ -74,6 +91,11 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
        cardViewOuter.setCardBackgroundColor(Color.parseColor(element.getBankBackgroundColor().getHex()));
 
       //  cardViewOuter.setBackground(Drawable.createFromPath());
+
+        View.OnClickListener clickListener = v -> commonItemClickListener.onItemClick(v, element);
+        cardViewOuter.setOnClickListener(clickListener);
+        cardViewInner.setOnClickListener(clickListener);
+        iv_info.setOnClickListener(clickListener);
     }
 
 
