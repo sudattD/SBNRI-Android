@@ -1,19 +1,16 @@
 package sbnri.consumer.android.accountflow.viewholders;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import androidx.cardview.widget.CardView;
 import butterknife.BindView;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.adapters.AbstractBetterViewHolder;
-import sbnri.consumer.android.adapters.ItemEncapsulator;
 import sbnri.consumer.android.data.models.SubBank;
 
 public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
@@ -25,7 +22,7 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
     @BindView(R.id.tv_achievement)
     TextView tv_achievement;
 
-    @BindView(R.id.iv_bank_image)
+    @BindView(R.id.iv_bank_image_)
     ImageView iv_bank_image;
 
     @BindView(R.id.tv_bank_name)
@@ -44,12 +41,13 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
     TextView tv_fd_rate;
 
     @BindView(R.id.cardViewOuter)
-    LinearLayout cardViewOuter;
+    CardView cardViewOuter;
+
     SubBank subBankDetails;
 
 
 
-    public static final int LAYOUT = R.layout.item_preferred_bank_trial_linear;
+    public static final int LAYOUT = R.layout.item_bank_list_card;
 
      public VH_PreferredBanks(View view) {
         super(view);
@@ -73,7 +71,7 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
        // Picasso.get().load(mUserDetails.getPhotoURL()).into(binding.profileImage);
         Picasso.get().load(element.getBankImage()).into(iv_bank_image);
 
-      //  cardViewOuter.setBackgroundColor(Color.parseColor(element.getBankBackgroundColor().getHex()));
+       cardViewOuter.setCardBackgroundColor(Color.parseColor(element.getBankBackgroundColor().getHex()));
 
       //  cardViewOuter.setBackground(Drawable.createFromPath());
     }

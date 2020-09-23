@@ -28,6 +28,11 @@ fun isNullTrue(obj:Any?):Boolean
     return obj == null
 }
 
+fun View.hideView()
+{
+    this.visibility = View.GONE
+}
+
 fun View.showKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     this.requestFocus()

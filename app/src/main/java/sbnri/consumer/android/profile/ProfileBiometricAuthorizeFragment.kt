@@ -14,6 +14,7 @@ import sbnri.consumer.android.DependencyInjectorComponent
 import sbnri.consumer.android.R
 import sbnri.consumer.android.base.activity.BaseFragment
 import sbnri.consumer.android.base.contract.BaseView
+import sbnri.consumer.android.home.HomeActivity
 import java.util.concurrent.Executor
 
 class ProfileBiometricAuthorizeFragment : BaseFragment()
@@ -73,9 +74,9 @@ class ProfileBiometricAuthorizeFragment : BaseFragment()
                     override fun onAuthenticationSucceeded(
                             result: BiometricPrompt.AuthenticationResult) {
                         super.onAuthenticationSucceeded(result)
-                        Toast.makeText(context,
-                                "Authentication succeeded!", Toast.LENGTH_SHORT)
-                                .show()
+
+                        //TODO IF PROFILE FLOW IS INCOMPLETE IT SHOULD GO TO PROFILE FLOW -- NOT ON HOME SCREEN
+                        startActivity(HomeActivity.createInstance(context))
                     }
 
                     override fun onAuthenticationFailed() {

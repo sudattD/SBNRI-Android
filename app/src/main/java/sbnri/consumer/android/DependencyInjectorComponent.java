@@ -6,6 +6,8 @@ import android.content.Context;
 
 import dagger.Component;
 import sbnri.consumer.android.EmailConfirmation.EmailConfirmationActivity;
+import sbnri.consumer.android.accountflow.AccountIntroSplashActivity;
+import sbnri.consumer.android.accountflow.BankOnBoardingActivity;
 import sbnri.consumer.android.accountflow.ShowBanksListActivity;
 import sbnri.consumer.android.base.activity.BaseActivityComponent;
 import sbnri.consumer.android.base.activity.BaseViewModule;
@@ -70,4 +72,6 @@ public interface DependencyInjectorComponent {
     void injectDependencies(ProfileNameAndCityFragment fragment);
     void injectDependencies(ProfileCompletionActivity activity);
     void injectDependencies(ProfileBiometricAuthorizeFragment fragment);
+    void injectDependencies(AccountIntroSplashActivity activity);
+    void injectDependencies(BankOnBoardingActivity activity);
 }

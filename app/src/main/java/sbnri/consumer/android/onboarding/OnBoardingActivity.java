@@ -37,6 +37,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.accountflow.AccountIntroSplashActivity;
 import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.bottomsheetDialoguesFrags.UserEmailBottomSheetFragment;
@@ -248,14 +249,12 @@ public class OnBoardingActivity extends BaseActivity implements OnBoardingContra
         tvTermsAndCondition.setText(HtmlCompat.fromHtml(context.getString(R.string.terms_and_condition),HtmlCompat.FROM_HTML_MODE_LEGACY));
 
 
-/*
 
 
         //to be removed later
-        Intent intent = new Intent(this, ProfileCompletionActivity.class);
+        Intent intent = new Intent(this, AccountIntroSplashActivity.class);
         startActivity(intent);
 
-*/
 
 
     }
