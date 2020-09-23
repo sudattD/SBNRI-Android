@@ -1,12 +1,8 @@
 package sbnri.consumer.android.home;
 
-import android.app.Activity;
 import android.content.Context;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import sbnri.consumer.android.base.contract.BasePresenterImp;

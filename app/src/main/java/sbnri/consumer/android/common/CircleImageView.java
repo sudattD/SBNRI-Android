@@ -24,6 +24,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
@@ -317,6 +318,11 @@ public class CircleImageView extends ImageView {
     }
 
     @Override
+    public int getImageAlpha() {
+        return mImageAlpha;
+    }
+
+    @Override
     public void setImageAlpha(int alpha) {
         alpha &= 0xFF;
 
@@ -335,8 +341,8 @@ public class CircleImageView extends ImageView {
     }
 
     @Override
-    public int getImageAlpha() {
-        return mImageAlpha;
+    public ColorFilter getColorFilter() {
+        return mColorFilter;
     }
 
     @Override
@@ -353,11 +359,6 @@ public class CircleImageView extends ImageView {
             mBitmapPaint.setColorFilter(cf);
             invalidate();
         }
-    }
-
-    @Override
-    public ColorFilter getColorFilter() {
-        return mColorFilter;
     }
 
     private Bitmap getBitmapFromDrawable(Drawable drawable) {

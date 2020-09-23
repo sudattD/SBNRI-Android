@@ -5,6 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
@@ -27,7 +31,12 @@
         tools:ignore="GoogleAppIndexingWarning,ManifestResource"
         android:banner="@mipmap/ic_launcher">
 
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/maps_api_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
             android:name=".splash.SplashActivity"
             android:label="@string/app_name"
@@ -40,6 +49,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
+
+            <!-- deep link -->
+
+            <intent-filter android:autoVerify="true">
+                <data
+                    android:host="open"
+                    android:scheme="@string/branch_uri_scheme" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/host_link"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/host_alternate_link"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/host_link_test"
+                    android:scheme="https" />
+                <data
+                    android:host="@string/host_alternate_link_test"
+                    android:scheme="https" />
+            </intent-filter>
+
+
         </activity>
 
         <activity
@@ -53,12 +90,40 @@
             android:name=".onboarding.OnBoardingActivity"
             android:label="SBNRI"
             android:screenOrientation="portrait"
+
            />
 
         <activity
             android:name=".accountflow.ShowBanksListActivity"
             android:label="SBNRI"
             android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".profile.ProfileCompletionActivity"
+            android:label="SBNRI"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+        <activity
+            android:name=".EmailConfirmation.EmailConfirmationActivity"
+            android:label="SBNRI"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+
+        <activity
+            android:name=".accountflow.AccountIntroSplashActivity"
+            android:label="SBNRI"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+        <activity
+            android:name=".accountflow.BankOnBoardingActivity"
+            android:label="SBNRI"
+            android:screenOrientation="portrait"
+            android:theme="@style/BankOnBoardingActivityTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             />
         <receiver
             android:name=".receivers.NetworkChangeReceiver"

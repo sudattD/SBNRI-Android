@@ -81,13 +81,13 @@
             <Button
                 android:id="@+id/btn_open_nri_accnt"
                 style="@style/solidDodgerBlueButton"
-                android:text="open NRI account"
+                android:text="@string/open_nri_account"
 
                 />
 
             <Button
                 style="@style/lightSKyBlueButton"
-                android:text="Book FD"
+                android:text="@string/book_fd"
                 android:layout_marginLeft="@dimen/_20dp"
 
                 />

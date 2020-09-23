@@ -38,4 +38,9 @@ public class SBNRILocalDataSource implements SBNRIDataSource {
     public Flowable<SBNRIResponse<AllBanksData>> getAllBanksData() {
         return null;
     }
+
+    @Override
+    public Flowable<SBNRIResponse> generateLinkForEmail(HashMap<String, Object> params) {
+        return null;
+    }
 }

@@ -205,7 +205,7 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
         if (fragment instanceof HomeFragmentJ) {
             super.onBackPressed();
         } else {
-            FragmentUtils.Companion.replaceFragment(fragmentManager, getContainerId(), HomeFragmentJ.newInstance(), false);
+            FragmentUtils.replaceFragment(fragmentManager, getContainerId(), HomeFragmentJ.newInstance(), false);
             selectNavigationItem(HOME_FRAG, true);
         }
     }

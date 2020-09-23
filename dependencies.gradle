@@ -87,7 +87,7 @@ ext.versions = [
 
         stripe                 : '10.3.1',
 
-        biometric              : '1.0.0-alpha04',
+        biometric_version      : '1.0.1',
 
         crashlytics            : '2.9.8@aar',
 
@@ -109,7 +109,13 @@ ext.versions = [
 
         installreferrer        : '1.1.1',
 
-        googleServices          : '18.1.0'
+        googleServices          : '18.1.0',
+
+        firebaseAuth : '19.3.2',
+
+        firebaseDataBase : '19.4.0',
+
+        firebaseAnalytics : '17.5.0'
 
 
 

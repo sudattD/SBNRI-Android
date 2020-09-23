@@ -36,10 +36,10 @@ class HomeModuleJ {
     @HomeFragmentPresenter
     @Provides
     HomePresenterImplJ getHomeFragmentPresenter(@SBNRIRepositoryQualifier SBNRIDataSource sbnriDataSource,
-                                                @LocalDataSource SBNRILocalDataSource servifyLocalDataSource,
+                                                @LocalDataSource SBNRILocalDataSource sbnriLocalDataSource,
                                                 SchedulerProvider schedulerProvider, @ApplicationContext Context context,
-                                                SBNRIPref servifyPref) {
-        return new HomePresenterImplJ(sbnriDataSource, servifyLocalDataSource, (HomeContract.HomeFragmentView) baseView, schedulerProvider, context, servifyPref);
+                                                SBNRIPref sbnriPref) {
+        return new HomePresenterImplJ(sbnriDataSource, sbnriLocalDataSource, (HomeContract.HomeFragmentView) baseView, schedulerProvider, context, sbnriPref);
     }
 
 

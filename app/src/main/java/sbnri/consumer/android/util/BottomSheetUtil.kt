@@ -26,6 +26,14 @@ class BottomSheetUtil
                 bottomSheetLayout?.dismissSheet()
             }
         }
+
+
+        fun showEmailBottomSheet(context: Context?,bottomSheetLayout: BottomSheetLayout?)
+        {
+            val sheetView : View = LayoutInflater.from(context).inflate(R.layout.user_email_bottomsheet,null,false)
+            bottomSheetLayout?.showWithSheetView(sheetView)
+
+        }
     }
 
 

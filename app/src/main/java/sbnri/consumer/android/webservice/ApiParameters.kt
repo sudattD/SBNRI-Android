@@ -7,5 +7,6 @@ package sbnri.consumer.android.webservice
     companion object
     {
         val TOKEN = "token"
+        val EMAIL = "email"
     }
 }

@@ -15,6 +15,16 @@ public class SBNRIResponse<T> {
     private String statusCode;
     private T data;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    private int status;
+
     public boolean isSuccess() {
         return success;
     }

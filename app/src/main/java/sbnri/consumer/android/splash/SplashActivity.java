@@ -6,37 +6,28 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import com.orhanobut.hawk.Hawk;
+import com.orhanobut.logger.Logger;
 
 import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
-import butterknife.BindView;
 import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.contract.BaseView;
+import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.home.HomeActivity;
 import sbnri.consumer.android.onboarding.OnBoardingActivity;
-import sbnri.consumer.android.onboarding.OnBoardingContract;
-import sbnri.consumer.android.onboarding.OnBoardingPresenterImpl;
-import sbnri.consumer.android.util.Optional;
+import sbnri.consumer.android.util.DeeplinkUtils;
 
 public class SplashActivity extends BaseActivity implements SplashContract.View{
 
     private static final long SPLASH_DELAY = 1000;
     @Inject
     protected SplashPresenter mPresenter;
-
-
-/*
-    @BindView(R.id.tvResp)
-    TextView tvResp;
-*/
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,10 +36,18 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
         initView();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        mPresenter.getAllNews();
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (this.getIntent().getData() != null) {
+            Logger.e("Deeplink: " + this.getIntent().getData().toString());
+            DeeplinkUtils.parseAndHandleDynamicLinks(sbnriPref, this);
+        }
+    }
 
     @Override
     protected BaseView getBaseView() {
@@ -64,9 +63,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
     @Override
     public void navigateToPlayStore(String response) {
 
-        //tvResp.setText(response);
-
-
+        //TO-DO
     }
 
     @Override
@@ -78,8 +75,9 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
 
             //TODO REFACTOR BELOW CONDITIONS
-            if(Hawk.get("UserDetails")!=null && !TextUtils.isEmpty( (((UserDetails) Hawk.get("UserDetails")).getToken())))
+            if(Hawk.get(Constants.SBNRI_USER_OBJ)!=null && !TextUtils.isEmpty((((UserDetails) Hawk.get(Constants.SBNRI_USER_OBJ)).getToken())))
             {
+                //TODO IF PROFILE FLOW IS INCOMPLETE IT SHOULD GO TO PROFILE FLOW -- NOT ON HOME SCREEN
                 startActivity(HomeActivity.createInstance(context));
             }
             else

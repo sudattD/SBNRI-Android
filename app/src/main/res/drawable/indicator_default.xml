@@ -6,14 +6,14 @@
         <shape
             android:innerRadius="0dp"
             android:shape="ring"
-            android:thickness="4dp"
-            android:useLevel="false">
+            android:thickness="3dp"
+            android:useLevel="false"
+            >
 
-            <solid android:color="@color/tab_indicator_gray" />
+            <solid android:color="@color/tab_indicator_selected" />
 
 
         </shape>
-
 
     </item>
 

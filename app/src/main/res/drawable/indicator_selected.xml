@@ -5,11 +5,11 @@
 
         <shape android:shape="ring"
             android:innerRadius="0dp"
-            android:thickness="5dp"
+            android:thickness="4dp"
             android:useLevel="false">
 
 
-            <solid android:color="@color/white" />
+            <solid android:color="@color/tab_indicator_default" />
 
 
 
@@ -18,6 +18,7 @@
 
 
     </item>
+
 
 
 
