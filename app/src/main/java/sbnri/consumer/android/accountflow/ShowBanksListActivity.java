@@ -60,9 +60,9 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
     ArrayList<SubBank> mOthersBanksList;
     ArrayList<SubBank> allBanksList;
 
-
+    SubBank clickedBank;
     private GenericRecyclerViewAdapter<ItemEncapsulator> preferredBanksAdapter;
-    private SimpleGenericRecyclerViewAdapter<SubBank> simpleGenericRecyclerViewAdapter;
+    private SimpleGenericRecyclerViewAdapter simpleGenericRecyclerViewAdapter;
 
 
     @BindView(R.id.rv_preferred_banks)
@@ -148,6 +148,10 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
                 .setClickable(true)
                 .setSingleSelection(true)
                 .setSelectable(true)
+                .setOnItemClicked((position, item) ->{
+                        clickedBank = (SubBank) item;
+                        //
+                            })
                 .buildRecyclerViewAdapter();
 
         rv_preferred_banks.setLayoutManager(new LinearLayoutManager(context));

@@ -23,7 +23,7 @@
         android:id="@+id/tv_label_openAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/_16dp"
         android:fontFamily="@font/bold"
         android:text="Open an Account"
         android:textSize="@dimen/font_16sp"
