@@ -1,16 +1,25 @@
 package sbnri.consumer.android.profile;
 
 import android.content.Intent;
+import android.location.Address;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
@@ -18,6 +27,9 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.orhanobut.hawk.Hawk;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,15 +43,20 @@ import sbnri.consumer.android.R;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.constants.Constants;
+import sbnri.consumer.android.data.local.SBNRIPref;
 import sbnri.consumer.android.data.models.UserDetails;
+import sbnri.consumer.android.places.AutoCompletePlace;
+import sbnri.consumer.android.places.SearchAndAutoDetectionHelper;
+import sbnri.consumer.android.util.ActivityUtils;
 import sbnri.consumer.android.util.FragmentUtils;
 import sbnri.consumer.android.util.extensions.KotlinExtensionsKt;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
-public class ProfileNameAndCityFragment extends BaseFragment {
+public class ProfileNameAndCityFragment extends BaseFragment implements SearchAndAutoDetectionHelper.SearchAndAutoDetectionListener{
 
+    private static final int AUTOCOMPLETE_FETCH_ADDRESS_THRESHOLD = 3;
     UserDetails mUserDetails;
 
     @BindView(R.id.etName)
@@ -49,12 +66,26 @@ public class ProfileNameAndCityFragment extends BaseFragment {
     EditText etLastName;
 
     @BindView(R.id.etCityName)
-    EditText etCityName;
+    AutoCompleteTextView etCityName;
 
     @BindView(R.id.btnContinue)
     Button btnContinue;
 
     int AUTOCOMPLETE_REQUEST_CODE = 1;
+
+    private Handler handler = new Handler();
+    private Runnable runnableFetchAddress;
+    int AUTOCOMPLETE_API_HIT_DELAY = 300;
+
+    private String previouslySearchText;
+
+    private List<AutoCompletePlace> resultList = new ArrayList<>();
+    ArrayAdapter<AutoCompletePlace> autoCompleteResultAdapter;
+
+    private FusedLocationProviderClient mFusedLocationClient;
+    private LocationRequest mLocationRequest;
+    protected SearchAndAutoDetectionHelper searchAndAutoDetectionHelper;
+    public static final String ADDRESS_REGEX = "[A-Za-z0-9-!@#$%^&*()',:;/ ]*$";
 
     public static ProfileNameAndCityFragment newInstance() {
         ProfileNameAndCityFragment fragment = new ProfileNameAndCityFragment();
@@ -64,6 +95,68 @@ public class ProfileNameAndCityFragment extends BaseFragment {
         return fragment;
     }
 
+    private final TextWatcher textWatcherLandMark = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String searchText = etCityName.getText().toString().toLowerCase();
+            if (isValidAddressForSearchConstraint(searchText, previouslySearchText))
+                startDelay(searchText);
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
+
+
+    public void startDelay(String text) {
+        handler.removeCallbacks(runnableFetchAddress);
+        updateFetchAddressRunnable(text);
+        handler.postDelayed(runnableFetchAddress, AUTOCOMPLETE_API_HIT_DELAY);
+    }
+
+    private void updateFetchAddressRunnable(String text) {
+        runnableFetchAddress = () -> {
+            previouslySearchText = text;
+            getAutocomplete(text);
+        };
+    }
+
+    private void getAutocomplete(final CharSequence constraint) {
+        resultList = new ArrayList<>();
+        if (!TextUtils.isEmpty(constraint)) {
+            if (searchAndAutoDetectionHelper == null)
+                setUpLocationVariables();
+            searchAndAutoDetectionHelper.getAutocomplete(constraint);
+        }
+    }
+
+    private void setUpLocationVariables() {
+
+        searchAndAutoDetectionHelper = SearchAndAutoDetectionHelper.Companion.newInstance( this);
+        mFusedLocationClient = new FusedLocationProviderClient(context);
+        createLocationRequest();
+
+    }
+    public static final long UPDATE_INTERVAL_IN_MILLISECONDS = 10 * 1000; // every 10 secs
+    protected void createLocationRequest() {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
+        mLocationRequest.setFastestInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    }
+
+    private boolean isValidAddressForSearchConstraint(String searchText, String previouslySearchText) {
+        return !(TextUtils.isEmpty(searchText)
+                || searchText.trim().length() < AUTOCOMPLETE_FETCH_ADDRESS_THRESHOLD
+                || searchText.trim().equalsIgnoreCase(previouslySearchText));
+    }
 
 
     @Override
@@ -93,6 +186,10 @@ public class ProfileNameAndCityFragment extends BaseFragment {
 
        // KotlinExtensionsKt.disable(btnContinue);
         mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
+        setupAutoCompleteTextView();
+
+
+
 
         if(!KotlinExtensionsKt.isNullTrue(mUserDetails))
         {
@@ -112,23 +209,22 @@ public class ProfileNameAndCityFragment extends BaseFragment {
         }
     }
 
+    private void setupAutoCompleteTextView() {
 
-    @OnClick(R.id.etCityName)
-    public void onSearchCalled() {
-        // Set the fields to specify which types of place data to return.
+        etCityName.addTextChangedListener(textWatcherLandMark);
+        etCityName.setFilters(new InputFilter[]{ActivityUtils.setFilter(ADDRESS_REGEX)});
 
+        autoCompleteResultAdapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, resultList);
+        etCityName.setAdapter(autoCompleteResultAdapter);
+        etCityName.setOnItemClickListener((parent, view, position, l) -> {
+            Object item = parent.getItemAtPosition(position);
+            if (item instanceof AutoCompletePlace) {
+                AutoCompletePlace autoCompletePlace = (AutoCompletePlace) item;
 
-        // Set the fields to specify which types of place data to
-        // return after the user has made a selection.
-        List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
-
-        // Start the autocomplete intent.
-        Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
-                .build(context);
-        startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
+                searchAndAutoDetectionHelper.getAddressForAutoCompletePlace(autoCompletePlace);
+            }
+        });
     }
-
-
 
 
 
@@ -146,21 +242,90 @@ public class ProfileNameAndCityFragment extends BaseFragment {
         ((ProfileCompletionActivity)  getActivity()).setToolBarTitle("Profile");
     }
 
+    @NotNull
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == AUTOCOMPLETE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Place place = Autocomplete.getPlaceFromIntent(data);
-             //   Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
-            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-                // TODO: Handle the error.
-                Status status = Autocomplete.getStatusFromIntent(data);
-              //  Log.i(TAG, status.getStatusMessage());
-            } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
-            }
-            return;
+    public LocationRequest getLocationRequest() {
+        return null;
+    }
+
+    @Override
+    public boolean getRequestingCurrentLocation() {
+        return false;
+    }
+
+    @Override
+    public void setRequestingCurrentLocation(boolean requestingCurrentLocation) {
+
+    }
+
+    @NotNull
+    @Override
+    public SBNRIPref getSbnriPref() {
+        return null;
+    }
+
+    @Override
+    public void onUnableToStartGps() {
+
+    }
+
+    @Override
+    public void startLocationUpdates() {
+
+    }
+
+    @Override
+    public void onLocationAutoDetected(double latitude, double longitude, @org.jetbrains.annotations.Nullable List<? extends Address> addresses, @org.jetbrains.annotations.Nullable String pincode) {
+
+    }
+
+    @Override
+    public void couldNotAutoDetectLocation() {
+
+    }
+
+    @Override
+    public void onPermissionDeniedForever() {
+
+    }
+
+    @Override
+    public void showProgress(@NotNull String string) {
+
+    }
+
+    @Override
+    public void showToastMessage(@NotNull String string, boolean isError) {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void onAutoCompletePlacesFetched(@NotNull List<AutoCompletePlace> places) {
+
+        resultList = places;
+        if (!resultList.isEmpty()) {
+            updateAutoCompleteAdapter();
         }
-        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void updateAutoCompleteAdapter() {
+        if (autoCompleteResultAdapter != null) {
+            autoCompleteResultAdapter.clear();
+            autoCompleteResultAdapter.addAll(resultList);
+            autoCompleteResultAdapter.notifyDataSetChanged();
+            autoCompleteResultAdapter.getFilter().filter(etCityName.getText().toString(), etCityName);
+        }
+    }
+
+    @Override
+    public void onAddressRetrievedById(@NotNull Address addresses) {
+
+        etCityName.setText(addresses.getSubAdminArea());
+
     }
 }

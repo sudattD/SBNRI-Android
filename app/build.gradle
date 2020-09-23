@@ -70,7 +70,8 @@ dependencies {
     implementation "com.tbruyelle.rxpermissions2:rxpermissions:$versions.rxPermissions"
     //biometric fingerprint sensor
     implementation "androidx.biometric:biometric:$versions.biometric_version"
-
+    implementation "com.google.android.gms:play-services-location:$versions.playServices"
+    implementation "com.google.android.libraries.places:places:$versions.places"
     //places
     implementation "com.google.android.libraries.places:places:$versions.places"
 

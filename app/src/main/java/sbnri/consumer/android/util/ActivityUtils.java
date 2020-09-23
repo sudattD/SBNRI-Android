@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.text.InputFilter;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.view.WindowManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.math.BigInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import androidx.core.content.ContextCompat;
 import sbnri.consumer.android.R;
@@ -132,6 +135,19 @@ public class ActivityUtils {
         int bitmapHeight = Math.round(ratioHeight);
 
         return Bitmap.createScaledBitmap(bitmap, bitmapWidth, bitmapHeight, true);
+    }
+
+    public static InputFilter setFilter(String regexFilter) {
+        InputFilter inputFilter = (source, start, end, dst, dstart, dend) -> {
+            if (source.length() > 0) {
+                Matcher matcher = Pattern.compile(regexFilter).matcher(source);
+                if (!matcher.matches()) {
+                    return "";
+                }
+            }
+            return null;
+        };
+        return inputFilter;
     }
 
     }

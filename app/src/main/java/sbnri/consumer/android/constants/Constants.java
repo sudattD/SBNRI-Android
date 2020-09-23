@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public interface Constants {
 
-
+    int GOOGLE_PLAY_SERVICES = 1;
     String CONSUMER_MOBILE_NUMBER = "MobileNumber";
     String CONSUMER_ID = "ConsumerID";
     String BASE_URL = "BaseURL";
