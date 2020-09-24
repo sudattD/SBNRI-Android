@@ -81,7 +81,7 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_bank_list);
+        setContentView(R.layout.activity_bank_list_refactor);
         baseToolbar.setVisibility(View.GONE);
 
         getIntentData();

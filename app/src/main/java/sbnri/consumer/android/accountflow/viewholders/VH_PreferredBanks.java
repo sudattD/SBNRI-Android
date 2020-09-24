@@ -51,6 +51,10 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
     @BindView(R.id.iv_info)
     ImageView iv_info;
 
+    @BindView(R.id.iv_bank_image_card)
+    CardView iv_bank_image_card;
+
+
     SubBank subBankDetails;
 
     OnCommonItemClickListener commonItemClickListener;
@@ -87,6 +91,7 @@ public class VH_PreferredBanks extends AbstractBetterViewHolder<SubBank> {
 
        // Picasso.get().load(mUserDetails.getPhotoURL()).into(binding.profileImage);
         Picasso.get().load(element.getBankImage()).into(iv_bank_image);
+        iv_bank_image_card.setCardBackgroundColor(Color.parseColor("#1A"+element.getBankBackgroundColor().getHex().replace("#","")));
 
        cardViewOuter.setCardBackgroundColor(Color.parseColor(element.getBankBackgroundColor().getHex()));
 

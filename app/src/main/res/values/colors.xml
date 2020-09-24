@@ -7,6 +7,7 @@
 
 
     <color name="darkBlueGrey">#1f3151</color>
+    <color name="darkBluelabel">#11141c</color>
     <color name="darkBlueGreyopacity50">#9097A5</color>
     <color name="peachyPink">#ff8983</color>
     <color name="iosTransferWiseCardColor">#F6CC8F</color>

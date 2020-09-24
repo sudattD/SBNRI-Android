@@ -28,32 +28,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_nav_back" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <include
-            android:id="@+id/headerView"
-            layout="@layout/item_header_preferred_banks" />
-
-
-    </androidx.core.widget.NestedScrollView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_preferred_banks"
+    <RelativeLayout
+        android:id="@+id/rlParent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingBottom="@dimen/toolbar_height_scroll_issue"
-
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+    <include
+        layout="@layout/item_header_preferred_banks"
+        />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_preferred_banks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:paddingBottom="@dimen/toolbar_height_scroll_issue"
+                    android:nestedScrollingEnabled="false"
+
+
+                    />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
