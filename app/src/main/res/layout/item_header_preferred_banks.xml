@@ -24,12 +24,11 @@
         android:id="@+id/tv_label_openAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16dp"
+        android:alpha="0.8"
         android:fontFamily="@font/bold"
         android:text="Open an Account"
-        android:textSize="@dimen/font_16sp"
         android:textColor="@color/darkBluelabel"
-        android:alpha="0.8"
+        android:textSize="@dimen/font_16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="parent" />
 
