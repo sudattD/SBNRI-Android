@@ -17,6 +17,8 @@ import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import androidx.fragment.app.FragmentManager;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,12 +28,14 @@ import sbnri.consumer.android.base.activity.BaseFragmentActivity;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.models.UserDetails;
+import sbnri.consumer.android.profile.contract.ProfileCompletionActivityContract;
+import sbnri.consumer.android.profile.contract.ProfileCompletionPresenter;
 import sbnri.consumer.android.util.ActivityUtils;
 import sbnri.consumer.android.util.FragmentUtils;
 import sbnri.consumer.android.util.PermissionUtils;
 import sbnri.consumer.android.util.extensions.KotlinExtensionsKt;
 
-public class ProfileCompletionActivity extends BaseFragmentActivity {
+public class ProfileCompletionActivity extends BaseFragmentActivity implements ProfileCompletionActivityContract.View, BaseView.UploadImage {
 
 
     public static Bitmap bitmap = null;
@@ -44,9 +48,12 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
     @BindView(R.id.toolbar_title)
     TextView toolBarTitle;
 
+    @Inject
+    ProfileCompletionPresenter presenter;
 
     UserDetails mUserDetails;
 
+    Bitmap bm = null;
     public static Intent createInstance(Context context)
     {
         Intent intent = new Intent(context, ProfileCompletionActivity.class);
@@ -70,6 +77,14 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
          FragmentManager  fragmentManager = getSupportFragmentManager();
         FragmentUtils.addFragment(fragmentManager, ProfileNameAndCityFragment.newInstance(), getContainerId(), false);
 
+
+
+    }
+
+    private void getS3BucketURL(Bitmap bm) {
+
+        if(bm!=null)
+        presenter.getS3BucketForImageUpload(bm);
     }
 
     @Override
@@ -79,7 +94,7 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
 
     @Override
     protected BaseView getBaseView() {
-        return null;
+        return this;
     }
 
     @Override
@@ -91,8 +106,8 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
     @OnClick({R.id.profile_image,R.id.iv_edit})
     public void clickedGallery(View view)
     {
-        galleryIntent();
-     //   runNetworkDependentTask(() -> PermissionUtils.checkPermissionsAndRun(this, Constants.CAMERA_PERMISSIONS, this::galleryIntent), null);
+       // galleryIntent();
+        runNetworkDependentTask(() -> PermissionUtils.checkPermissionsAndRun(this, Constants.CAMERA_PERMISSIONS, this::galleryIntent), null);
     }
 
     private void galleryIntent() {
@@ -118,7 +133,7 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
     }
 
     private void onSelectFromGalleryResult(Intent data) {
-        Bitmap bm;
+
         if (data != null) {
             try {
                 bm = MediaStore.Images.Media.getBitmap(context.getContentResolver(), data.getData());
@@ -141,12 +156,52 @@ public class ProfileCompletionActivity extends BaseFragmentActivity {
         setResult(Activity.RESULT_OK);
 
         profile_image.setImageBitmap(bitmap);
-
+        getS3BucketURL(bitmap);
     }
 
 
     public void setToolBarTitle(String title)
     {
         toolBarTitle.setText(title);
+    }
+
+    @Override
+    public void navigateToPlayStore(String resp) {
+
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void showToastMessage(String toastMessage, boolean isErrortoast) {
+
+    }
+
+    @Override
+    public void accessTokenExpired() {
+
+    }
+
+    @Override
+    public void updateImageAfterUpload(String path) {
+
+    }
+
+    @Override
+    public Context getAppContext() {
+        return context.getApplicationContext();
     }
 }

@@ -2,8 +2,11 @@ package sbnri.consumer.android.data.local;
 
 import java.util.HashMap;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import okhttp3.RequestBody;
 import sbnri.consumer.android.data.models.AllBanksData;
+import sbnri.consumer.android.data.models.GenerateUploadUrl;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.data.source.SBNRIDataSource;
 import sbnri.consumer.android.webservice.consumer.ApiService;
@@ -38,5 +41,15 @@ public class SBNRIRepository implements SBNRIDataSource {
     @Override
     public Flowable<SBNRIResponse> generateLinkForEmail(HashMap<String, Object> params) {
         return service.generateLinkForEmail(params);
+    }
+
+    @Override
+    public Flowable<SBNRIResponse<GenerateUploadUrl>> getFilePath(HashMap<String, Object> params) {
+        return service.getFilePath(params);
+    }
+
+    @Override
+    public Completable uploadFileOnAmazon(long size,String url, RequestBody image) {
+        return service.uploadFileOnAmazon(size,url, image);
     }
 }

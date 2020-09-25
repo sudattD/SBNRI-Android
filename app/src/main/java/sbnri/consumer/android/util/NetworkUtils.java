@@ -1,5 +1,7 @@
 package sbnri.consumer.android.util;
 
+import com.orhanobut.logger.Logger;
+
 import java.util.HashMap;
 
 import androidx.annotation.Nullable;
@@ -68,6 +70,28 @@ public class NetworkUtils {
                 });
     }
 
+    public static abstract class ApiCallBackEmptyImplementer implements ApiCallbacks {
+
+        @Override
+        public void onFailure(String callTag, SBNRIResponse response, HashMap<String, Object> extras) {
+
+        }
+
+        @Override
+        public void onError(String callTag, Throwable e, HashMap<String, Object> extras) {
+            Logger.d(e.getMessage());
+        }
+
+        @Override
+        public void onSessionExpired() {
+
+        }
+
+        @Override
+        public void deleteSubscriberOnComplete(String callTag, @Nullable Disposable disposable) {
+
+        }
+    }
 
 
 

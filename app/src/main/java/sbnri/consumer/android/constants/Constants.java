@@ -33,6 +33,8 @@ public interface Constants {
     String ID_TOKEN = "idToken";
     String IS_PUSHED = "isPushed";
 
+    String IS_PROFILE_COMPLETED = "profile_completed";
+
     // Network Constants
     int TIMEOUT = 90;
 

@@ -60,6 +60,11 @@ public class HeaderInterceptor implements Interceptor {
                 builder.addHeader("X-DEVICE","2"); //2 for android //1 for ios
 
         }
+        else
+        {
+
+            builder.addHeader("Content-Type", "image/jpeg");
+        }
         //Bearer fe9e06313a5d46dcbd32c991123d42d141cc9d5c
         //Bearer 95ea95098e540370853ccd5bc1b944681ac6ba55
 

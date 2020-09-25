@@ -195,6 +195,8 @@ public class ProfileNameAndCityFragment extends BaseFragment implements SearchAn
         {
             etLastName.setText(mUserDetails.getLastname());
             etName.setText(mUserDetails.getFirstName());
+
+            if(!KotlinExtensionsKt.isNullTrue(mUserDetails.getLocation()))
             etCityName.setText(mUserDetails.getLocation().getCityName());
 
         }

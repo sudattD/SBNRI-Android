@@ -10,10 +10,12 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import butterknife.BindView
 import butterknife.OnClick
+import com.orhanobut.hawk.Hawk
 import sbnri.consumer.android.DependencyInjectorComponent
 import sbnri.consumer.android.R
 import sbnri.consumer.android.base.activity.BaseFragment
 import sbnri.consumer.android.base.contract.BaseView
+import sbnri.consumer.android.constants.Constants.IS_PROFILE_COMPLETED
 import sbnri.consumer.android.home.HomeActivity
 import java.util.concurrent.Executor
 
@@ -75,6 +77,7 @@ class ProfileBiometricAuthorizeFragment : BaseFragment()
                             result: BiometricPrompt.AuthenticationResult) {
                         super.onAuthenticationSucceeded(result)
 
+                        Hawk.put(IS_PROFILE_COMPLETED,true)
                         //TODO IF PROFILE FLOW IS INCOMPLETE IT SHOULD GO TO PROFILE FLOW -- NOT ON HOME SCREEN
                         startActivity(HomeActivity.createInstance(context))
                     }

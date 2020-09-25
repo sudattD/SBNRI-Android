@@ -131,8 +131,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_label2"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_label2">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline45"
@@ -159,9 +158,10 @@
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/iv_getApproved"
             app:layout_constraintStart_toStartOf="@+id/guideline45"
-            app:layout_constraintTop_toTopOf="@+id/guideline16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
             app:srcCompat="@drawable/apply_online" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -222,7 +222,7 @@
             android:id="@+id/iv_getApproved"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
+            app:layout_constraintBottom_toTopOf="@+id/iv_bookfd"
             app:layout_constraintStart_toStartOf="@+id/guideline155"
             app:layout_constraintTop_toBottomOf="@+id/imageView7"
             app:srcCompat="@drawable/get_approved" />
@@ -276,7 +276,7 @@
             android:id="@+id/iv_bookfd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline155"
             app:layout_constraintTop_toBottomOf="@+id/iv_getApproved"
             app:srcCompat="@drawable/book_fd" />

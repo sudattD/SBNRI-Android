@@ -67,7 +67,7 @@ ext.versions = [
         branch                 : '2.+',
 
         //constraint Layout
-        constraintLayout       : '1.1.3',
+        constraintLayout       : '2.0.1',
 
         //Razor Pay
         razorPay               : '1.5.8',
