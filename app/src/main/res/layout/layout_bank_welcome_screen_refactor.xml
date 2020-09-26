@@ -242,7 +242,7 @@
 
 
         <TextView
-            android:id="@+id/tv_only_in"
+            android:id="@+id/tv_subheader_two"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -256,7 +256,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvGetApproved" />
 
         <TextView
-            android:id="@+id/tv_kyc"
+            android:id="@+id/tv_footer_two"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -268,11 +268,11 @@
             android:textSize="@dimen/font_12sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline177"
             app:layout_constraintStart_toEndOf="@+id/iv_getApproved"
-            app:layout_constraintTop_toBottomOf="@+id/tv_only_in" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_subheader_two" />
 
 
         <ImageView
-            android:id="@+id/iv_bookfd"
+            android:id="@+id/iv_step_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="39dp"
@@ -282,7 +282,7 @@
 
 
         <TextView
-            android:id="@+id/tvBookFD"
+            android:id="@+id/tv_header_three"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -292,11 +292,11 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/guideline177"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/iv_bookfd"
-            app:layout_constraintTop_toTopOf="@+id/iv_bookfd" />
+            app:layout_constraintStart_toEndOf="@+id/iv_step_three"
+            app:layout_constraintTop_toTopOf="@+id/iv_step_three" />
 
         <TextView
-            android:id="@+id/label_same_day"
+            android:id="@+id/tv_subheader_three"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -306,11 +306,11 @@
             android:textColor="@color/label_under10_mins"
             android:textSize="@dimen/font_12sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline177"
-            app:layout_constraintStart_toEndOf="@+id/iv_bookfd"
-            app:layout_constraintTop_toBottomOf="@+id/tvBookFD" />
+            app:layout_constraintStart_toEndOf="@+id/iv_step_three"
+            app:layout_constraintTop_toBottomOf="@+id/tv_header_three" />
 
         <TextView
-            android:id="@+id/book_fd"
+            android:id="@+id/tv_footer_three"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -321,8 +321,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/font_12sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline177"
-            app:layout_constraintStart_toEndOf="@+id/iv_bookfd"
-            app:layout_constraintTop_toBottomOf="@+id/label_same_day" />
+            app:layout_constraintStart_toEndOf="@+id/iv_step_three"
+            app:layout_constraintTop_toBottomOf="@+id/tv_subheader_three" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

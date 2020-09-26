@@ -149,10 +149,15 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
 
         cardClickListener = (view, object) ->
         {
+           clickedBank = (SubBank) object;
+
             switch (view.getId())
             {
-                case R.id.cardViewOuter:
+
+
+                case R.id.cardViewInner:
                     Intent intent = new Intent(this, AccountIntroSplashActivity.class);
+                    intent.putExtra(Constants.CLICKED_BANK,clickedBank);
                     startActivity(intent);
                     break;
             }
@@ -162,7 +167,7 @@ public class  ShowBanksListActivity extends BaseActivity implements ShowBanksCon
                 .setItems(items)
                 .setClickable(true)
                 .setOnItemClicked((position, item) ->{
-                        clickedBank = (SubBank) item;
+                      //  clickedBank = (SubBank) item;
 
 
                         //

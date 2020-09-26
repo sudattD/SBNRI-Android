@@ -109,7 +109,10 @@
     <string name="allow">allow</string>
     <string name="skip">skip</string>
     <string name="skip_">Skip</string>
-
+    <string name="your_docs_as_repo">all your documents would be saved with us as a </string>
+    <string name="repo">repository</string>
     <string name="sbm_desc">Your Account will be opened in SBM,our partner. Lorel ipsum, bla bla bla</string>
+
+    <string name="hi_name">Hi %s,</string>
 
 </resources>

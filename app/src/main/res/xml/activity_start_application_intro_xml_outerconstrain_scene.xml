@@ -16,12 +16,4 @@
 
     <ConstraintSet android:id="@+id/end">
     </ConstraintSet>
-    <Transition
-        android:id="@+id/iv_checked_one"
-        motion:constraintSetStart="@+id/start"
-        motion:constraintSetEnd="@+id/end"
-        motion:autoTransition="animateToStart" />
-    <ConstraintSet
-        android:id="@+id/btn_start_application"
-        motion:deriveConstraintsFrom="@+id/start" />
 </MotionScene>

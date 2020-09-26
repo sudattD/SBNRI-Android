@@ -11,11 +11,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.PagerAdapter
 import sbnri.consumer.android.R
 
-class OnBoardingViewPagerAdapter constructor(context: Context,mOnBoardingItem: MutableList<OnBoardingItem>)  : PagerAdapter() {
-
-    val context : Context = context
-    val mOnBoardingItem : MutableList<OnBoardingItem> = mOnBoardingItem
-
+class OnBoardingViewPagerAdapter constructor(val context: Context, val mOnBoardingItem: MutableList<OnBoardingItem>)  : PagerAdapter() {
 
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {

@@ -23,7 +23,7 @@ public interface Constants {
     String PREFERRED_BANK_LIST = "mPreferredBanksList";
     String OTHERS_BANK_LIST = "mOthersBanksList";
     String ALL_BANKS_LIST = "allBanksList";
-
+    String CLICKED_BANK = "clickedBank";
     String  SBNRI_USER_OBJ = "UserDetails";
 
     // PERMISSIONS
