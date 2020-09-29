@@ -60,7 +60,7 @@ public class ProfileCompletionPresenter extends ProfileCompletionActivityContrac
         file.setLocalFilePath(sbnriPref.getSavedImagePath());
         file.setFileName(title);
         file.setType("profile_pic");
-        file.setContentType("*jpeg");
+        file.setContentType("image/jpeg");
 
         file.upload((SBNRIRepository) mSbnriDataSource, mSchedulerProvider, view, (BaseView.UploadImage) view);
 

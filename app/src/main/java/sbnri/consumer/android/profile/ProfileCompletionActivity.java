@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.orhanobut.hawk.Hawk;
@@ -19,6 +21,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -47,6 +50,9 @@ public class ProfileCompletionActivity extends BaseFragmentActivity implements P
 
     @BindView(R.id.toolbar_title)
     TextView toolBarTitle;
+
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     @Inject
     ProfileCompletionPresenter presenter;
@@ -197,6 +203,18 @@ public class ProfileCompletionActivity extends BaseFragmentActivity implements P
 
     @Override
     public void updateImageAfterUpload(String path) {
+
+        progressBar.setProgress(100,true);
+
+        //(new Handler()).postDelayed(this::waitMethod, 500);
+        //progressBar.se
+
+    }
+
+    private void waitMethod()
+    {
+
+       // progressBar.setProgress(ContextCompat.getDrawable(context,R.drawable.circular_progress_finish_state));
 
     }
 

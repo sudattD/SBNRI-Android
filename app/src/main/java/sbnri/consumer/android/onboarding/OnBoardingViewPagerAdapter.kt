@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.PagerAdapter
 import sbnri.consumer.android.R
+import sbnri.consumer.android.util.extensions.ShowView
+import sbnri.consumer.android.util.extensions.hideView
 
 class OnBoardingViewPagerAdapter constructor(val context: Context, val mOnBoardingItem: MutableList<OnBoardingItem>)  : PagerAdapter() {
 
@@ -21,7 +23,12 @@ class OnBoardingViewPagerAdapter constructor(val context: Context, val mOnBoardi
         val title = layoutScreen.findViewById<TextView>(R.id.intro_title)
         val description = layoutScreen.findViewById<TextView>(R.id.intro_description)
 
-        //setItemOneLayoutDesign(position,title,description)
+
+        val title_one = layoutScreen.findViewById<TextView>(R.id.tv_title_item_one)
+        val description_one = layoutScreen.findViewById<TextView>(R.id.tv_subtitle_item_one)
+
+        //setItemOneLa  youtDesign(position,title,description)
+       // setItemOneLayoutDesign(position,title_one,description_one);
         title.setText(mOnBoardingItem.get(position).title)
         description.setText(mOnBoardingItem.get(position).subTitle)
 
@@ -34,12 +41,17 @@ class OnBoardingViewPagerAdapter constructor(val context: Context, val mOnBoardi
 
         when(position)
         {
-            0 -> {title?.textSize = context.resources.getDimension(R.dimen.font_14sp)
-                val typeface = ResourcesCompat.getFont(context, R.font.medium)
-                title?.setTypeface(typeface)
-            description?.textSize = context.resources.getDimension(R.dimen.font_24sp)
-                description?.setTypeface(description?.typeface,Typeface.BOLD)}
-
+            0 -> {
+                title?.ShowView()
+                description?.ShowView()
+                title?.setText(mOnBoardingItem.get(position).title)
+                description?.setText(mOnBoardingItem.get(position).subTitle)
+            }
+            else ->
+            {
+                title?.hideView()
+                description?.hideView()
+            }
 
         }
 

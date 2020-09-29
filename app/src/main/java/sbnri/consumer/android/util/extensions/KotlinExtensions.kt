@@ -33,6 +33,11 @@ fun View.hideView()
     this.visibility = View.GONE
 }
 
+fun View.ShowView()
+{
+    this.visibility = View.VISIBLE
+}
+
 fun View.showKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     this.requestFocus()

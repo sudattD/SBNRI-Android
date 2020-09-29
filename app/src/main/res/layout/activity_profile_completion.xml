@@ -43,7 +43,7 @@
                     android:background="@drawable/circle_shape"
                     android:max="100"
                     android:padding="1dp"
-                    android:progress="100"
+                    android:progress="33"
                     android:progressDrawable="@drawable/circular_progress" />
 
                 <ImageView
