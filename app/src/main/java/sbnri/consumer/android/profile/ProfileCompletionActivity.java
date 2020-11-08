@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.logger.Logger;
@@ -193,7 +194,7 @@ public class ProfileCompletionActivity extends BaseFragmentActivity implements P
 
     @Override
     public void showToastMessage(String toastMessage, boolean isErrortoast) {
-
+        sbnriToast(toastMessage, Toast.LENGTH_LONG,isErrortoast);
     }
 
     @Override

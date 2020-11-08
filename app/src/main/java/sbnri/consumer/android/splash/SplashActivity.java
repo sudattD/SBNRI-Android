@@ -21,7 +21,10 @@ import sbnri.consumer.android.constants.Constants;
 import sbnri.consumer.android.data.models.UserDetails;
 import sbnri.consumer.android.home.HomeActivity;
 import sbnri.consumer.android.onboarding.OnBoardingActivity;
+import sbnri.consumer.android.profile.ProfileCompletionActivity;
 import sbnri.consumer.android.util.DeeplinkUtils;
+
+import static sbnri.consumer.android.constants.Constants.IS_PROFILE_COMPLETED;
 
 public class SplashActivity extends BaseActivity implements SplashContract.View{
 
@@ -77,8 +80,18 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
             //TODO REFACTOR BELOW CONDITIONS
             if(Hawk.get(Constants.SBNRI_USER_OBJ)!=null && !TextUtils.isEmpty((((UserDetails) Hawk.get(Constants.SBNRI_USER_OBJ)).getToken())))
             {
-                //TODO IF PROFILE FLOW IS INCOMPLETE IT SHOULD GO TO PROFILE FLOW -- NOT ON HOME SCREEN
-                startActivity(HomeActivity.createInstance(context));
+
+                if(Hawk.get(IS_PROFILE_COMPLETED,false))
+                {
+                    startActivity(HomeActivity.createInstance(context));
+                }
+                else
+                {
+                     Intent intent = new Intent(this, ProfileCompletionActivity.class);
+                          startActivity(intent);
+                }
+
+
             }
             else
             {

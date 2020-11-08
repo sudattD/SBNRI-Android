@@ -1,5 +1,6 @@
 package sbnri.consumer.android.util;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,9 +14,13 @@ import android.net.NetworkInfo;
 import android.text.InputFilter;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -148,6 +153,17 @@ public class ActivityUtils {
             return null;
         };
         return inputFilter;
+    }
+
+    public static void sbnriToast(Context context, CharSequence message, int duration, boolean isErrorToast) {
+        if (isErrorToast) {
+
+            //custom toast
+
+        } else {
+            Toast.makeText(context, message, duration).show();
+        }
+
     }
 
     }

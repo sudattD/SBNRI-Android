@@ -91,7 +91,7 @@ class ProfileBiometricAuthorizeFragment : BaseFragment()
                 })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Biometric login for my app")
+                .setTitle(context.getString(R.string.app_name))
                 .setSubtitle("Log in using your biometric credential")
                 .setNegativeButtonText("Use account password")
                 .build()

@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -40,6 +41,7 @@ import butterknife.OnClick;
 import butterknife.OnLongClick;
 import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.constants.Constants;
@@ -187,10 +189,6 @@ public class ProfileNameAndCityFragment extends BaseFragment implements SearchAn
        // KotlinExtensionsKt.disable(btnContinue);
         mUserDetails = Hawk.get(Constants.SBNRI_USER_OBJ);
         setupAutoCompleteTextView();
-
-
-
-
         if(!KotlinExtensionsKt.isNullTrue(mUserDetails))
         {
             etLastName.setText(mUserDetails.getLastname());
@@ -233,8 +231,14 @@ public class ProfileNameAndCityFragment extends BaseFragment implements SearchAn
     @OnClick(R.id.btnContinue)
     public void btnContinue()
     {
-
+        if(!TextUtils.isEmpty(etName.getText()) &&
+          !TextUtils.isEmpty(etLastName.getText()) &&
+         !TextUtils.isEmpty(etCityName.getText()))
         FragmentUtils.replaceFragment(this,ProfileMPinFragment.newInstance(),true);
+
+        else
+            showToastMessage("Please fill all the details",false);
+
     }
 
 
@@ -298,7 +302,7 @@ public class ProfileNameAndCityFragment extends BaseFragment implements SearchAn
 
     @Override
     public void showToastMessage(@NotNull String string, boolean isError) {
-
+        ((ProfileCompletionActivity)getActivity()).showToastMessage(string,isError);
     }
 
     @Override

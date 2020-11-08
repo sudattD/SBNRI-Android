@@ -222,5 +222,9 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseFrag
 
     }
 
+    public void sbnriToast(CharSequence message, int duration, boolean isErrorToast) {
+        ActivityUtils.sbnriToast(context, message, duration, isErrorToast);
+    }
+
 
 }

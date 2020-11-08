@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import sbnri.consumer.android.DependencyInjectorComponent;
 import sbnri.consumer.android.R;
+import sbnri.consumer.android.base.activity.BaseActivity;
 import sbnri.consumer.android.base.activity.BaseFragment;
 import sbnri.consumer.android.base.contract.BaseView;
 import sbnri.consumer.android.util.FragmentUtils;
@@ -81,6 +83,18 @@ public class ProfileMPinFragment extends BaseFragment {
     @OnClick(R.id.btnContinue)
     public void btnContinue()
     {
-        FragmentUtils.replaceFragment(this,ProfileBiometricAuthorizeFragment.Companion.newInstance(),true);
+        if(!TextUtils.isEmpty(etPassword.getText()) && !TextUtils.isEmpty(etRepeatPassword.getText()))
+        {
+            if(etPassword.getText().toString().equals(etRepeatPassword.getText().toString()))
+            {
+                FragmentUtils.replaceFragment(this,ProfileBiometricAuthorizeFragment.Companion.newInstance(),true);
+            }
+            else
+                ((ProfileCompletionActivity)getActivity()).showToastMessage("Pins do not match",false);
+        }
+
+        else
+            ((ProfileCompletionActivity)getActivity()).showToastMessage("Please enter valid pins",false);
+
     }
 }
