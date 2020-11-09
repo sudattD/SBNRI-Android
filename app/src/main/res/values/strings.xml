@@ -1,3 +1,118 @@
-<resources>
-    <string name="app_name">SBNRI-Android</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">SBNRI</string>
+    <string name="home_navigation">Home</string>
+    <string name="service_navigation">Service</string>
+    <string name="ask_navigation"></string>
+    <string name="news_navigation">News</string>
+    <string name="profile_navigation">Profile</string>
+    <string name="secret_key_shared_preference"><![CDATA[<string name=\"secret_keyPBKDF2WithHmacSHA1]]></string>
+
+    <string name="maps_api_key_new" translatable="false">AIzaSyAGME3dc_BPY4LrtDr9hZmFG_evOTqm39Y</string>
+    <string name="maps_api_key_old" translatable="false">AIzaSyDgPnb8PhOuPi9OrWbeUg4kAReEUKgdxvQ</string>
+    <string name="maps_api_key" translatable="false">AIzaSyCc_tdvw_F4O7R5R6utTgymrS487t3qnRc</string>    <!-- suyash  -->
+
+
+    <string name="something_went_wrong">Something went wrong!</string>
+
+    <!-- Temp Authorization -->
+    <string name="temp_ac" translatable="false">IHH5MA8O3Z</string> <!--app constant-->
+    <string name="temp_sk" translatable="false">1C1ZBREA3SVL7OCQ</string> <!--secret key-->
+    <string name="temp_s" translatable="false">CEC9E28A02C3824F77A90A6622E0F8D83E1E25E006B2F4A8619B3B704AA82486</string> <!--salt-->
+
+
+    <string name="rest_client_app_name" translatable="false">SBNRI</string>
+    <string name="app_language">en</string>
+    <string name="you_seem_to_be_offline">you seem to be offline</string>
+    <string name="refreshing_data">refreshing your data</string>
+
+
+    <!--Deep Link URLs -->
+    <string name="branch_uri_scheme" translatable="false">sbnri</string>
+    <string name="host_link" translatable="false">app-link.sbnri.com</string>
+    <string name="host_alternate_link" translatable="false">sbnri-alternate.app.link</string>
+    <string name="host_link_test" translatable="false">sbnri.test-app.link</string>
+    <string name="host_alternate_link_test" translatable="false">sbnri-alternate.test-app.link</string>
+
+
+
+
+    <!-- Home CArd strings -->
+    <!-- to be kept inside firebase realtime db -->
+    <string name="open_account_card">Book TAX-FREE FDs\nof up to 7.5%\nin Indian Banks</string>
+    <string name="open_nri_fd_one"><b>40,00,000</b> Indians have NRE FDs</string>
+    <string name="open_nri_fd_two">Invest in safe NRE FDs today</string>
+    <string name="open_nri_fd_three"><b>1000+</b> NRI accounds open every week</string>
+    <string name="open_nri_fd_four">Relax and open your account online today</string>
+
+    <string name="coming_soon">coming soon!</string>
+    <string name="more_partners">more partners on the way</string>
+
+    <string name="transferwise_text">Transfer money to your\n\t\tNRE accounts today</string>
+    <string name="transferwise_money">\u20B974.9</string>
+    <string name="transferwise_detail" tools:ignore="TypographyDashes">The rupee moved in a range of 74.82-74.86 against the dollar after opening mildly stronger at 74.83 compared to its previous close of 74.90</string>
+
+    <!-- Onboarding strings-->
+    <string name="onboarding_title_one">Welcome to SB NRI</string>
+    <string name="onboarding_title_two">Open NRI bank  account in 10 minutes</string>
+    <string name="onboarding_title_three">Book tax free FD up-to 7% p.a.</string>
+    <string name="onboarding_title_four">Get tax and legal advisory</string>
+    <string name="onboarding_subtitle_one">Redefining the NRI banking experience.</string>
+    <string name="onboarding_subtitle_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
+    <string name="onboarding_subtitle_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
+    <string name="onboarding_subtitle_four">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </string>
+
+
+
+    <!-- UI labels -->
+    <string name="terms_and_condition">Agree &amp; continue with \n &lt;u>Terms &amp; conditions&lt;/u>.</string>
+    <string name="confirm_email_address">To confirm your email address,tap the link in the email at %s</string>
+
+    <string name="open_gmail">&lt;u>Open gmail App&lt;/u>.</string>
+    <string name="profile">Profile</string>
+    <string name="set_up_6_digit_mobile_pin_as_your_password">Set-up 6 digit mobile-PIN as your password</string>
+    <string name="mobile_pin">Mobile Pin</string>
+    <string name="password_hint">*******</string>
+    <string name="verify">verify</string>
+    <string name="sign_up_with_google">Sign-Up with google</string>
+    <string name="use_e_mail">Use E-mail</string>
+    <string name="continue_">Continue</string>
+    <string name="authorize_">Authorize</string>
+    <string name="city">City</string>
+    <string name="name">Name</string>
+    <string name="full_name">Full Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="open_nri_account">open NRI account</string>
+    <string name="book_fd">Book FD</string>
+    <string name="highlight_text">highlight text</string>
+    <string name="_200_accounts_in_2_days">200+ accounts in 2 days</string>
+    <string name="state_bank_of_mauritius">State bank of Mauritius</string>
+    <string name="_100_million">100 Million</string>
+    <string name="opening_time">Opening Time</string>
+    <string name="interest_rate">Interest rate</string>
+    <string name="fd_rate">FD rate</string>
+    <string name="_2_days">2 days</string>
+
+
+    <!-- Utils -->
+    <string name="permission_denied_count_3">This application will not work unless you allow the permission. Please click on "allow" when you are asked to grant us permission.</string>
+    <string name="permission_denied_count_6">This application will exit if you deny the permission again. Please click on "allow" when you are asked to grant us permission.</string>
+    <string name="open_permission_setting_for_best_app_experience">To get the best app experience, please tap on the Open Settings -> Permissions and enable %s permission.</string>
+    <string name="permission_rational">For proper functionality we need access to some of the features of this phone. Please click on "allow" when you will be asked to grant us permission.</string>
+    <string name="change_permissions">Change Permissions</string>
+    <string name="we_need_your_permissions">We Need Your Permission</string>
+    <string name="permission_required">Permission Required !!!</string>
+    <string name="permission_not_granted">permission not granted</string>
+    <string name="device_seems_to_be_on_airplane_mode">device seems to be on airplane mode</string>
+    <string name="go_to_settings">Go to settings</string>
+    <string name="cancel">cancel</string>
+    <string name="lets_do_it">lets do it</string>
+    <string name="allow">allow</string>
+    <string name="skip">skip</string>
+    <string name="skip_">Skip</string>
+    <string name="your_docs_as_repo">all your documents would be saved with us as a </string>
+    <string name="repo">repository</string>
+    <string name="sbm_desc">Your Account will be opened in SBM,our partner. Lorel ipsum, bla bla bla</string>
+
+    <string name="hi_name">Hi %s,</string>
+
 </resources>

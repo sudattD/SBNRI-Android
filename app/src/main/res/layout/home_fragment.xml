@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <!-- -->
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvHomeFragment"
+            style="@style/NestedScrollViewScrollBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+        >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_25dp"
+                android:layout_marginRight="@dimen/_25dp"
+                android:layout_marginTop="@dimen/_45dp"
+                android:layout_marginBottom="@dimen/_25dp"
+               >
+
+                <LinearLayout style="@style/ToolbarLinearLayout">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/track_completed_circle">
+                        <sbnri.consumer.android.common.CircleImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="@dimen/_48dp"
+                            android:layout_height="@dimen/_48dp"
+                            android:src="@drawable/image"
+                            android:layout_margin="@dimen/_4dp"
+                            android:layout_gravity="center"
+
+                            />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/_12dp">
+
+                        <TextView
+                            style="@style/PartialToolbarTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Hello,Welcome"
+                            android:textColor="@color/darkBlueGrey"
+                            android:textSize="@dimen/font_14sp"
+                            android:alpha="0.6"
+                           />
+
+                        <TextView
+                            android:id="@+id/userName"
+                            style="@style/PartialToolbarTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Sudatt"
+                            android:textSize="@dimen/font_16sp" />
+
+               </LinearLayout>
+
+                </LinearLayout>
+
+
+               <include
+                   android:id="@+id/card_open_nri"
+                   layout="@layout/home_screen_card_one"
+                   />
+
+                <include
+                    android:id="@+id/card_banks"
+                    layout="@layout/home_screen_coming_soon_card"
+                    />
+
+                <include
+                    layout="@layout/home_screen_transferwise_card"
+                    />
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

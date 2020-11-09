@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "277122650308",
+    "firebase_url": "https://sbnri-tech.firebaseio.com",
+    "project_id": "sbnri-tech",
+    "storage_bucket": "sbnri-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277122650308:android:5b0b220f15ac1de308f991",
+        "android_client_info": {
+          "package_name": "sbnri.consumer.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277122650308-p1ghq4dg94tfjfpk42j667ssda1mbfb9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sbnri.consumer.android",
+            "certificate_hash": "98759f1b7e5ac64f12c4386ab6030a525e3d9756"
+          }
+        },
+        {
+          "client_id": "277122650308-3r26lj3v34u3rbd3nksjted87u04bjll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXdMMtEPczm2vBwePueR9ITejNUeM4hUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277122650308-qhlfhu9aopmt5o4849tvvi27ftj9jhul.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "277122650308-m2qbvntp2jq2frsusot0s0n2c5n9lpm5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sbnri.iosapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

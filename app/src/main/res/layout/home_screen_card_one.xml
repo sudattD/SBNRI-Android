@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/_15dp"
+    app:cardCornerRadius="@dimen/_16dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    app:cardElevation="@dimen/_0dp"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_40dp"
+        android:paddingLeft="@dimen/_20dp"
+        android:paddingBottom="@dimen/_40dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:fontFamily="@font/bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/open_account_card"
+            android:textColor="@color/darkBlueGrey"
+            android:textSize="22sp" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_nri_fd_one"
+            android:textSize="12sp"
+            android:drawablePadding="3dp"
+            android:textColor="@color/darkBlueGreyopacity50"
+            android:drawableStart="@drawable/ic_done_green_24dp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_nri_fd_two"
+            android:textSize="12sp"
+            android:drawablePadding="3dp"
+            android:textColor="@color/darkBlueGreyopacity50"
+            android:drawableStart="@drawable/ic_done_green_24dp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_nri_fd_three"
+            android:textSize="12sp"
+            android:drawablePadding="3dp"
+            android:textColor="@color/darkBlueGreyopacity50"
+            android:drawableStart="@drawable/ic_done_green_24dp"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_nri_fd_four"
+            android:textSize="12sp"
+            android:drawablePadding="3dp"
+            android:textColor="@color/darkBlueGreyopacity50"
+            android:drawableStart="@drawable/ic_done_green_24dp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_20dp"
+
+            >
+            <Button
+                android:id="@+id/btn_open_nri_accnt"
+                style="@style/solidDodgerBlueButton"
+                android:text="@string/open_nri_account"
+
+                />
+
+            <Button
+                style="@style/lightSKyBlueButton"
+                android:text="@string/book_fd"
+                android:layout_marginLeft="@dimen/_20dp"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
